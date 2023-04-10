@@ -1,0 +1,39 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vie build",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "lint": "npm-run-all --parallel -c lint:*",
+    "lint:stylelint": "stylelint **/*.vue",
+    "lint:eslint": "eslint --ext .vue src/",
+    "fix": "npm-run-all --parallel -c fix:*",
+    "fix:stylelint": "stylelint --fix **/*.vue",
+    "fix:eslint": "eslint --fix --ext .vue src"
+  },
+  "dependencies": {
+    "pinia": "^2.0.32",
+    "vue": "^3.2.47",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/test-utils": "^2.3.0",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-vue": "^9.10.0",
+    "jsdom": "^21.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.7",
+    "stylelint": "^15.4.0",
+    "stylelint-config-recommended-scss": "^10.0.0",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard-scss": "^8.0.0",
+    "stylelint-order": "^6.0.3",
+    "vite": "^4.1.4",
+    "vitest": "^0.29.1"
+  }
+}
