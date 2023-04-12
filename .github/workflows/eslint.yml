@@ -1,4 +1,4 @@
-name: Frontend lint checker
+name: ESlint checker
 
 on:
   pull_request:
