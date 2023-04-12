@@ -5,17 +5,13 @@
     "es6": true,
     "vue/setup-compiler-macros": true
   },
-  "extends": [
-    "plugin:vue/vue3-strongly-recommended",
-    "plugin:eslint/recommended",
-    "stylelint-config-prettier"
-  ],
+  "extends": ["plugin:vue/vue3-strongly-recommended"],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
   "rules": {
-    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "arrow-spacing": ["error", { "before": false, "after": false }],
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "camelcase": ["error", { "properties": "never" }],

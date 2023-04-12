@@ -2,6 +2,7 @@
   "plugins": ["stylelint-order"],
   "extends": [
     "stylelint-config-standard-scss",
+    "stylelint-config-recommended-vue",
     "stylelint-config-recommended-vue/scss"
   ],
   "rules": {
@@ -11,6 +12,7 @@
     "function-linear-gradient-no-nonstandard-direction": true,
     "string-no-newline": true,
     "unit-no-unknown": true,
+    "indentation": [4, { "baseIndentLevel": 1 }],
     "property-no-unknown": [
       true,
       {

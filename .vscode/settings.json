@@ -1,0 +1,24 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "Vue.volar",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true,
+    "source.fixAll.ediroconfig": true
+  },
+  "prettier.enable": false,
+  "editorconfig.generateAuto": true,
+  "vetur.validation.style": false,
+  "stylelint.enable": true,
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "vue"
+  ],
+  "[vue]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+}
