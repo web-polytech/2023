@@ -39,8 +39,6 @@
         box-shadow: 0 1px 4px rgb(0 0 0 / 25%);
     }
 
-    /* stylelint-disable selector-class-pattern */
-
     .submenu__link {
         color: #000000;
         font-size: 1.2rem;

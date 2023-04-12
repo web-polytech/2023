@@ -46,8 +46,6 @@ import { RouterLink } from 'vue-router';
         box-shadow: inset 0 -2px 4px rgb(0 0 0 / 10%);
     }
 
-    /* stylelint-disable selector-class-pattern */
-
     .menu__wrapper {
         display: flex;
         justify-content: space-between;

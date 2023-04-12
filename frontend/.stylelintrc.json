@@ -6,6 +6,7 @@
     "stylelint-config-recommended-vue/scss"
   ],
   "rules": {
+    "selector-class-pattern": null,
     "color-no-invalid-hex": true,
     "font-family-no-duplicate-names": true,
     "function-calc-no-unspaced-operator": true,
