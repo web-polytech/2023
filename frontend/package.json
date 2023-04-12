@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vie build",
+    "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
     "lint": "npm-run-all --parallel -c lint:*",
@@ -12,7 +12,8 @@
     "lint:eslint": "eslint --ext .vue src/",
     "fix": "npm-run-all --parallel -c fix:*",
     "fix:stylelint": "stylelint --fix **/*.vue",
-    "fix:eslint": "eslint --fix --ext .vue src"
+    "fix:eslint": "eslint --fix --ext .vue src",
+    "deploy": "cd dist && rsync --archive --compress --delete .. polytech@3.126.153.92:/home/polytech/school"
   },
   "dependencies": {
     "pinia": "^2.0.32",
