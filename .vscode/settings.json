@@ -12,13 +12,8 @@
   "editorconfig.generateAuto": true,
   "vetur.validation.style": false,
   "stylelint.enable": true,
-  "stylelint.validate": [
-    "css",
-    "less",
-    "postcss",
-    "vue"
-  ],
+  "stylelint.validate": ["css", "less", "postcss", "vue"],
   "[vue]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
-  },
+  }
 }
