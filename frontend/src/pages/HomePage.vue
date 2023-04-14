@@ -1,6 +1,235 @@
 <template>
-  Home
+  <section class="hero">
+    <div class="hero__wrapper">
+      <div class="hero__cover">
+        <img src="../assets/images/heroImage.webp" alt="Cover for site" class="hero__image">
+      </div>
+      <div class="hero__info">
+        <h1 class="hero__title">
+          Наша Школа открывает двери
+        </h1>
+        <p class="hero__ad">
+          Мы&nbsp;начинаем набор в&nbsp;1&ndash;4, 6&ndash;8 и&nbsp;10&nbsp;классы.
+        </p>
+        <p class="hero__desc">
+          Успей подать заявку до&nbsp;30&nbsp;сентября&nbsp;&mdash; и&nbsp;получи приглашение на&nbsp;День открытых дверей и&nbsp;возможность уникальной консультации с&nbsp;приемной комиссией школы.
+        </p>
+        <TheButton label="Подать заявку" path="entrance" />
+      </div>
+    </div>
+  </section>
+  <section class="banner">
+    <div class="banner__wrapper">
+      <ul class="banner__list">
+        <li class="banner__item">
+          <p class="banner__title">
+            Более 6000 учащихся по&nbsp;всей России
+          </p>
+        </li>
+        <li class="banner__item">
+          <p class="banner__title">
+            Профессиональный преподавательский состав
+          </p>
+        </li>
+        <li class="banner__item">
+          <p class="banner__title">
+            Гарантия поступления в&nbsp;ведущий вуз страны
+          </p>
+        </li>
+        <li class="banner__item">
+          <p class="banner__title">
+            Бесплатное обучение абсолютно для всех
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="last_news">
+    <div class="last_news__wrapper">
+      <h2 class="last_news__title">
+        Последние новости
+      </h2>
+      <ul class="last_news__list">
+        <li v-for="item, index in news" :key="index" :id="'news'+(index+1)" class="last_news__item last_news__item--big">
+          <HomeNewsCard :content="item" :type="(index==0||index==5)?'big':'default'" class="last_news__card" />
+        </li>
+      </ul>
+    </div>
+  </section>
 </template>
 <script>
+import TheButton from '../components/TheButton.vue';
+import HomeNewsCard from '../components/HomeNewsCard.vue';
 
+export default {
+  components: {
+    TheButton,
+    HomeNewsCard,
+  },
+  data() {
+    return {
+      news: [
+        {
+          name: '1 сентября прошла торжественная церемония, посвященная началу учебного года в Нашей школе',
+          section: 'Наука & технологии',
+          image: 'NewsCard1Big.webp',
+        },
+        {
+          name: 'Прошло ежегодное собрание волонтерского клуба школы',
+          section: 'Школьная жизнь',
+          image: 'NewsCard2.webp',
+        },
+        {
+          name: '4 победителя Всероссийского этапа олимпиады школьников',
+          section: 'Олимпиады',
+          image: 'NewsCard3.webp',
+        },
+        {
+          name: 'Учителя провели открытые уроки химии, физики и ОБЖ',
+          section: 'Наука & Технологии',
+          image: 'NewsCard4.webp',
+        },
+        {
+          name: 'Набор учащихся 8-11 классов в конкурс IT-стартапов открыт',
+          section: 'Наука & Технологии',
+          image: 'NewsCard5.webp',
+        },
+        {
+          name: 'Команда Нашей школы заняла первое место в игре  начальных классов школ города “Что? Где? Когда?”',
+          section: 'Школьная жизнь',
+          image: 'NewsCard6Big.webp',
+        },
+      ],
+    };
+  },
+};
 </script>
+
+<style lang="scss">
+
+  .hero__wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 0 0 40px;
+  }
+
+  .hero__title {
+    font-weight: 700;
+    font-size: 3.2rem;
+    font-family: 'PT Serif', sans-serif;
+    line-height: 1;
+  }
+
+  .hero__image {
+    width: 50vw;
+    height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    padding: 0;
+  }
+
+  .hero__ad {
+    margin-top: 50px;
+    color: #1C52A2;
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1;
+  }
+
+  .hero__desc {
+    margin-top: 18px;
+    margin-bottom: 74px;
+    font-size: 1.4rem;
+  }
+
+  .hero__info {
+    max-width: 600px;
+    margin: auto 40px auto 80px;
+  }
+
+  .banner {
+    background: linear-gradient(180deg, #1C52A2 0%, #0F479A 100%);
+    background-color: #1C52A2;
+  }
+
+  .banner__wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .banner__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    list-style: none;
+  }
+
+  .banner__item {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 1.4rem;
+
+    &:not(:last-child)::after {
+      content: url('../assets/icons/separator.svg');
+      padding: 0;
+    }
+  }
+
+  .banner__title {
+    line-height: 1.2;
+  }
+
+  .last_news__list {
+    display: grid;
+    grid-template:
+      "news1 news1 news2 news3" 360px
+      "news4 news5 news6 news6" 360px / 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .last_news__wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .last_news__item {
+    &#news1 {
+      grid-area: news1;
+    }
+
+    &#news2 {
+      grid-area: news2;
+    }
+
+    &#news3 {
+      grid-area: news3;
+    }
+
+    &#news4 {
+      grid-area: news4;
+    }
+
+    &#news5 {
+      grid-area: news5;
+    }
+
+    &#news6 {
+      grid-area: news6;
+    }
+  }
+
+  .last_news__title {
+    margin: 60px auto 40px;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    text-align: center;
+  }
+</style>

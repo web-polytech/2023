@@ -14,6 +14,7 @@ import TheSubMenu from '../components/TheSubMenu.vue';
 <style lang="scss">
     .header {
         position: fixed;
+        z-index: 8;
         width: 100%;
     }
 </style>
