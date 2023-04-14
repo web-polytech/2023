@@ -54,17 +54,35 @@
           <HomeNewsCard :content="item" :type="(index==0||index==5)?'big':'default'" class="last_news__card" />
         </li>
       </ul>
+      <div class="last_news__action">
+        <TheButton :path="'/news'" :label="'Больше новостей'" />
+      </div>
+    </div>
+  </section>
+  <section class="events">
+    <div class="events__wrapper">
+      <h2 class="events__title">
+        Предстоящие события
+      </h2>
+      <ul class="events__list">
+        <li class="events__item" v-for="(item,index) in events" :key="index">
+          <HomeEventsCard :content="item" />
+        </li>
+      </ul>
     </div>
   </section>
 </template>
 <script>
 import TheButton from '../components/TheButton.vue';
 import HomeNewsCard from '../components/HomeNewsCard.vue';
+import HomeEventsCard from '../components/HomeEventsCard.vue';
+
 
 export default {
   components: {
     TheButton,
     HomeNewsCard,
+    HomeEventsCard,
   },
   data() {
     return {
@@ -98,6 +116,36 @@ export default {
           name: 'Команда Нашей школы заняла первое место в игре  начальных классов школ города “Что? Где? Когда?”',
           section: 'Школьная жизнь',
           image: 'NewsCard6Big.webp',
+        },
+      ],
+      events: [
+        {
+          name: 'Учащиеся 9 и 10 классов выступят на сцене со своими презентациями в форме TED',
+          image: 'EventCard1.webp',
+          section: 'выставка',
+          day: 15,
+          month: 'май',
+        },
+        {
+          name: 'Научная конференция “Тренды 2022 в разивитии и цифровой трансформации”',
+          image: 'EventCard2.webp',
+          section: 'конференция',
+          day: 21,
+          month: 'май',
+        },
+        {
+          name: 'Постановки “Евгений Онегин” и “Анна Каренина” от театральной группы',
+          image: 'EventCard3.webp',
+          section: 'театр',
+          day: 27,
+          month: 'май',
+        },
+        {
+          name: 'Конкурс 2022 практических научных работ среди преподавателей и учащихся',
+          image: 'EventCard4.webp',
+          section: 'конференция',
+          day: 29,
+          month: 'май',
         },
       ],
     };
@@ -225,11 +273,40 @@ export default {
     }
   }
 
-  .last_news__title {
+  .last_news__title, .events__title {
     margin: 60px auto 40px;
     font-weight: 700;
     font-size: 3rem;
     line-height: 1;
     text-align: center;
+  }
+
+  .events__title {
+    color: #FFFFFF;
+  }
+
+  .last_news__action {
+    display: flex;
+    justify-content: end;
+    margin-top: 36px;
+  }
+
+  .events {
+    margin-top: 20px;
+    padding: 40px 0 80px;
+    background-color: #1C52A2;
+  }
+
+  .events__wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .events__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    list-style: none;
   }
 </style>
