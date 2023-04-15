@@ -270,6 +270,16 @@ export default {
       "news4 news5 news6 news6" 360px / 1fr 1fr 1fr 1fr;
     gap: 24px;
     list-style: none;
+
+    @media screen and (width <= 1086px) {
+      grid-template:
+        "news1 news1" 360px
+        "news2 news3" 360px
+        "news6 news6" 360px
+        "news4 news5" 360px / 1fr 1fr;
+      max-width: 812px;
+      margin: 0 auto;
+    }
   }
 
   .last_news__wrapper {
