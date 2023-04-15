@@ -1,4 +1,4 @@
-name: Frontend lint checker
+name: Stylelint checker
 
 on:
   pull_request:
