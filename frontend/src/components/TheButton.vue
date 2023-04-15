@@ -24,6 +24,7 @@ defineProps({
 
 <style land="scss">
   .button {
+    width: fit-content;
     padding: 14px 50px;
     color: #FFFFFF;
     font-weight: 700;
@@ -32,6 +33,7 @@ defineProps({
     background-color: #1C52A2;
     box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%);
     transition: background-color 150ms ease-in-out;
+
 
     &:hover {
       background-color: #0C3777;

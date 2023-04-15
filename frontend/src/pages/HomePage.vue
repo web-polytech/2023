@@ -74,7 +74,35 @@
       </div>
     </div>
   </section>
+  <section class="admission">
+    <div class="admission__wrapper">
+      <h2 class="admission__title">
+        Поступление
+      </h2>
+      <p class="admission__desc">
+        Наша школа поддерживает своих учащихся в&nbsp;их&nbsp;начинаниях, проектах и&nbsp;иследовательских работах.
+      </p>
+      <div class="admission__content">
+        <div class="admission__cover">
+          <img src="../assets/images/admissionImage.webp" alt="Image for admission section" class="admission__image">
+        </div>
+        <div class="admission__info">
+          <p class="admission__text">
+            Мы&nbsp;ждем учеников, которые готовы уделять достаточно времени и&nbsp;проявлять любознательность на&nbsp;занятиях в&nbsp;тех или иных видах деятельности, творческих или иследовательских проектах, а&nbsp;так в&nbsp;своей жизне в&nbsp;целом.
+          </p>
+          <p class="admission__text">
+            Дети, подростки и&nbsp;молодежь&nbsp;&mdash; будущее нашей страны, поэтому мы&nbsp;считаем своим долгом воспитывать в&nbsp;них нужные качества и&nbsp;давать знания, в&nbsp;первую очередь которые пригодятся им&nbsp;на&nbsp;жизненом пути.
+          </p>
+          <p class="admission__text">
+            Активность и&nbsp;любопытство мы&nbsp;считаем важными качествами, которые, если направить их&nbsp;в&nbsp;нужное русло, поможет нашим учащимся в&nbsp;будущем.
+          </p>
+          <TheButton label="Узнать больше" type="border" path="entrance" />
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
+
 <script>
 import TheButton from '../components/TheButton.vue';
 import HomeNewsCard from '../components/HomeNewsCard.vue';
@@ -276,7 +304,7 @@ export default {
     }
   }
 
-  .last_news__title, .events__title {
+  .last_news__title, .events__title, .admission__title {
     margin: 60px auto;
     font-weight: 700;
     font-size: 3rem;
@@ -300,7 +328,7 @@ export default {
     background-color: #1C52A2;
   }
 
-  .events__wrapper {
+  .events__wrapper, .admission__wrapper {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
@@ -310,6 +338,62 @@ export default {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    overflow-x: scroll;
     list-style: none;
+  }
+
+  .admission__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  .admission__title {
+    margin-bottom: 30px;
+  }
+
+  .admission__desc {
+    max-width: 840px;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .admission__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+
+    @media screen and (width <= 796px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .admission__cover {
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .admission__image {
+    width: 100%;
+    min-width: 364px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .admission__info {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 24px;
+  }
+
+  .admission__text {
+    font-size: 1.2rem;
+    line-height: 1.2;
   }
 </style>
