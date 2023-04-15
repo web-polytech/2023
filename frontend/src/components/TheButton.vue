@@ -1,5 +1,5 @@
 <template>
-  <RouterLink class="button" :to="path">{{label}}</RouterLink>
+  <RouterLink class="button" :class="{'button--light': type=='light'}" :to="path">{{label}}</RouterLink>
 </template>
 <script setup>
 defineProps({
@@ -34,7 +34,18 @@ defineProps({
     transition: background-color 150ms ease-in-out;
 
     &:hover {
-      background-color: #0C3777;;
+      background-color: #0C3777;
+    }
+  }
+
+  .button--light {
+    color: #1C52A2;
+    background-color: #FFFFFF;
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+      color: #FFFFFF;
+      background-color: #0C3777;
     }
   }
 </style>

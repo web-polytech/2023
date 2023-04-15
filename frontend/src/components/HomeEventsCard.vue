@@ -4,7 +4,7 @@
       <img :src="'src/assets/images/'+content.image" class="events-card__image" alt="Image for event">
     </div>
     <p class="events-card__date">
-      {{content.day}}<br>{{content.month}}
+      <span class="evant-card__day">{{content.day}}</span>{{content.month}}
     </p>
     <div class="events-card__info">
       <p class="events-card__section">
@@ -74,17 +74,24 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
+    width: 84px;
+    height: 84px;
     color: #FFFFFF;
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-family: 'PT Serif', sans-serif;
-    line-height: 1.2;
+    line-height: 1;
     text-align: center;
     background-color: #0C3777;
     border-radius: 50%;
     box-shadow: 0 2px 4px rgb(0 0 0 / 25%);
+  }
+
+  .evant-card__day {
+    font-weight: 700;
+    font-size: 1.4rem;
+    font-family: 'PT Serif', sans-serif;
+    line-height: 1;
   }
 
   .events-card__section {

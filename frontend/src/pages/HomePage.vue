@@ -69,6 +69,9 @@
           <HomeEventsCard :content="item" />
         </li>
       </ul>
+      <div class="last_news__action">
+        <TheButton :path="'#'" :label="'Больше событий'" type="light" />
+      </div>
     </div>
   </section>
 </template>
@@ -274,7 +277,7 @@ export default {
   }
 
   .last_news__title, .events__title {
-    margin: 60px auto 40px;
+    margin: 60px auto;
     font-weight: 700;
     font-size: 3rem;
     line-height: 1;
