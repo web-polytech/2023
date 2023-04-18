@@ -21,25 +21,13 @@
   <section class="banner">
     <div class="banner__wrapper">
       <ul class="banner__list">
-        <li class="banner__item">
+        <li class="banner__item" v-for="(text,index) in banner" :key="index">
           <p class="banner__title">
-            Более 6000 учащихся по&nbsp;всей России
+            {{replaceString(text)}}
           </p>
-        </li>
-        <li class="banner__item">
-          <p class="banner__title">
-            Профессиональный преподавательский состав
-          </p>
-        </li>
-        <li class="banner__item">
-          <p class="banner__title">
-            Гарантия поступления в&nbsp;ведущий вуз страны
-          </p>
-        </li>
-        <li class="banner__item">
-          <p class="banner__title">
-            Бесплатное обучение абсолютно для всех
-          </p>
+          <svg class="banner__separator" :class="{'banner__separator--end': index == banner.length - 1}" width="20" height="126" viewBox="0 0 20 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.5 1L1 125.5" stroke="white" stroke-linecap="round" />
+          </svg>
         </li>
       </ul>
     </div>
@@ -117,6 +105,12 @@ export default {
   },
   data() {
     return {
+      banner: [
+        'Более 6000 учащихся по всей России',
+        'Профессиональный преподавательский состав',
+        'Гарантия поступления в ведущий вуз страны',
+        'Бесплатное обучение абсолютно для всех',
+      ],
       news: [
         {
           name: '1 сентября прошла торжественная церемония, посвященная началу учебного года в Нашей школе',
@@ -181,18 +175,40 @@ export default {
       ],
     };
   },
+  methods: {
+    replaceString(text) {
+      let unionsAndPrepositions = ['так что', 'дабы', 'с тем чтобы', 'несмотря на то', 'хоть', 'пускай', 'хотя', 'если', 'если бы', 'коли', 'ежели', 'так как', 'потому что',
+        'как будто', 'словно', 'точно', 'как', 'как бы', 'до такой степени', 'настолько', 'до того', 'такой', 'где', 'куда', 'откуда', 'когда', 'что', 'то есть',
+        'а именно', 'и', 'да', 'не только', 'но и', 'также', 'тоже', 'и', 'ни', 'как', 'так', 'сколько', 'столько', 'или', 'либо', 'то', 'ли', 'не', 'то', 'а',
+        'зато', 'однако', 'же', 'все же', 'чтобы', 'чтоб', 'притом', 'причём', 'в', 'без', 'до', 'из', 'к', 'на', 'по', 'о', 'от', 'перед', 'при', 'через', 'с', 'со', 'у',
+        'и', 'нет', 'за', 'над', 'для', 'об', 'под', 'про'];
+
+      for (let str of unionsAndPrepositions) {
+        if (text.includes(' ' + str + ' ')) {
+          text = text.replace(' ' + str + ' ', ' ' + str + String.fromCharCode(160));
+        }
+      }
+      return text;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 
   .hero__wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 20px;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 0 0 40px;
+
+    @media screen and (width <= 786px){
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
   }
 
   .hero__title {
@@ -203,11 +219,15 @@ export default {
   }
 
   .hero__image {
-    width: 50vw;
+    width: 100%;
     height: 100%;
     max-height: 100%;
-    object-fit: cover;
     padding: 0;
+    object-fit: cover;
+
+    @media screen and (width <= 786px){
+      max-height: 240px;
+    }
   }
 
   .hero__ad {
@@ -215,18 +235,30 @@ export default {
     color: #1C52A2;
     font-size: 1.4rem;
     font-style: italic;
-    line-height: 1;
+    line-height: 1.4;
   }
 
   .hero__desc {
     margin-top: 18px;
     margin-bottom: 74px;
     font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+  .hero__cover {
+    grid-column: 2;
+    width: 100%;
+    height: 100%;
   }
 
   .hero__info {
+    display: flex;
+    grid-row: 1;
+    grid-column: 1;
+    flex-direction: column;
     max-width: 600px;
-    margin: auto 40px auto 80px;
+    margin: auto;
+    padding: 40px;
   }
 
   .banner {
@@ -242,9 +274,10 @@ export default {
 
   .banner__list {
     display: flex;
-    justify-content: space-between;
-    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
+
   }
 
   .banner__item {
@@ -252,14 +285,21 @@ export default {
     align-items: center;
     color: #FFFFFF;
     font-size: 1.4rem;
+  }
 
-    &:not(:last-child)::after {
-      content: url('../assets/icons/separator.svg');
-      padding: 0;
+  .banner__separator {
+    width: 18px;
+    height: 124px;
+    margin: 0 25px;
+
+    &--end {
+      opacity: 0;
     }
   }
 
   .banner__title {
+    max-width: 260px;
+    max-height: 102px;
     line-height: 1.2;
   }
 
@@ -278,6 +318,18 @@ export default {
         "news6 news6" 360px
         "news4 news5" 360px / 1fr 1fr;
       max-width: 812px;
+      margin: 0 auto;
+    }
+
+    @media screen and (width <= 460px) {
+      grid-template:
+        "news1" 360px
+        "news2" 360px
+        "news3" 360px
+        "news5" 360px
+        "news4" 360px
+        "news6" 360px / 1fr;
+      max-width: 420px;
       margin: 0 auto;
     }
   }

@@ -102,62 +102,62 @@
 import { RouterLink } from 'vue-router';
 </script>
 <style lang="scss">
-    .footer {
-        background-color: #072655;
-    }
+  .footer {
+    background-color: #072655;
+  }
 
-    .footer__wrapper {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 72px 40px 60px;
-    }
+  .footer__wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 72px 40px 60px;
+  }
 
-    .footer__content {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        gap: 60px 36px;
-    }
+  .footer__content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 60px 36px;
+  }
 
-    .footer__other {
-        display: flex;
-        flex-direction: column;
-        gap: 54px;
-    }
+  .footer__other {
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+  }
 
-    .useful__list, .social__list, .program__list, .school-life__list {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        list-style: none;
-    }
+  .useful__list, .social__list, .program__list, .school-life__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+  }
 
-    .useful__title, .social__title, .program__title, .school-life__title {
-        width: fit-content;
-        margin-bottom: 32px;
-        color: #FFFFFF;
-        font-weight: 700;
-        font-size: 1rem;
-        text-transform: uppercase;
-        text-decoration: none;
-        border-bottom: 2px solid white;
-    }
+  .useful__title, .social__title, .program__title, .school-life__title {
+    width: fit-content;
+    margin-bottom: 32px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 2px solid white;
+  }
 
-    .useful__link, .social__link, .program__link, .school-life__link {
-        color: #FFFFFF;
-        font-size: 1.2rem;
-        font-family: 'PT Serif', sans-serif;
-        text-decoration: none;
-    }
+  .useful__link, .social__link, .program__link, .school-life__link {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-family: 'PT Serif', sans-serif;
+    text-decoration: none;
+  }
 
-    .footer__copyright {
-        margin-top: 92px;
-        color: #FFFFFF;
-        font-size: 1.2rem;
-        line-height: 1.25;
-    }
+  .footer__copyright {
+    margin-top: 92px;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
 
-    .footer__authors {
-        font-style: italic;
-    }
+  .footer__authors {
+    font-style: italic;
+  }
 </style>

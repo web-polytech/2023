@@ -42,5 +42,11 @@ import TheFooter from '@/components/TheFooter.vue';
 
   main {
     padding-top: 100px;
+
+    @media screen and (width <= 892px) {
+      padding-top: 54px;
+    }
   }
 </style>
+
+

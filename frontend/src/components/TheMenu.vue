@@ -31,57 +31,97 @@
           <RouterLink class="navigate__link" to="/">Версия для<br>слабовидящих</RouterLink>
         </li>
       </ul>
+      <button class="menu__open" @click="$emit('showSubmenu');">
+        Меню
+      </button>
     </div>
   </nav>
 </template>
 <script>
 import { RouterLink } from 'vue-router';
 
+export default {
+  emits: ['showSubmenu'],
+};
 </script>
 
 <style lang="scss">
-    .menu {
-        background: linear-gradient(180deg, #1C52A2 0%, #0F479A 100%);
-        background-color: #1C52A2;
-        box-shadow: inset 0 -2px 4px rgb(0 0 0 / 10%);
+  .menu {
+    background: linear-gradient(180deg, #1C52A2 0%, #0F479A 100%);
+    background-color: #1C52A2;
+    box-shadow: inset 0 -2px 4px rgb(0 0 0 / 10%);
+  }
+
+  .menu__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 38px;
+    max-width: 1400px;
+    min-height: 54px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .menu__logo {
+    height: 21px;
+  }
+
+  .navigate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 26px;
+    list-style: none;
+
+    @media screen and (width <= 892px) {
+      display: none;
+    }
+  }
+
+  .navigate__item {
+    display: flex;
+    line-height: 1;
+    text-align: center;
+
+    &--change_mode {
+      padding: 11px 14px;
+      background-color: #072655;
+    }
+  }
+
+  .navigate__link {
+    color: #FFFFFF;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .menu__open {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+
+    &::before {
+      content: "☰";
+      height: 1.5rem;
     }
 
-    .menu__wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 38px;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 20px;
+    &:hover {
+      color: #072655;
+      background-color: #FFFFFF;
     }
 
-    .menu__logo {
-        height: 21px;
+    @media screen and (width <= 892px) {
+      display: flex;
     }
-
-    .navigate {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 26px;
-        list-style: none;
-    }
-
-    .navigate__item {
-        display: flex;
-        line-height: 1;
-        text-align: center;
-
-        &--change_mode {
-            padding: 11px 14px;
-            background-color: #072655;
-        }
-    }
-
-    .navigate__link {
-        color: white;
-        font-size: 1rem;
-        text-decoration: none;
-    }
+  }
 </style>

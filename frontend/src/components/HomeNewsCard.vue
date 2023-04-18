@@ -19,7 +19,16 @@
 import { RouterLink } from 'vue-router';
 
 export default {
-  props: ['content', 'type'],
+  props: {
+    content: {
+      type: Object,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: true,
+    },
+  },
   methods: {
     replaceString(text) {
       let unionsAndPrepositions = ['так что', 'дабы', 'с тем чтобы', 'несмотря на то', 'хоть', 'пускай', 'хотя', 'если', 'если бы', 'коли', 'ежели', 'так как', 'потому что',
