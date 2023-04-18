@@ -436,6 +436,7 @@ export default {
   }
 
   .admission__cover {
+    position: relative;
     max-width: 100%;
     height: 100%;
   }
@@ -443,7 +444,6 @@ export default {
   .admission__image {
     width: 100%;
     min-width: 364px;
-    height: 100%;
     object-fit: cover;
   }
 
