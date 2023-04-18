@@ -1,6 +1,8 @@
 <script setup>
 import { RouterView } from 'vue-router';
 import TheHeader from '@/components/TheHeader.vue';
+import TheFooter from '@/components/TheFooter.vue';
+
 </script>
 
 <template>
@@ -40,5 +42,11 @@ import TheHeader from '@/components/TheHeader.vue';
 
   main {
     padding-top: 100px;
+
+    @media screen and (width <= 892px) {
+      padding-top: 54px;
+    }
   }
 </style>
+
+
