@@ -1,10 +1,10 @@
 <template>
-  <div class="news-card">
-    <img :src="imageSrc" alt="" class="news-image">
+  <div class="news-card" :class="{'news-card--big': type=='big'}">
+    <img :src="'src/assets/images/'+content.imageSrc" alt="" class="news-image" >
     <div class="news-text-wrapper">
-      <h2 class="news-title">{{ title }}</h2>
-      <p class="news-tagline">{{ tagline }}</p>
-      <p class="news-text">{{ text }}</p>
+      <h2 class="news-title">{{ content.title }}</h2>
+      <p class="news-tagline">{{ content.tagline }}</p>
+      <p class="news-text">{{ content.text }}</p>
     </div>
   </div>
 </template>
@@ -14,25 +14,13 @@
 export default {
   name: "NewsCard",
   props: {
-    imageSrc: {
-      type: String,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    tagline: {
-      type: String,
-      required: true,
-    },
-    text: {
-      type: String,
+    content: {
+      type: Object,
       required: true,
     },
     type: {
       type: String,
-      default: 'default',
+      required: true,
     },
   },
 };
@@ -43,7 +31,6 @@ export default {
   $color-black: #000000;
 
   .news-card {
-    position: relative;
     width: 100%;
     max-width: 600px;
     height: auto;
@@ -53,13 +40,15 @@ export default {
     box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
     filter: drop-shadow(3px 3px 15px rgb(0 0 0 / 15%)) drop-shadow(0 0 10px rgb(0 0 0 / 15%));
 
+    &--big {
+      width: 800px;
+    }
 
-    .news-image {
+
+   .news-image {
       width: calc(100% + 40px); // ширина изображения с учетом отступов
       height: auto;
       margin: -20px;
-
-
     }
 
     .news-title {
