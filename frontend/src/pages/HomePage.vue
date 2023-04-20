@@ -96,6 +96,7 @@ import TheButton from '../components/TheButton.vue';
 import HomeNewsCard from '../components/HomeNewsCard.vue';
 import HomeEventsCard from '../components/HomeEventsCard.vue';
 
+import { useNewsStore } from '../stores/news';
 
 export default {
   components: {
@@ -190,6 +191,11 @@ export default {
       }
       return text;
     },
+  },
+  async created() {
+    const store = useNewsStore();
+    await store.getNews();
+    this.news = store.allNews;
   },
 };
 </script>
