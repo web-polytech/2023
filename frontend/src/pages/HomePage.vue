@@ -43,7 +43,7 @@
         </li>
       </ul>
       <div class="last_news__action">
-        <TheButton :path="'/news'" :label="'Больше новостей'" />
+        <TheButton path="/news" label="Больше новостей" />
       </div>
     </div>
   </section>
@@ -58,7 +58,7 @@
         </li>
       </ul>
       <div class="last_news__action">
-        <TheButton :path="'#'" :label="'Больше событий'" type="light" />
+        <TheButton path="#" label="Больше событий" type="light" />
       </div>
     </div>
   </section>
