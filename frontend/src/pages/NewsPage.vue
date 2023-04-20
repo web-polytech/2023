@@ -6,7 +6,7 @@
       </h2>
       <ul class="main-news__list">
         <li v-for="(item, index) in news" :key="index" :id="'news'+(index+1)" class="main-news__item main_news__item--big">
-          <NewsCard :content="item" :type="(index==0||index==5)?'big':'default'" class="main-news__card" />
+          <NewsCard :content="item" :type="(index==0||index==3)?'big':'default'" class="main-news__card" />
         </li>
       </ul>
     </div>
@@ -109,26 +109,30 @@ export default {
     gap: 24px;
     list-style: none;
   }
+
   .main-news__item {
     &#news1 {
       grid-area: news1;
     }
+
     &#news2 {
       grid-area: news2;
     }
+
     &#news3 {
       grid-area: news3;
     }
+
     &#news4 {
       grid-area: news4;
     }
+
     &#news5 {
       grid-area: news5;
     }
+
     &#news6 {
       grid-area: news6;
     }
   }
-
-
 </style>
