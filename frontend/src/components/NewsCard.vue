@@ -45,7 +45,7 @@ export default {
     }
 
 
-   .news-image {
+    .news-image {
       width: calc(100% + 40px); // ширина изображения с учетом отступов
       height: auto;
       margin: -20px;
@@ -82,17 +82,5 @@ export default {
     }
   }
 
-  @media screen and (width >= 768px) {
-    .news-title {
-      font-size: 2.5em;
-    }
 
-    .news-tagline {
-      font-size: 1.75em;
-    }
-
-    .news-text {
-      font-size: 1.25em;
-    }
-  }
 </style>

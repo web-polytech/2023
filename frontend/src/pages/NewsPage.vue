@@ -61,7 +61,7 @@ export default {
         },
         {
           imageSrc: 'Rectangle 6 .png',
-          title: 'Наука & Технологии',
+          title: 'НАУКА&ТЕХНОЛОГИИ',
           tagline: 'Набор учащихся 8-11 классов в конкурс IT-стартапов открыт',
           text: 'Каждый год Наша школа проводит среди 8, 9, 10 и 11 классов творческо интеллектуальный конкурс на идею лучшего стартапа. Первые участники уже представили свои идеи, но набор все еще открыт. Все желающие ученики старших классов могут выиграть крутые призы и получить спонсорскую помощь на развитие своих идей. ',
 
@@ -96,7 +96,7 @@ export default {
   }
 
   .main-news__wrapper {
-    max-width: 1400px;
+    max-width: 2800px;
     margin: 0 auto;
     padding: 0 40px;
   }
@@ -104,8 +104,8 @@ export default {
   .main-news__list {
     display: grid;
     grid-template:
-      "news1 news1 news2 news3" 360px
-      "news4 news5 news6 news6" 360px / 1fr 1fr 1fr 1fr;
+      "news1 news1 news2 news3" 1fr
+      "news4 news4 news5 news6" 1fr / 1fr 1fr 1fr 1fr;
     gap: 24px;
     list-style: none;
   }
