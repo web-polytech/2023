@@ -11,16 +11,36 @@
       </ul>
     </div>
   </section>
+<section class="other_news">
+    <div class="other_news__wrapper">
+      <h2 class="other_news__title">
+        Последние новости
+      </h2>
+      <ul class="other_news__list">
+        <li v-for="item, index in newo" :key="index" :id="'news'+(index+1)" class="last_news__item last_news__item--big">
+          <HomeNewsCard :content="item"  class="other_news__card" />
+        </li>
+      </ul>
+      <div class="other_news__action">
+        <TheButton :path="'/news'" :label="'Больше новостей'" />
+      </div>
+    </div>
+  </section>
 </template>
 
 
 <script>
 import NewsCard from "@/components/NewsCard.vue";
+import HomeNewsCard from "@/components/HomeNewsCard.vue"
+import TheButton from '../components/TheButton.vue';
 
 export default {
   name: "NewsPage",
   components: {
     NewsCard,
+    HomeNewsCard,
+    TheButton,
+
   },
   data() {
     return {
@@ -67,6 +87,39 @@ export default {
 
         },
       ],
+      newo:[
+        {
+          name: '1 сентября прошла торжественная церемония, посвященная началу учебного года в Нашей школе',
+          section: 'Наука & технологии',
+          image: 'NewsCard1Big.webp',
+        },
+        {
+          name: 'Прошло ежегодное собрание волонтерского клуба школы',
+          section: 'Школьная жизнь',
+          image: 'NewsCard2.webp',
+        },
+        {
+          name: '4 победителя Всероссийского этапа олимпиады школьников',
+          section: 'Олимпиады',
+          image: 'NewsCard3.webp',
+        },
+        {
+          name: 'Учителя провели открытые уроки химии, физики и ОБЖ',
+          section: 'Наука & Технологии',
+          image: 'NewsCard4.webp',
+        },
+        {
+          name: 'Набор учащихся 8-11 классов в конкурс IT-стартапов открыт',
+          section: 'Наука & Технологии',
+          image: 'NewsCard5.webp',
+        },
+        {
+          name: 'Команда Нашей школы заняла первое место в игре  начальных классов школ города “Что? Где? Когда?”',
+          section: 'Школьная жизнь',
+          image: 'NewsCard6Big.webp',
+        },
+
+      ]
     };
   },
 };
@@ -110,6 +163,15 @@ export default {
     list-style: none;
   }
 
+  .other_news__list {
+    display: grid;
+    grid-template:
+      "news1 news2 news3 news4" 360px
+      "news5 news6 news7 news8" 360px / 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    list-style: none;
+  }
+
   .main-news__item {
     &#news1 {
       grid-area: news1;
@@ -134,5 +196,61 @@ export default {
     &#news6 {
       grid-area: news6;
     }
+
+    &#news7 {
+      grid-area: news6;
+    }
+
+    &#news8 {
+      grid-area: news6;
+    }
+
+  }
+
+  .other_news__wrapper {
+    max-width: 1400px;
+    margin: 24px auto;
+    padding: 0 40px;
+  }
+
+  .other_news__item {
+    &#news1 {
+      grid-area: news1;
+    }
+
+    &#news2 {
+      grid-area: news2;
+    }
+
+    &#news3 {
+      grid-area: news3;
+    }
+
+    &#news4 {
+      grid-area: news4;
+    }
+
+    &#news5 {
+      grid-area: news5;
+    }
+
+    &#news6 {
+      grid-area: news6;
+    }
+  }
+
+  .other_news__title {
+    margin: 60px auto;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    text-align: center;
+  }
+
+
+  .other_news__action {
+    display: flex;
+    justify-content: end;
+    margin-top: 36px;
   }
 </style>
