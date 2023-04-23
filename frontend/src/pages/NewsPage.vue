@@ -26,6 +26,33 @@
       </div>
     </div>
   </section>
+  <section class="magazine_club">
+    <div class="magazine club__wrapper">
+      <h2 class="magazine club__title">
+        Поступление
+      </h2>
+      <p class="magazine club__desc">
+        Наша школа поддерживает своих учащихся в&nbsp;их&nbsp;начинаниях, проектах и&nbsp;иследовательских работах.
+      </p>
+      <div class="magazine club__content">
+        <div class="magazine club__cover">
+          <img src="../assets/images/magazine_clubImage.webp" alt="Image for admission section" class="admission__image">
+        </div>
+        <div class="magazine club__info">
+          <p class="magazine club__text">
+            Если вы любите писать сочинения или эссе, вам нравится посещать интересные мероприятия,  делиться своими впечатлениями и эмоциями с другими, вы хорошо знаете граматику и редко совершаете ошибки в речи и письме,  то двери в наш журналисткий клуб “Юнкор” для вас открыты.
+          </p>
+          <p class="magazine club__text">
+            Каждому активному юному журналисту мы вручаем пресс-карту, с которой он может посещать многие мероприятия города абсолютно бесплатно.
+          </p>
+          <p class="magazine club__text">
+            Мы проводим и участвуем в литературных вечерах, поэтических встречах, интеллектуальных играх, олимпиадах по журналистике и во многом другом.
+          </p>
+          <TheButton label="Узнать больше" type="border" path="entrance" />
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 

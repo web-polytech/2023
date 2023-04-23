@@ -81,7 +81,4 @@ export default {
       line-height: 130%;
     }
   }
-
-
-
 </style>
