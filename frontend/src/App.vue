@@ -47,6 +47,14 @@ import TheFooter from '@/components/TheFooter.vue';
       padding-top: 54px;
     }
   }
+
+  h2 {
+    font-weight: 700;
+    font-weight: bold;
+    font-size: 3.2rem;
+    line-height: 1;
+    text-align: center;
+  }
 </style>
 
 
