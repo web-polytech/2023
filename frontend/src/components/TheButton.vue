@@ -28,7 +28,7 @@ defineProps({
     padding: 14px 50px;
     color: #FFFFFF;
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-decoration: none;
     background-color: #1C52A2;
     box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%);

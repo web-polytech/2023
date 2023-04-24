@@ -5,10 +5,10 @@
     </h2>
     <ul class="dates__list">
       <li class="dates__item">
-        <img class="dates__icon" src="" alt="">
+        <img class="dates__icon" src="@/assets/images/EntranceIcon1.svg" alt="">
         <div class="dates__text-info">
           <span class="dates__text">
-            форма для подачи заявления на поступление открыта
+            форма для подачи заявления на&nbsp;поступление открыта
           </span>
           <h3 class="dates__date">
             до 30 сентября
@@ -16,10 +16,10 @@
         </div>
       </li>
       <li class="dates__item">
-        <img class="dates__icon" src="" alt="">
+        <img class="dates__icon" src="@/assets/images/EntranceIcon2.svg" alt="">
         <div class="dates__text-info">
           <span class="dates__text">
-            анализ заявок на поступлениеи отбор претендентов
+            анализ заявок на&nbsp;поступление и&nbsp;отбор претендентов
           </span>
           <h3 class="dates__date">
             до 21 ноября
@@ -27,10 +27,10 @@
         </div>
       </li>
       <li class="dates__item">
-        <img class="dates__icon" src="" alt="">
+        <img class="dates__icon" src="@/assets/images/EntranceIcon3.svg" alt="">
         <div class="dates__text-info">
           <span class="dates__text">
-            проверка документов и рассылка ответов с результатами отбора
+            проверка документов и&nbsp;рассылка ответов с&nbsp;результатами отбора
           </span>
           <h3 class="dates__date">
             до 1 февраля
@@ -41,16 +41,26 @@
   </section>
 </template>
 <style scoped lang="scss">
+
   .dates {
-    padding: 0;
+    max-width: 1650px;
+    inline-size: 100vw;
+    margin-inline-start: 50%;
+    transform: translateX(-50%);
   }
 
   .dates__list {
-    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    list-style: none;
   }
 
   .dates__item {
-    padding: 0;
+    display: flex;
+    align-items: center;
+    padding: 0.63em 1.25rem;
+    background-color: var(--accent-gray);
   }
 
   .dates__icon {
@@ -58,15 +68,21 @@
   }
 
   .dates__text-info {
-    padding: 0;
+    margin-bottom: -.8rem;
+    padding-block: 1rem;
+    text-align: center;
   }
 
   .dates__text {
-    padding: 0;
+    font-size: 1.5em;
+    line-height: 1;
   }
 
   .dates__date {
     padding: 0;
+    color: var(--accent-blue);
+    font-size: 2.25em;
+    text-justify: bottom;
   }
 
 </style>

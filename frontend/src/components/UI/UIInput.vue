@@ -1,6 +1,3 @@
-<template>
-  <RouterLink class="button" :class="{'button--light': type=='light', 'button--border': type=='border'}" :to="path">{{label}}</RouterLink>
-</template>
 <script setup>
 defineProps({
   label: {
@@ -21,6 +18,17 @@ defineProps({
   },
 });
 </script>
+
+<script>
+export default {
+  name: 'UIButton',
+};
+</script>
+
+<template>
+  <RouterLink class="button" :class="{'button--light': type=='light', 'button--border': type=='border'}" :to="path">{{label}}</RouterLink>
+</template>
+
 
 <style land="scss">
   .button {

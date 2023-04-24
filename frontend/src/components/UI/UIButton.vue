@@ -1,19 +1,24 @@
 <template>
-  <RouterLink class="button" :class="{'button--light': type=='light', 'button--border': type=='border'}" :to="path">{{label}}</RouterLink>
+  <a class="button" :class="{'button--light':light, 'button--outline':outline}" :href="href"><slot /></a>
 </template>
+
+
 <script setup>
+import { defineComponent } from 'vue';
+
 defineProps({
-  label: {
+  href: {
     type: String,
-    default: '',
+    default: '/',
+    required: true,
   },
-  path: {
-    type: String,
-    default: '#',
+  light: {
+    type: Boolean,
+    default: false,
   },
-  type: {
-    type: String,
-    default: 'default',
+  outline: {
+    type: Boolean,
+    default: false,
   },
   disable: {
     type: Boolean,
@@ -21,6 +26,13 @@ defineProps({
   },
 });
 </script>
+
+<script>
+export default {
+  name: 'UIButton',
+};
+</script>
+
 
 <style land="scss">
   .button {
@@ -51,7 +63,7 @@ defineProps({
     }
   }
 
-  .button--border {
+  .button--outline {
     padding: 11px 50px;
     color: #1C52A2;
     background-color: transparent;

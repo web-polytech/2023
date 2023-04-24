@@ -14,10 +14,14 @@ import TheFooter from '@/components/TheFooter.vue';
 </template>
 
 <style lang="scss">
-  @import 'https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap';
+  @import 'https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,200,0,400;0,700;1,400;1,700&display=swap';
   @import 'https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,700&display=swap';
 
   * {
+    --wrapper: 1440px;
+    --accent-blue: #1C52A2;
+    --accent-gray: #F6F6F6;
+    scroll-behavior: smooth;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -48,13 +52,23 @@ import TheFooter from '@/components/TheFooter.vue';
     }
   }
 
-  h2 {
+  h1 {
     font-weight: 700;
     font-weight: bold;
-    font-size: 3.2rem;
+    font-size: 4rem;
+    font-family: 'PT Serif', sans-serif;
     line-height: 1;
     text-align: center;
   }
+
+  h2 {
+    margin: 60px auto;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 1;
+    text-align: center;
+  }
+
 </style>
 
 

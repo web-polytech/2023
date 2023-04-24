@@ -7,9 +7,10 @@ import components from '@/components/UI';
 
 const app = createApp(App);
 
-components.forEach(c => { app.component(c.name, c); });
 
 app.use(createPinia());
 app.use(router);
+
+components.forEach(c => { app.component(c.name, c); });
 
 app.mount('#app');

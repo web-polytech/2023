@@ -1,10 +1,10 @@
 <template>
-  <main class="wrapper">
+  <div class="wrapper">
     <HeroSection />
     <DatesSection />
     <RequirementsSection />
-    <ApplicationSection />
-  </main>
+    <ApplicationSection id="form" />
+  </div>
 </template>
 
 <script setup>
@@ -18,7 +18,7 @@ import ApplicationSection from './ApplicationSection.vue';
 <style lang="scss" scoped>
   .wrapper {
     width: 100%;
-    max-width: 1440px;
+    max-width: var(--wrapper);
     margin: 0 auto;
   }
 </style>
