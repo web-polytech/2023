@@ -1,74 +1,95 @@
+<script>
+export default {
+  name: 'UIInput',
+  inheritAttrs: false,
+};
+</script>
+
+<template>
+  <label class="field" :class="`field--${$attrs.type}`">
+    <input
+      v-bind="$attrs"
+      class="field__input"
+      :class="`field__input--` + type"
+    >
+    <span
+      class="field__label"
+      :class="[`field__label--${$attrs.type}`, {'visually-hidden': !label}]"
+    >
+      {{label}}
+    </span>
+  </label>
+</template>
+
 <script setup>
 defineProps({
   label: {
     type: String,
     default: '',
+    required: true,
   },
-  path: {
+  modalValue: {
     type: String,
-    default: '#',
-  },
-  type: {
-    type: String,
-    default: 'default',
-  },
-  disable: {
-    type: Boolean,
-    default: false,
+    default: '',
   },
 });
 </script>
 
-<script>
-export default {
-  name: 'UIButton',
-};
-</script>
 
-<template>
-  <RouterLink class="button" :class="{'button--light': type=='light', 'button--border': type=='border'}" :to="path">{{label}}</RouterLink>
-</template>
+<style lang="scss" scoped>
+  .field  {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
 
+    &--checkbox, &--radio {
+      flex-direction: row;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
 
-<style land="scss">
-  .button {
-    width: fit-content;
-    padding: 14px 50px;
-    color: #FFFFFF;
-    font-weight: 700;
-    font-size: 1.4rem;
-    text-decoration: none;
-    background-color: #1C52A2;
-    box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%);
-    transition: background-color 150ms ease-in-out;
+  }
 
+  .field__input {
+    min-height: 3rem;
+    padding: 0.5rem;
+    font-size: 1.3em;
+    background-color: #F5F8FA;
+    border: 1px solid #cbd6e2;
+    border-radius: 4px;
 
-    &:hover {
-      background-color: #0C3777;
+    &--checkbox, &--radio {
+      min-height: initial;
+      accent-color: var(--accent-gray);
+      border: 0;
+    }
+
+    &--file::file-selector-button {
+      border: none;
+      border-radius: 4px;
+    }
+
+    &--file::-webkit-file-upload-button:hover {
+      max-width: 50px;
+      background-color: #81ecec;
+      border: 2px solid #00cec9;
+    }
+
+    &[required] ~ .field__label::after {
+      content: ' *';
+      color: red;
     }
   }
 
-  .button--light {
-    color: #1C52A2;
-    background-color: #FFFFFF;
-    transition: all 150ms ease-in-out;
+  .field__label {
+    order: -1;
+    font-size: 1.5em;
 
-    &:hover {
-      color: #FFFFFF;
-      background-color: #0C3777;
+    &--checkbox, &--radio {
+      order: 0;
     }
+
   }
 
-  .button--border {
-    padding: 11px 50px;
-    color: #1C52A2;
-    background-color: transparent;
-    border: 3px solid #1C52A2;
-    transition: all 150ms ease-in-out;
-
-    &:hover {
-      color: #FFFFFF;
-      background-color: #1C52A2;
-    }
-  }
 </style>
+

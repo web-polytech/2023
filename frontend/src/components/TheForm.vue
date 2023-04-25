@@ -1,18 +1,29 @@
-<script setup>
-import TheButton from '../components/UI/UIButton.vue';
-
+<script>
+export default {
+  name: 'TheForm',
+};
 </script>
 
 <template>
-  <form action="">
+  <form method="POST" :action="action">
     <slot name="fields" />
   </form>
-  <slot name="button" />
+  <slot name="buttons" />
 </template>
 
+<script setup>
 
-<style lang="scss" scoped>
-  form {
-    color: red;
+defineProps({
+  action: {
+    type: String,
+    required: true,
+    default: '',
+  },
+});
+</script>
+
+<style lang="scss">
+  .field {
+    color: #33475B
   }
 </style>

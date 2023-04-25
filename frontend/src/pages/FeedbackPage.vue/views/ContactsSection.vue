@@ -24,8 +24,8 @@
     min-height: calc(100vh - 100px);
     inline-size: 100vw;
     margin-inline-start: 50%;
-    padding-bottom: 4rem;
-    background-image: radial-gradient(40.47% 40.47% at 50% 91.95%, rgb(28 82 162 / 98%) 0%, rgb(28 82 162 / 83.3%) 19.46%, rgb(28 82 162 / 73.5%) 52.42%, rgb(28 82 162 / 63.7%) 73.47%, rgb(28 82 162 / 0%) 100%), linear-gradient(0deg, rgb(28 82 162 / 10%), rgb(28 82 162 / 10%)), url('../../../assets/images/EntranceHero.webp');
+    padding-bottom: 2rem;
+    background-image: url('../../../assets/images/EntranceHero.jpg');
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: cover;

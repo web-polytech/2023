@@ -1,16 +1,16 @@
 <template>
-  <a class="button" :class="{'button--light':light, 'button--outline':outline}" :href="href"><slot /></a>
+  <a v-if="link" class="button" :class="{'button--light':light, 'button--outline':outline}" :href="href"><slot /></a>
+  <button v-else class="button" :class="{'button--light':light, 'button--outline':outline}">
+    <slot />
+  </button>
 </template>
 
 
 <script setup>
-import { defineComponent } from 'vue';
-
-defineProps({
-  href: {
+const props = defineProps({
+  link: {
     type: String,
     default: '/',
-    required: true,
   },
   light: {
     type: Boolean,
@@ -34,7 +34,7 @@ export default {
 </script>
 
 
-<style land="scss">
+<style lang="scss">
   .button {
     width: fit-content;
     padding: 14px 50px;

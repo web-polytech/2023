@@ -22,7 +22,7 @@ defineProps({
 });
 </script>
 
-<style land="scss">
+<style lang="scss">
   .button {
     width: fit-content;
     padding: 14px 50px;

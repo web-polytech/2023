@@ -3,7 +3,7 @@
     <HeroSection />
     <DatesSection />
     <RequirementsSection />
-    <ApplicationSection id="form" />
+    <ApplicationFormSection id="form" />
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 import HeroSection from './HeroSection.vue';
 import DatesSection from './DatesSection.vue';
 import RequirementsSection from './RequirementsSection.vue';
-import ApplicationSection from './ApplicationSection.vue';
+import ApplicationFormSection from './ApplicationFormSection.vue';
 </script>
 
 
