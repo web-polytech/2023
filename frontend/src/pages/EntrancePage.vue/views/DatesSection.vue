@@ -45,8 +45,13 @@
   .dates {
     max-width: 1650px;
     inline-size: 100vw;
+    margin-bottom: 2rem;
     margin-inline-start: 50%;
     transform: translateX(-50%);
+  }
+
+  .dates__heading {
+    margin-bottom: 2rem;
   }
 
   .dates__list {
