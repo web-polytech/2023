@@ -35,10 +35,6 @@ defineProps({
     default: '',
     required: true,
   },
-  required: {
-    type: Boolean,
-    default: false,
-  },
 });
 </script>
 

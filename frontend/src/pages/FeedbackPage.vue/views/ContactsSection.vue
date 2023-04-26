@@ -1,55 +1,121 @@
 <template>
-  <section class="hero">
-    <h1 class="hero__heading">
-      Поступление
-    </h1>
-    <p class="hero__text">
-      Мы ждем учеников, которые готовы реализовывать свои идеи, прокачивать свои навыки и всегда стремятся к самосовершенствованию.
-    </p>
-    <UIButton :light="true" :href="`#form`">
-      Подача заявления
-    </UIButton>
+  <section class="contacts">
+    <h2 class="contacts__heading">
+      Наши контакты
+    </h2>
+    <div class="contacts__wrapper">
+      <dl class="contacts__chapter">
+        <dt class="contacts__title">
+          Телефоны школы
+        </dt>
+        <dd class="contacts__description">
+          <a href="tel:79876543210" target="_blank">+7(987)654-32-10</a>
+        </dd>
+        <dd class="contacts__description">
+          <a href="tel:79784562301" target="_blank">+7(978)456-23-01</a>
+        </dd>
+      </dl>
+      <dl class="contacts__chapter">
+        <dt class="contacts__title">
+          Электронный адрес
+        </dt>
+        <dd class="contacts__description">
+          <a href="mailto:ask@ourschool.ru" target="_blank">ask@ourschool.ru</a>
+        </dd>
+        <dd class="contacts__description">
+          <a href="mailto:pr@ourschool.ru" target="_blank">pr@ourschool.ru</a>
+        </dd>
+      </dl>
+      <img
+        class="contacts__image"
+        src="@/assets/images/FeedbackPage/FeedbackContacts.jpg"
+        alt="Изображение счастливых детей"
+      >
+      <dl class="contacts__chapter">
+        <dt class="contacts__title">
+          Адрес школы
+        </dt>
+        <dd class="contacts__description">
+          Россия, Москва, с. Ивановское, ул. Ивановская, д.1
+        </dd>
+      </dl>
+      <dl class="contacts__chapter">
+        <dt class="contacts__title">
+          Как добраться?
+        </dt>
+        <dd class="contacts__description">
+          <ol class="contacts__list">
+            <li class="contacts__item">
+              Простой и быстрый заезд с Ленинского шоссе.
+            </li>
+            <li class="contacts__item">
+              Бесплатные автобусы-шаттлы, курсирующие между школой и станциями метро &laquo; Филатов Луг &raquo; и &laquo; Теплый стан &raquo;.
+            </li>
+            <li class="contacts__item">
+              Общественный транспорт: от станции метро &laquo; Теплый стан &raquo; &ndash; автобус 555 до остановки &laquo; Наша школа &raquo;
+            </li>
+          </ol>
+        </dd>
+      </dl>
+    </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
-  $wrapper: var(--wrapper);
 
-  .hero {
+  .contacts  {
+    padding-inline: 4rem;
+    font-family: 'PT Serif', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', "Roboto", "Oxygen", "Ubuntu", "Cantarell", 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  }
+
+  .contacts__wrapper  {
+    column-count: 2;
+    column-gap: 3.2rem;
+
+    & > * {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+    }
+
+  }
+
+  .contacts__heading {
+    margin-block: 1rem;
+    font-size: 3em;
+    text-align: start
+  }
+
+  .contacts__list {
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    gap: 1rem;
-    min-height: calc(100vh - 100px);
-    inline-size: 100vw;
-    margin-inline-start: 50%;
-    padding-bottom: 2rem;
-    background-image: url('../../../assets/images/EntranceHero.jpg');
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-size: cover;
-    transform: translateX(-50%);
-    padding-inline: calc((100% - #{$wrapper}) / 2);
   }
 
-
-  .hero__heading {
-    padding-bottom: 1rem;
-    color: white;
+  .contacts__title {
+    color: var(--accent-blue);
+    font-weight: bold;
+    font-size: 1.25em;
+    font-variant: small-caps;
+    text-transform: uppercase;
   }
 
-  .hero__text {
-    max-width: 60ch;
-    margin-bottom: 1rem;
-    color: white;
+  .contacts__description {
     font-weight: 400;
     font-size: 1.75em;
-    font-family: 'PT Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', "Roboto", "Oxygen", "Ubuntu", "Cantarell", 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-style: normal;
-    line-height: 1.4;
-    text-align: center;
+
+    & > * {
+      color: black;
+      font-family: 'PT Serif', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', "Roboto", "Oxygen", "Ubuntu", "Cantarell", 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    }
   }
 
+  .contacts__item {
+    margin-inline-start: 2rem;
+  }
+
+  .contacts__image {
+    display: block;
+  }
 
 </style>

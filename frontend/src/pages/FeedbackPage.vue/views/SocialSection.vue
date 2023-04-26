@@ -1,93 +1,63 @@
 <template>
-  <section class="dates">
-    <h2 class="dates__heading">
-      График подачи и рассмотрения заявок
+  <section class="social">
+    <h2 class="social__heading">
+      Наша школа в интернете
     </h2>
-    <ul class="dates__list">
-      <li class="dates__item">
-        <img class="dates__icon" src="@/assets/images/EntranceIcon1.svg" alt="">
-        <div class="dates__text-info">
-          <span class="dates__text">
-            форма для подачи заявления на&nbsp;поступление открыта
-          </span>
-          <h3 class="dates__date">
-            до 30 сентября
-          </h3>
-        </div>
+    <ul class="social__list">
+      <li class="social__item">
+        <img class="social__image" src="@/assets/images/FeedbackPage/IconVK.svg" alt="">
+        <a class="social__link" href="https://vk.com">Сообщество во Вконтакте</a>
       </li>
-      <li class="dates__item">
-        <img class="dates__icon" src="@/assets/images/EntranceIcon2.svg" alt="">
-        <div class="dates__text-info">
-          <span class="dates__text">
-            анализ заявок на&nbsp;поступление и&nbsp;отбор претендентов
-          </span>
-          <h3 class="dates__date">
-            до 21 ноября
-          </h3>
-        </div>
+      <li class="social__item">
+        <img class="social__image" src="@/assets/images/FeedbackPage/IconOK.svg" alt="">
+        <a class="social__link" href="https://ok.ru">Группа в Одноклассниках</a>
       </li>
-      <li class="dates__item">
-        <img class="dates__icon" src="@/assets/images/EntranceIcon3.svg" alt="">
-        <div class="dates__text-info">
-          <span class="dates__text">
-            проверка документов и&nbsp;рассылка ответов с&nbsp;результатами отбора
-          </span>
-          <h3 class="dates__date">
-            до 1 февраля
-          </h3>
-        </div>
+      <li class="social__item">
+        <img class="social__image" src="@/assets/images/FeedbackPage/IconYoutube.svg" alt="">
+        <a class="social__link" href="https://youtube.com">Канал на YouTube</a>
+      </li>
+
+      <li class="social__item">
+        <img class="social__image" src="@/assets/images/FeedbackPage/IconTikTok.svg" alt="">
+        <a class="social__link" href="https://tiktok.com">Аккаунт в TikTok</a>
+      </li>
+      <li class="social__item">
+        <img class="social__image" src="@/assets/images/FeedbackPage/IconTelegram.svg" alt="">
+        <a class="social__link" href="https://t.me">Канал в Telegram</a>
+      </li>
+      <li class="social__item">
+        <img class="social__image" src="@/assets/images/FeedbackPage/IconWhatsapp.svg" alt="">
+        <a class="social__link" href="https://whatsapp.com">Whatsapp для связи</a>
       </li>
     </ul>
   </section>
 </template>
 <style scoped lang="scss">
 
-  .dates {
-    max-width: 1650px;
-    inline-size: 100vw;
-    margin-bottom: 2rem;
-    margin-inline-start: 50%;
-    transform: translateX(-50%);
+
+  .social__heading {
+    font-size: 3em;
+    text-align: start;
   }
 
-  .dates__heading {
-    margin-bottom: 2rem;
+  .social__list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
   }
 
-  .dates__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    list-style: none;
-  }
-
-  .dates__item {
+  .social__item  {
     display: flex;
     align-items: center;
-    padding: 0.63em 1.25rem;
-    background-color: var(--accent-gray);
+    gap: 1rem;
+    padding-inline-start: 2rem;
   }
 
-  .dates__icon {
-    padding: 0;
+  .social__link  {
+    color: #0000ff;
+    font-size: 1.75em;
+    text-decoration: underline;
   }
 
-  .dates__text-info {
-    margin-bottom: -.8rem;
-    padding-block: 1rem;
-    text-align: center;
-  }
-
-  .dates__text {
-    font-size: 1.5em;
-    line-height: 1;
-  }
-
-  .dates__date {
-    padding: 0;
-    color: var(--accent-blue);
-    font-size: 2.25em;
-    text-justify: bottom;
-  }
 
 </style>

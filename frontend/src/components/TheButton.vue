@@ -34,7 +34,6 @@ defineProps({
     box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%);
     transition: background-color 150ms ease-in-out;
 
-
     &:hover {
       background-color: #0C3777;
     }
