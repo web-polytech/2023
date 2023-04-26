@@ -27,25 +27,25 @@
     </div>
   </section>
   <section class="magazine_club">
-    <div class="magazine club__wrapper">
-      <h2 class="magazine club__title">
-        Поступление
+    <div class="magazine_club__wrapper">
+      <h2 class="magazine_club__title">
+        Приглашаем в журналистский клуб
       </h2>
-      <p class="magazine club__desc">
+      <p class="magazine_club__desc">
         Наша школа поддерживает своих учащихся в&nbsp;их&nbsp;начинаниях, проектах и&nbsp;иследовательских работах.
       </p>
-      <div class="magazine club__content">
+      <div class="magazine_club__content">
         <div class="magazine club__cover">
           <img src="../assets/images/magazine_clubImage.webp" alt="Image for admission section" class="admission__image">
         </div>
-        <div class="magazine club__info">
-          <p class="magazine club__text">
+        <div class="magazine_club__info">
+          <p class="magazine_club__text">
             Если вы любите писать сочинения или эссе, вам нравится посещать интересные мероприятия,  делиться своими впечатлениями и эмоциями с другими, вы хорошо знаете граматику и редко совершаете ошибки в речи и письме,  то двери в наш журналисткий клуб “Юнкор” для вас открыты.
           </p>
-          <p class="magazine club__text">
+          <p class="magazine_club__text">
             Каждому активному юному журналисту мы вручаем пресс-карту, с которой он может посещать многие мероприятия города абсолютно бесплатно.
           </p>
-          <p class="magazine club__text">
+          <p class="magazine_club__text">
             Мы проводим и участвуем в литературных вечерах, поэтических встречах, интеллектуальных играх, олимпиадах по журналистике и во многом другом.
           </p>
           <TheButton label="Узнать больше" type="border" path="entrance" />
@@ -279,5 +279,66 @@ export default {
     display: flex;
     justify-content: end;
     margin-top: 36px;
+  }
+
+  .magazine_club__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+
+  .magazine_club__desc {
+    max-width: 840px;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .magazine_club__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+
+    @media screen and (width <= 796px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .magazine_club__cover {
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .magazine_club__title {
+    margin: 60px auto;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .magazine_club__image {
+    width: 100%;
+    min-width: 364px;
+    object-fit: cover;
+  }
+
+  .magazine_club__info {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 24px;
+  }
+
+  .magazine_club__text {
+    font-size: 1.2rem;
+    line-height: 1.2;
   }
 </style>
