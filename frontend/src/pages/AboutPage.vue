@@ -21,24 +21,25 @@
     <h2 class="advantages__title">
       Преимущества Нашей школы
     </h2>
-    <img src="../assets/images/Students.webp" alt="Students image">
-    <ul class="advantages__list">
-      <li class="advantages__item" v-for="item in advantages">
-        <p class="advantages__item-title">
-          {{ item.title }}
-        </p>
-        <p class="advantages__item-text">
-          {{ item.text }}
-        </p>
-      </li>
-    </ul>
+    <div class="advantages__wrap">
+      <img class="advantages__image" src="../assets/images/Students.webp" alt="Students image">
+      <ul class="advantages__list">
+        <li class="advantages__item" v-for="item in advantages">
+          <p class="advantages__item-title">
+            {{ item.title }}
+          </p>
+          <p class="advantages__item-text">
+            {{ item.text }}
+          </p>
+        </li>
+      </ul>
+    </div>
   </section>
   <section class="admission">
     <p class="admission__text">
-      Мы все еще проводим набор учеников в 1–4, 6–8 и 10 классы.
-    </p>
-    <p class="admission__text">
-      Успей подать заявку до 30 сентября — и получи приглашение на День открытых дверей и возможность уникальной консультации с приемной комиссией школы.
+      Мы все еще проводим набор учеников в 1–4, 6–8 и 10 классы. <br>
+      Успей подать заявку до 30 сентября — и получи приглашение на День открытых
+      дверей и возможность уникальной консультации с приемной комиссией школы.
     </p>
     <TheButton :path="'#'" :label="'Узнать больше о поступлении'" type="light" />
   </section>
@@ -46,44 +47,55 @@
     <h2 class="teachers__title">
       Наш преподавательский состав
     </h2>
-    <ul class="teachers__list">
-      <li class="teachers__item" v-for="item in teachers">
-        <p class="teachers__item-title">
-          {{ item.title }}
-        </p>
-        <p class="teachers__item-text">
-          {{ item.text }}
-        </p>
-      </li>
-    </ul>
-    <img src="../assets/images/Teacher1.webp" alt="Teacher image" class="teachers__image">
-    <img src="../assets/images/Teacher2.webp" alt="Teacher image" class="teachers__image">
-    <img src="../assets/images/Teacher3.webp" alt="Teacher image" class="teachers__image">
-    <img src="../assets/images/Teacher4.webp" alt="Teacher image" class="teachers__image">
+    <div class="teachers__wrap">
+      <ul class="teachers__list">
+        <li class="teachers__item" v-for="item in teachers">
+          <p class="teachers__item-title">
+            {{ item.title }}
+          </p>
+          <p class="teachers__item-text">
+            {{ item.text }}
+          </p>
+        </li>
+      </ul>
+      <div class="teachers__image-wrapper">
+        <div class="teachers__image-wrap">
+          <img src="../assets/images/Teacher1.webp" alt="Teacher image" class="teachers__image">
+          <img src="../assets/images/Teacher2.webp" alt="Teacher image" class="teachers__image">
+        </div>
+        <div class="teachers__image-wrap">
+          <img src="../assets/images/Teacher3.webp" alt="Teacher image" class="teachers__image">
+          <img src="../assets/images/Teacher4.webp" alt="Teacher image" class="teachers__image">
+        </div>
+      </div>
+    </div>
   </section>
   <section class="education">
     <h2 class="education__title">
       Образование
     </h2>
-    <ul class="education__list">
-      <li class="aducation__item" v-for="item in education">
-        <p class="education__item-title">
-          {{ item.title }}
-        </p>
-        <p class="education__item-text">
-          {{ item.text }}
-        </p>
-        <img :src="'src/assets/images/'+item.image" alt="Direction image">
-      </li>
-    </ul>
+    <div class="education__wrapper">
+      <div class="education__text-wrapper">
+        <h3 class="education__subtitle">Программы обучения</h3>
+        <p class="education__text">Мы предоставляем нашим учащимся возможность самостоятельного выбора специализации относительно их интересов.</p>
+        <p class="education__text">С 8 класса Наша школа проводит профориентационное тестирование, которое позволяет практически точно определить склонности учащегося, его интересы и увлечения. При весм этом мы не навязываем определенную сферу деятельности, поэтому сменить специализацию можно в любой момент.</p>
+      </div>
+      <ul class="education__list">
+        <li class="education__item" v-for="item in education">
+          <AboutProgramCard :content="item"/>
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
 <script>
 import TheButton from '../components/TheButton.vue';
+import AboutProgramCard from '../components/AboutProgramCard.vue';
 
 export default {
   components: {
     TheButton,
+    AboutProgramCard,
   },
   data() {
     return {
@@ -178,3 +190,224 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  a {
+    display: block;
+  }
+
+  .info,.advantages,.education {
+    max-width: 1440px;
+    margin:auto;
+  }
+
+  .info,.advantages,.admission,.teachers,.education {
+    &__title {
+      font-weight: 700;
+      font-size: 3.2rem;
+      line-height: 1;
+      text-align: center;
+    }
+
+    &__text {
+      font-size: 1.4rem;
+      line-height: 1.2;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title{
+      margin-top: 40px;
+      font-family: 'PT Serif', sans-serif;
+    }
+
+    &__text {
+      max-width: 675px;
+      margin: 36px 0 38px;
+      text-align: center;
+    }
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__list {
+      display: flex;
+      justify-content: space-evenly;
+      width: calc(100% - 40px);
+      margin: 40px;
+      padding: 36px;
+      font-family: 'PT Serif', sans-serif;
+      list-style: none;
+      border-top: 1px solid #B5BBCB;
+      border-bottom: 1px solid #B5BBCB;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-title {
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-size: 2.4rem;
+      }
+
+      &-text {
+        font-size: 1.4rem;
+      }
+
+      &-span {
+        font-size: 1.1rem;
+        font-style: italic;
+      }
+    }
+  }
+
+  .advantages,.teachers,.education {
+    &__item {
+      &-title {
+        font-weight: 700;
+        font-size: 1.8rem;
+      }
+
+      &-text {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .advantages {
+    &__wrap {
+      display: flex;
+      align-items: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    &__image {
+      max-width: 780px;
+      max-height: 560px
+    }
+
+    &__list {
+      z-index: -1;
+      margin-left: -144px;
+      padding: 42px 40px 22px 188px;
+      list-style: none;
+      background-color: #F6F6F6;
+    }
+
+    &__item {
+      margin-bottom: 20px;
+
+      &-title {
+        margin-bottom: 20px;
+      }
+    }
+
+  }
+
+  .admission {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+    max-width: 100%;
+    height: 280px;
+    text-align: center;
+    background-color: #1C52A2;
+
+    &__text {
+      max-width: 800px;
+      color: white;
+    }
+  }
+
+  .teachers {
+    background-color: #F6F6F6;
+
+    &__wrap {
+      display: flex;
+      align-items: center;
+      max-width: 1440px;
+      margin: auto;
+    }
+
+    &__title {
+      box-sizing: content-box;
+      margin-bottom: 60px;
+      padding-top: 60px;
+    }
+
+    &__image {
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+      }
+
+      &-wrap {
+        display: flex;
+        gap:20px;
+      }
+    }
+
+    &__list {
+      margin-right: -110px;
+      margin-bottom: 184px;
+      padding: 40px 168px 20px 60px;
+      list-style: none;
+      background-color: white;
+    }
+
+    &__item {
+      margin-bottom: 20px;
+
+      &-title {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .education {
+    &__title {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap:20px;
+      max-width: 460px;
+    }
+
+    &__subtitle {
+      color: #1333AB;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 0;
+      list-style: none;
+    }
+  }
+
+</style>
