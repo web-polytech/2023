@@ -33,7 +33,7 @@ export default {
   .news-card {
     width: 100%;
     max-width: 600px;
-    height: auto;
+    max-height: 804px;
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
@@ -63,13 +63,14 @@ export default {
     }
 
     .news-title {
-      margin-top: 1em;
+      margin-top: 2em;
       color: $color-blue;
       font-weight: 700;
       font-size: 20px;
       font-family: 'PT Serif';
       font-style: normal;
-      line-height: 100%;
+      font-variant: small-caps;
+      line-height: 100%
 
 
     }

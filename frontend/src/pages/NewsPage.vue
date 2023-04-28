@@ -188,7 +188,7 @@ export default {
   }
 
   .main-news__wrapper {
-    max-width: 2800px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 40px;
   }
