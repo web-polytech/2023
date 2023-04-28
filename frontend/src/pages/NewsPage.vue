@@ -11,14 +11,14 @@
       </ul>
     </div>
   </section>
-<section class="other_news">
+  <section class="other_news">
     <div class="other_news__wrapper">
       <h2 class="other_news__title">
         Последние новости
       </h2>
       <ul class="other_news__list">
         <li v-for="item, index in newo" :key="index" :id="'news'+(index+1)" class="last_news__item last_news__item--big">
-          <HomeNewsCard :content="item"  class="other_news__card" />
+          <HomeNewsCard :content="item" type="default" class="other_news__card" />
         </li>
       </ul>
       <div class="other_news__action">
@@ -36,7 +36,7 @@
       </p>
       <div class="magazine_club__content">
         <div class="magazine club__cover">
-          <img src="../assets/images/magazine_clubImage.webp" alt="Image for admission section" class="admission__image">
+          <img src="../assets/images/magazine_clubImage.webp" alt="Image for admission section" class="magazine_club__image">
         </div>
         <div class="magazine_club__info">
           <p class="magazine_club__text">
@@ -116,35 +116,47 @@ export default {
       ],
       newo:[
         {
-          name: '1 сентября прошла торжественная церемония, посвященная началу учебного года в Нашей школе',
-          section: 'Наука & технологии',
-          image: 'NewsCard1Big.webp',
+          name: 'Татьяна Алексеевна стала учителем года по региону',
+          section: 'Школьная ЖИЗНЬ',
+          image: 'Othernwes1.webp',
         },
         {
-          name: 'Прошло ежегодное собрание волонтерского клуба школы',
-          section: 'Школьная жизнь',
-          image: 'NewsCard2.webp',
-        },
-        {
-          name: '4 победителя Всероссийского этапа олимпиады школьников',
-          section: 'Олимпиады',
-          image: 'NewsCard3.webp',
-        },
-        {
-          name: 'Учителя провели открытые уроки химии, физики и ОБЖ',
+          name: 'Интервью с участниками клуба “Юные робототехники”',
           section: 'Наука & Технологии',
-          image: 'NewsCard4.webp',
+          image: 'Othernwes2.webp',
         },
         {
-          name: 'Набор учащихся 8-11 классов в конкурс IT-стартапов открыт',
+          name: 'В Нашей школе появилась секция – “Шахматный клуб”.',
+          section: 'Школьная ЖИЗНЬ',
+          image: 'Othernwes3.webp',
+        },
+        {
+          name: 'Наши молодые чемпионы в городской спартакиаде',
+          section: 'СПОРТ',
+          image: 'Othernwes4.webp',
+        },
+        {
+          name: 'Прошла игра по командному программированию 9 классов',
           section: 'Наука & Технологии',
-          image: 'NewsCard5.webp',
+          image: 'Othernwes5.webp',
         },
         {
-          name: 'Команда Нашей школы заняла первое место в игре  начальных классов школ города “Что? Где? Когда?”',
-          section: 'Школьная жизнь',
-          image: 'NewsCard6Big.webp',
+          name: 'Турнир по футболу начальной, средней и старшей школы',
+          section: 'СПОРТ',
+          image: 'Othernwes6.webp',
         },
+        {
+          name: 'Самые активные ученики сентября уже получили призы',
+          section: 'Школьная жизнь',
+          image: 'Othernwes7.webp',
+        },
+        {
+          name: 'Набор в группу театрального кружка у начальных классов',
+          section: 'ТЕАТР',
+          image: 'Othernwes8.webp',
+        },
+
+
 
       ]
     };
@@ -285,7 +297,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
     margin-bottom: 60px;
+    padding: 0 40px;
   }
 
 
