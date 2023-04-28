@@ -233,6 +233,30 @@ export default {
       "news5 news6 news7 news8" 360px / 1fr 1fr 1fr 1fr;
     gap: 24px;
     list-style: none;
+
+    @media screen and (width <= 1086px) {
+      grid-template:
+        "news1 news1" 1fr
+        "news2 news3" 1fr
+        "news6 news6" 1fr
+        "news4 news5" 1fr / 1fr 1fr;
+      max-width: 812px;
+      margin: 0 auto;
+    }
+
+    @media screen and (width <= 460px) {
+      grid-template:
+        "news1" 1fr
+        "news2" 1fr
+        "news3" 1fr
+        "news5" 1fr
+        "news4" 1fr
+        "news6" 1fr / 1fr;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+
   }
 
   .main-news__item {
