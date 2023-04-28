@@ -1,12 +1,12 @@
 <template>
-  <div class="news-card" :class="{'news-card--big': type=='big'}">
+  <RouterLink to="#" class="news-card" :class="{'news-card--big': type=='big'}">
     <img :src="'src/assets/images/'+content.imageSrc" alt="" class="news-image" >
     <div class="news-text-wrapper">
       <h2 class="news-title">{{ content.title }}</h2>
       <p class="news-tagline">{{ content.tagline }}</p>
       <p class="news-text">{{ content.text }}</p>
     </div>
-  </div>
+  </RouterLink>
 </template>
 
 
@@ -37,12 +37,23 @@ export default {
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
-    box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
-    filter: drop-shadow(3px 3px 15px rgb(0 0 0 / 15%)) drop-shadow(0 0 10px rgb(0 0 0 / 15%));
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%), 0 3px 3px rgb(0 0 0 / 15%);
+    transition: box-shadow 150ms ease-in;
+
+
+    &:hover {
+      box-shadow: 0 0 10px rgb(0 0 0 / 20%), 0 7px 10px rgb(0 0 0 / 20%);
+
+      & .news-card__image {
+        transform:  scale(1.02);
+        transition: transform 200ms ease;
+      }
+    }
 
     &--big {
       width: 800px;
     }
+
 
 
     .news-image {
@@ -59,6 +70,8 @@ export default {
       font-family: 'PT Serif';
       font-style: normal;
       line-height: 100%;
+
+
     }
 
     .news-tagline {
