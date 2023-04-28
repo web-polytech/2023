@@ -59,14 +59,10 @@
         </li>
       </ul>
       <div class="teachers__image-wrapper">
-        <div class="teachers__image-wrap">
           <img src="../assets/images/Teacher1.webp" alt="Teacher image" class="teachers__image">
           <img src="../assets/images/Teacher2.webp" alt="Teacher image" class="teachers__image">
-        </div>
-        <div class="teachers__image-wrap">
           <img src="../assets/images/Teacher3.webp" alt="Teacher image" class="teachers__image">
           <img src="../assets/images/Teacher4.webp" alt="Teacher image" class="teachers__image">
-        </div>
       </div>
     </div>
   </section>
@@ -92,7 +88,7 @@
 import TheButton from '../components/TheButton.vue';
 import AboutProgramCard from '../components/AboutProgramCard.vue';
 
-export default {
+export default{
   components: {
     TheButton,
     AboutProgramCard,
@@ -192,9 +188,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  a {
-    display: block;
-  }
 
   .info,.advantages,.education {
     max-width: 1440px;
@@ -207,11 +200,17 @@ export default {
       font-size: 3.2rem;
       line-height: 1;
       text-align: center;
+      @media screen and (width <= 780px) {
+        font-size: 2.4rem;
+      }
     }
 
     &__text {
       font-size: 1.4rem;
       line-height: 1.2;
+      @media screen and (width <= 780px) {
+        font-size: 0.9rem;
+      }
     }
   }
 
@@ -239,10 +238,12 @@ export default {
 
     &__list {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-evenly;
       width: calc(100% - 40px);
       margin: 40px;
       padding: 36px;
+      gap:20px;
       font-family: 'PT Serif', sans-serif;
       list-style: none;
       border-top: 1px solid #B5BBCB;
@@ -290,11 +291,19 @@ export default {
       align-items: center;
       margin-top: 40px;
       margin-bottom: 40px;
+      @media screen and (width <= 1330px) {
+        flex-direction: column;
+        margin-bottom: 0;
+      }
     }
 
     &__image {
       max-width: 780px;
-      max-height: 560px
+      max-height: 560px;
+      object-fit: cover;
+      @media screen and (width <= 780px) {
+        max-width: 100%;
+      }
     }
 
     &__list {
@@ -303,6 +312,10 @@ export default {
       padding: 42px 40px 22px 188px;
       list-style: none;
       background-color: #F6F6F6;
+      @media screen and (width <= 1330px) {
+        padding: 20px;
+        margin: 40px;
+      }
     }
 
     &__item {
@@ -318,17 +331,20 @@ export default {
   .admission {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap:40px;
     max-width: 100%;
-    height: 280px;
+    gap:40px;
+    max-height: 280px;
     text-align: center;
     background-color: #1C52A2;
+    padding-top: 40px;
+    padding-bottom: 40px;
 
     &__text {
       max-width: 800px;
       color: white;
+
     }
   }
 
@@ -340,24 +356,34 @@ export default {
       align-items: center;
       max-width: 1440px;
       margin: auto;
+      @media screen and (width <= 1330px) {
+        flex-direction: column;
+      }
     }
 
     &__title {
       box-sizing: content-box;
-      margin-bottom: 60px;
-      padding-top: 60px;
+      margin-bottom: 40px;
+      padding-top: 40px;
     }
 
     &__image {
+      object-fit: cover;
       &-wrapper {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         gap:20px;
-      }
-
-      &-wrap {
-        display: flex;
-        gap:20px;
+        min-width: 745px;
+        @media screen and (width <= 1330px) {
+          max-width: 745px;
+          padding-bottom: 40px;
+          margin: auto;
+        }
+        @media screen and (width <= 780px) {
+          min-width: 0;
+          flex-wrap: nowrap;
+          overflow-x: scroll;
+        }
       }
     }
 
@@ -367,6 +393,10 @@ export default {
       padding: 40px 168px 20px 60px;
       list-style: none;
       background-color: white;
+      @media screen and (width <= 1330px) {
+        padding: 20px;
+        margin: 0 40px 40px;
+      }
     }
 
     &__item {
@@ -380,20 +410,26 @@ export default {
 
   .education {
     &__title {
-      margin-top: 60px;
-      margin-bottom: 60px;
+      margin-top: 40px;
+      margin-bottom: 40px;
     }
 
     &__wrapper {
       display: flex;
       justify-content: space-between;
+      margin: 40px;
+      @media screen and (width <= 1050px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+      }
     }
 
     &__text-wrapper {
       display: flex;
       flex-direction: column;
       gap:20px;
-      max-width: 460px;
+      max-width: 440px;
     }
 
     &__subtitle {
@@ -407,6 +443,13 @@ export default {
       grid-template-columns: repeat(3,1fr);
       gap: 0;
       list-style: none;
+
+      @media screen and (width <= 1330px) {
+        grid-template-columns: repeat(2,1fr);
+      }
+      @media screen and (width <= 615px) {
+        grid-template-columns: repeat(1,1fr);
+      }
     }
   }
 
