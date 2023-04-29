@@ -17,7 +17,7 @@
         Последние новости
       </h2>
       <ul class="other_news__list">
-        <li v-for="item, index in newo" :key="index" :id="'news'+(index+1)" class="last_news__item last_news__item--big">
+        <li v-for="item, index in newo" :key="index" :id="'news'+(index+1)" class="other_news__item">
           <HomeNewsCard :content="item" type="default" class="other_news__card" />
         </li>
       </ul>
@@ -43,10 +43,10 @@
            Если вы&nbsp;любите писать сочинения или эссе, вам нравится посещать интересные мероприятия, делиться своими впечатлениями и&nbsp;эмоциями с&nbsp;другими, вы&nbsp;хорошо знаете граматику и&nbsp;редко совершаете ошибки в&nbsp;речи и&nbsp;письме, то&nbsp;двери в&nbsp;наш журналисткий клуб &laquo;Юнкор&raquo; для вас открыты.
           </p>
           <p class="magazine_club__text">
-            Каждому активному юному журналисту мы вручаем пресс-карту, с которой он может посещать многие мероприятия города абсолютно бесплатно.
+           Каждому активному юному журналисту мы&nbsp;вручаем пресс-карту, с&nbsp;которой он&nbsp;может посещать многие мероприятия города абсолютно бесплатно.
           </p>
           <p class="magazine_club__text">
-            Мы проводим и участвуем в литературных вечерах, поэтических встречах, интеллектуальных играх, олимпиадах по журналистике и во многом другом.
+            Мы&nbsp;проводим и&nbsp;участвуем в&nbsp;литературных вечерах, поэтических встречах, интеллектуальных играх, олимпиадах по&nbsp;журналистике и&nbsp;во&nbsp;многом другом.
           </p>
           <TheButton label="Узнать больше" type="border" path="entrance" />
         </div>
@@ -227,36 +227,15 @@ export default {
   }
 
   .other_news__list {
-    display: grid;
-    grid-template:
-      "news1 news2 news3 news4" 360px
-      "news5 news6 news7 news8" 360px / 1fr 1fr 1fr 1fr;
-    gap: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:20px;
     list-style: none;
+  }
 
-    @media screen and (width <= 1086px) {
-      grid-template:
-        "news1 news1" 1fr
-        "news2 news3" 1fr
-        "news6 news6" 1fr
-        "news4 news5" 1fr / 1fr 1fr;
-      max-width: 812px;
-      margin: 0 auto;
-    }
-
-    @media screen and (width <= 460px) {
-      grid-template:
-        "news1" 1fr
-        "news2" 1fr
-        "news3" 1fr
-        "news5" 1fr
-        "news4" 1fr
-        "news6" 1fr / 1fr;
-      max-width: 420px;
-      margin: 0 auto;
-    }
-
-
+  .other_news__item{
+    max-width:360px ;
   }
 
   .main-news__item {
@@ -300,31 +279,7 @@ export default {
     padding: 0 40px;
   }
 
-  .other_news__item {
-    &#news1 {
-      grid-area: news1;
-    }
 
-    &#news2 {
-      grid-area: news2;
-    }
-
-    &#news3 {
-      grid-area: news3;
-    }
-
-    &#news4 {
-      grid-area: news4;
-    }
-
-    &#news5 {
-      grid-area: news5;
-    }
-
-    &#news6 {
-      grid-area: news6;
-    }
-  }
 
   .other_news__title {
     margin: 60px auto;
