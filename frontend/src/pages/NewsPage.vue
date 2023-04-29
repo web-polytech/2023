@@ -203,15 +203,15 @@ export default {
 
     @media screen and (width <= 1260px) {
       grid-template:
-        "news1 news1" 1fr
-        "news2 news3" 1fr
-        "news6 news6" 1fr
-        "news4 news5" 1fr / 1fr 1fr;
+        "news1 news1" auto
+        "news2 news3" auto
+        "news6 news6" auto
+        "news4 news5" auto / 1fr 1fr;
       max-width: 812px;
       margin: 0 auto;
     }
 
-    @media screen and (width <= 460px) {
+    @media screen and (width <= 780px) {
       grid-template:
         "news1" 1fr
         "news2" 1fr

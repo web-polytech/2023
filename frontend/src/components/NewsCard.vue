@@ -92,10 +92,5 @@ export default {
       font-style: normal;
       line-height: 130%;
     }
-
-    @media screen and (width <= 796px) {
-      height:auto ;
-    }
-
   }
 </style>
