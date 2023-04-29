@@ -32,7 +32,6 @@ export default {
 
   .news-card {
     width: 100%;
-    max-width: 600px;
     max-height: 804px;
     margin: 0 auto;
     padding: 20px;
@@ -51,7 +50,7 @@ export default {
     }
 
     &--big {
-      width: 800px;
+      width: 668px;
     }
 
 
