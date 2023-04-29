@@ -259,7 +259,8 @@ export default{
       justify-content: space-evenly;
       gap:20px;
       width: calc(100% - 40px);
-      margin: 0 40px 40px;
+      max-width: 1440px;
+      margin: 0 auto 40px;
       padding: 36px;
       font-family: 'PT Serif', sans-serif;
       list-style: none;
