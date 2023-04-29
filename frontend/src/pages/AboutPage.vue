@@ -1,14 +1,18 @@
 <template>
   <section class="info">
-    <h1 class="info__title">
-      О Нашей Школе
-    </h1>
-    <p class="info__text">
-      Мы дарим возможность творить,
-      создавать, улучшать, реализовывать
-      свои идеи и осуществлять мечты.
-    </p>
-    <img src="../assets/images/School.webp" alt="Photo of school" class="info__image">
+    <div class="info__wrapper">
+      <div class="info__text-wrapper">
+        <h1 class="info__title">
+          О Нашей Школе
+        </h1>
+        <p class="info__text">
+          Мы дарим возможность творить,
+          создавать, улучшать, реализовывать
+          свои идеи и осуществлять мечты.
+        </p>
+      </div>
+      <img src="../assets/images/School.webp" alt="Photo of school" class="info__image">
+    </div>
     <ul class="info__list">
       <li class="info__item" v-for="item in info">
         <p class="info__item-title">{{ item.title }}</p>
@@ -45,7 +49,7 @@
   </section>
   <section class="teachers">
     <h2 class="teachers__title">
-      Наш преподавательский состав
+      Наш учительский состав
     </h2>
     <div class="teachers__wrap">
       <ul class="teachers__list">
@@ -189,18 +193,21 @@ export default{
 
 <style lang="scss" scoped>
 
-  .info,.advantages,.education {
+  .advantages,.education {
     max-width: 1440px;
     margin:auto;
   }
 
   .info,.advantages,.admission,.teachers,.education {
     &__title {
+      padding-right: 20px;
+      padding-left: 20px;
       font-weight: 700;
       font-size: 3.2rem;
       line-height: 1;
       text-align: center;
-      @media screen and (width <= 780px) {
+
+      @media screen and (width <= 600px) {
         font-size: 2.4rem;
       }
     }
@@ -208,9 +215,6 @@ export default{
     &__text {
       font-size: 1.4rem;
       line-height: 1.2;
-      @media screen and (width <= 780px) {
-        font-size: 0.9rem;
-      }
     }
   }
 
@@ -232,18 +236,31 @@ export default{
 
     &__image {
       width: 100%;
-      height: 100%;
+      max-width: 2400px;
+      height: calc(100vh - 300px);
       object-fit: cover;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    &__text-wrapper {
+      height: 200px;
     }
 
     &__list {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      width: calc(100% - 40px);
-      margin: 40px;
-      padding: 36px;
       gap:20px;
+      width: calc(100% - 40px);
+      margin: 0 40px 40px;
+      padding: 36px;
       font-family: 'PT Serif', sans-serif;
       list-style: none;
       border-top: 1px solid #B5BBCB;
@@ -256,13 +273,14 @@ export default{
       align-items: center;
 
       &-title {
-        margin-bottom: 10px;
         font-weight: 700;
         font-size: 2.4rem;
+        line-height: 1.2;
       }
 
       &-text {
         font-size: 1.4rem;
+        line-height: 1;
       }
 
       &-span {
@@ -291,6 +309,7 @@ export default{
       align-items: center;
       margin-top: 40px;
       margin-bottom: 40px;
+
       @media screen and (width <= 1330px) {
         flex-direction: column;
         margin-bottom: 0;
@@ -301,6 +320,8 @@ export default{
       max-width: 780px;
       max-height: 560px;
       object-fit: cover;
+      margin: 0 40px;
+
       @media screen and (width <= 780px) {
         max-width: 100%;
       }
@@ -312,9 +333,10 @@ export default{
       padding: 42px 40px 22px 188px;
       list-style: none;
       background-color: #F6F6F6;
+
       @media screen and (width <= 1330px) {
-        padding: 20px;
         margin: 40px;
+        padding: 20px;
       }
     }
 
@@ -323,6 +345,7 @@ export default{
 
       &-title {
         margin-bottom: 20px;
+        line-height: 1.2;
       }
     }
 
@@ -333,13 +356,12 @@ export default{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    max-width: 100%;
     gap:40px;
-    max-height: 280px;
+    max-width: 100%;
+    min-height: 280px;
+    padding: 40px;
     text-align: center;
     background-color: #1C52A2;
-    padding-top: 40px;
-    padding-bottom: 40px;
 
     &__text {
       max-width: 800px;
@@ -356,6 +378,7 @@ export default{
       align-items: center;
       max-width: 1440px;
       margin: auto;
+
       @media screen and (width <= 1330px) {
         flex-direction: column;
       }
@@ -369,19 +392,23 @@ export default{
 
     &__image {
       object-fit: cover;
+
       &-wrapper {
         display: flex;
         flex-wrap: wrap;
         gap:20px;
+        width: 100%;
         min-width: 745px;
+
         @media screen and (width <= 1330px) {
           max-width: 745px;
-          padding-bottom: 40px;
           margin: auto;
+          padding-bottom: 40px;
         }
+
         @media screen and (width <= 780px) {
-          min-width: 0;
           flex-wrap: nowrap;
+          min-width: 0;
           overflow-x: scroll;
         }
       }
@@ -393,9 +420,10 @@ export default{
       padding: 40px 168px 20px 60px;
       list-style: none;
       background-color: white;
+
       @media screen and (width <= 1330px) {
-        padding: 20px;
         margin: 0 40px 40px;
+        padding: 20px;
       }
     }
 
@@ -404,6 +432,7 @@ export default{
 
       &-title {
         margin-bottom: 20px;
+        line-height: 1.2;
       }
     }
   }
@@ -418,6 +447,7 @@ export default{
       display: flex;
       justify-content: space-between;
       margin: 40px;
+
       @media screen and (width <= 1050px) {
         flex-direction: column;
         align-items: center;
@@ -447,6 +477,7 @@ export default{
       @media screen and (width <= 1330px) {
         grid-template-columns: repeat(2,1fr);
       }
+
       @media screen and (width <= 615px) {
         grid-template-columns: repeat(1,1fr);
       }
