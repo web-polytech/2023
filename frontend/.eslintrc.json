@@ -7,7 +7,7 @@
   },
   "extends": ["plugin:vue/vue3-strongly-recommended"],
   "parserOptions": {
-    "ecmaVersion": 2020,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {

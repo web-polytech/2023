@@ -24,9 +24,11 @@ import {ref} from 'vue';
 
 const value = ref('');
 
+const $emit = defineEmits(['update:modelValue']);
+
 const update = (e) => {
   value.value = e.target.value;
-  emit('update:modelValue', value.value);
+  $emit('update:modelValue', value.value);
 };
 
 defineProps({
@@ -43,12 +45,12 @@ defineProps({
   .field {
     display: flex;
     flex-direction: column;
+    gap: 0.25rem;
     margin-bottom: 1rem;
   }
 
   .field__label {
     order: -1;
-    margin-bottom: 0.5rem;
     font-size: 1.5em;
   }
 
@@ -57,7 +59,7 @@ defineProps({
     padding: 0.5rem;
     font-size: 1.3em;
     background-color: #F5F8FA;
-    border: 1px solid #cbd6e2;
+    border: 1px solid var(--accent-input-border);
     border-radius: 4px;
     resize: none;
 

@@ -74,8 +74,8 @@
     column-gap: 3.2rem;
 
     & > * {
+      padding-bottom: 2rem;
       break-inside: avoid;
-      margin-bottom: 1rem;
     }
 
   }

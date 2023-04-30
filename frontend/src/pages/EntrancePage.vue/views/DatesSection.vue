@@ -5,7 +5,7 @@
     </h2>
     <ul class="dates__list">
       <li class="dates__item">
-        <img class="dates__icon" src="@/assets/images/EntrancePage/EntranceIcon1.svg" alt="">
+        <img v-svg-inline class="dates__icon" src="@/assets/images/EntrancePage/EntranceIcon1.svg" alt="">
         <div class="dates__text-info">
           <span class="dates__text">
             форма для подачи заявления на&nbsp;поступление открыта
@@ -16,7 +16,7 @@
         </div>
       </li>
       <li class="dates__item">
-        <img class="dates__icon" src="@/assets/images/EntrancePage/EntranceIcon2.svg" alt="">
+        <img v-svg-inline class="dates__icon" src="@/assets/images/EntrancePage/EntranceIcon2.svg" alt="">
         <div class="dates__text-info">
           <span class="dates__text">
             анализ заявок на&nbsp;поступление и&nbsp;отбор претендентов
@@ -27,7 +27,7 @@
         </div>
       </li>
       <li class="dates__item">
-        <img class="dates__icon" src="@/assets/images/EntrancePage/EntranceIcon3.svg" alt="">
+        <img v-svg-inline class="dates__icon" src="@/assets/images/EntrancePage/EntranceIcon3.svg" alt="">
         <div class="dates__text-info">
           <span class="dates__text">
             проверка документов и&nbsp;рассылка ответов с&nbsp;результатами отбора
@@ -69,8 +69,9 @@
   }
 
   .dates__icon {
+    flex-shrink: 0;
     padding: 0;
-    color: red;
+    color: var(--accent-blue);
   }
 
   .dates__text-info {

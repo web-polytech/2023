@@ -53,7 +53,7 @@
     "rule-empty-line-before": [
       "always-multi-line",
       {
-        "except": ["first-nested"]
+        "except": ["first-nested", "after-single-line-comment"]
       }
     ],
     "comment-empty-line-before": [

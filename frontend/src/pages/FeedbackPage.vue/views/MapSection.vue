@@ -1,37 +1,13 @@
 <template>
-  <section class="requirements">
+  <div class="requirements">
     <h2 class="requirements__heading">
       Наша школа на карте
     </h2>
-    <yandex-map
-      class="requirements__map"
-      :coords="coords"
-      :zoom="10"
-      @click="onClick"
-    >
-      <ymap-marker
-        :coords="coords"
-        marker-id="123"
-        hint-content="some hint"
-      />
-    </yandex-map>
-  </section>
+    <iframe class="requirements__map" src="https://yandex.ru/map-widget/v1/?um=constructor%3A1c495c29179e90812d3630e05c7249ddc6b7da5920cc198d9ecc5cc64d268a35&amp;source=constructor" width="500" height="400" frameborder="0" />
+  </div>
 </template>
 
 <script>
-export default {
-  data: () => ({
-    coords: [
-      54.82896654088406,
-      39.831893822753904,
-    ],
-  }),
-  methods: {
-    onClick(e) {
-      this.coords = e.get('coords');
-    },
-  },
-};
 </script>
 
 
@@ -52,8 +28,9 @@ export default {
 
   .requirements__map  {
     display: block;
-    min-width: 200px;
-    min-height: 100px;
+    width: 100%;
+    min-height: 600px;
+    background-image: url('@/assets/images/FeedbackPage/MapScreenshot.png');
   }
 
 </style>

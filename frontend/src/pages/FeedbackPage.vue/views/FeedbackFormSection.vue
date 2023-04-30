@@ -3,7 +3,7 @@
     <h2 class="visually-hidden">
       Форма обратной связи
     </h2>
-    <TheForm class="feedback__form" action="/feedback">
+    <TheForm action="/feedback">
       <template #fields>
         <UIInput
           :label="`Имя`"
@@ -15,10 +15,18 @@
           name="surname"
           required
         />
+        <UIInput
+          :label="`Email`"
+          name="email"
+          type="email"
+          required
+        />
         <UISelect
           :label="`Тема сообщения`"
           :initial="`Выберите тему из списка`"
-          :options="['Вопросы поступление', 'world']"
+          :options="topics"
+          :search="true"
+          v-model="feedbackForm"
           name="topic"
         />
         <UITextarea
@@ -39,6 +47,18 @@
 
 <script setup>
 import TheForm from '@/components/TheForm.vue';
+import { ref } from 'vue';
+
+const feedbackForm = ref('');
+
+const topics = ref([
+  {label: 'Вопросы поступления', value: 'entrance questions'},
+  {label: 'Качество обучения', value: 'education quality'},
+  {label: 'Программа обучения', value: 'education program'},
+  {label: 'Стоимость', value: 'price'},
+  {label: 'Качество преподавания', value: 'teaching quality'},
+  {label: 'Другое', value: 'other'},
+]);
 
 </script>
 

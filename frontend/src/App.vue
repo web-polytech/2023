@@ -14,13 +14,15 @@ import TheFooter from '@/components/TheFooter.vue';
 </template>
 
 <style lang="scss">
-  @import 'https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,200,0,400;0,700;1,400;1,700&display=swap';
+  @import 'https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap';
   @import 'https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,700&display=swap';
 
   * {
     --wrapper: 1440px;
     --accent-blue: #1C52A2;
     --accent-gray: #F6F6F6;
+    --accent-input-background: #f5f8fa;
+    --accent-input-border: #cbd6e2;
     scroll-behavior: smooth;
     box-sizing: border-box;
     margin: 0;

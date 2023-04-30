@@ -6,11 +6,13 @@ export default {
 </script>
 
 <template>
-  <label class="field" :class="`field--${$attrs.type}`">
+  <label class="field" @click="checkType" :class="`field--${$attrs.type}`">
     <input
       v-bind="$attrs"
+      :value="modelValue"
+      @input="updateModelValue"
       class="field__input"
-      :class="`field__input--` + type"
+      :class="`field__input--${$attrs.type}`"
     >
     <span
       class="field__label"
@@ -22,17 +24,29 @@ export default {
 </template>
 
 <script setup>
+import { defineEmits } from 'vue';
 defineProps({
   label: {
     type: String,
     default: '',
-    required: true,
   },
-  modalValue: {
-    type: String,
+  modelValue: {
+    type: [String, Number],
     default: '',
   },
 });
+
+const emit = defineEmits(['update:modelValue']);
+
+const updateModelValue = (e) => {
+  emit('update:modelValue', e.target.value);
+};
+
+const checkType = (e) => {
+  if (e.target.type === 'file' && !e.target.className.includes('field__input--file')) {
+    e.preventDefault();
+  }
+};
 </script>
 
 
@@ -40,14 +54,35 @@ defineProps({
   .field  {
     display: flex;
     flex-direction: column;
+    gap: 0.25rem;
     margin-bottom: 1rem;
 
     &--checkbox, &--radio {
       flex-direction: row;
+      align-items: center;
       gap: 1rem;
       margin-top: 1rem;
+      cursor: pointer;
     }
 
+    &--file {
+      position: relative;
+      pointer-events: none;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        display: inline-grid;
+        width: 3rem;
+        height: 3rem;
+        background-color: var(--accent-input-background);
+        border: 2px solid var(--accent-input-border);
+        border-radius: 4px;
+        place-items: center;
+        content: 'file';
+      }
+    }
   }
 
   .field__input {
@@ -55,31 +90,89 @@ defineProps({
     padding: 0.5rem;
     font-size: 1.3em;
     background-color: #F5F8FA;
-    border: 1px solid #cbd6e2;
+    border: 1px solid var(--accent-input-border);
     border-radius: 4px;
 
     &--checkbox, &--radio {
-      min-height: initial;
-      accent-color: var(--accent-gray);
-      border: 0;
-    }
-
-    &--file::file-selector-button {
-      border: none;
-      border-radius: 4px;
-    }
-
-    &--file::-webkit-file-upload-button:hover {
-      max-width: 50px;
-      background-color: #81ecec;
-      border: 2px solid #00cec9;
+      all: unset;
+      position: absolute;
+      width: 1.2em;
+      height: 1.2em;
+      margin-right: -1.2em;
+      color: var(--accent-blue);
+      background-image: url('@/assets/images/checkbox/off.svg');
+      appearance: none;
     }
 
     &[required] ~ .field__label::after {
       content: ' *';
       color: red;
     }
+
   }
+
+  .field__input--checkbox {
+    &:focus {
+      background-image: url('@/assets/images/checkbox/off-focused.svg');
+    }
+
+    &:disabled {
+      background-image: url('@/assets/images/checkbox/off-disabled.svg');
+    }
+
+    &:checked {
+      background-image: url('@/assets/images/checkbox/on.svg');
+
+      &:focus {
+        background-image: url('@/assets/images/checkbox/on-focused.svg');
+      }
+
+      &:disabled {
+        background-image: url('@/assets/images/checkbox/on-disabled.svg');
+      }
+    }
+
+  }
+
+
+  .field__input--file {
+    position: relative;
+    align-self: end;
+    max-width: 12rem;
+    pointer-events: initial;
+
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      display: block;
+      display: inline-grid;
+      color: var(--accent-blue);
+      font-weight: 700;
+      background-color: white;
+      border: 2px solid var(--accent-blue);
+      border-radius: 4px;
+      place-items: center;
+      content: "Выбрать файл";
+    }
+
+    &:hover::after {
+      color: white;
+      background-color: var(--accent-blue);
+      transition: background-color 0.1s ease-in .05s, color 0.1s ease-in .05s;
+    }
+
+    &:focus::after {
+      color: white;
+      background-color: var(--accent-blue);
+    }
+
+  }
+
+
+
+
+
 
   .field__label {
     order: -1;
@@ -87,6 +180,7 @@ defineProps({
 
     &--checkbox, &--radio {
       order: 0;
+      padding-left: 1.2em;
     }
 
   }

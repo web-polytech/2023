@@ -17,19 +17,21 @@
           <UISelect
             :label="`Страна`"
             :initial="`Выберите страну из списка`"
-            :options="[
-              `Россия`, `Белорусь`, `Казахстан`
-            ]"
+            :search="true"
+            :options="countries"
             name="country"
+            v-model="selectedCountry"
             required
           />
           <UISelect
             :label="`Город проживания`"
             :initial="`Выберите город из списка`"
-            :options="[
-              `Москва`, `Санкт-Петербург`, `Сочи`
-            ]"
+            :options="cities"
+            :search="true"
+            v-model="feedbackForm"
+            id="citySelect"
             name="city"
+            disabled
             required
           />
           <UIInput
@@ -59,20 +61,16 @@
           />
           <UISelect
             :label="`Класс для поступления`"
-            :options="[
-              `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`
-            ]"
-            placeholder="Выберите класс из списка"
+            :options="classes"
+            :initial="`Выберите класс из списка`"
             required="true"
             name="class"
           />
 
           <UISelect
             :label="`Специализация ребенка (с 8 класса)`"
-            :placeholder="`Выберите специализацию из списка`"
-            :options="[
-              `Естественно-Научная`, `Гуманитарная`
-            ]"
+            :initial="`Выберите специализацию из списка`"
+            :options="specializations"
             name="specialization"
           />
           <UIInput
@@ -118,10 +116,85 @@
   </section>
 </template>
 
+
 <script setup>
+import { ref, watch, onMounted, reactive } from 'vue';
 import TheForm from '@/components/TheForm.vue';
-import UITextarea from '../../../components/UI/UITextarea.vue';
+
+const API_KEY = 'wtf403';
+
+const countries = ref([]);
+const selectedCountry = ref('');
+const cities = ref([]);
+
+const classes = ref([
+  { label: '1 класс', value: '1'},
+  { label: '2 класс', value: '2'},
+  { label: '3 класс', value: '3' },
+  { label: '4 класс', value: '4' },
+  { label: '5 класс', value: '5' },
+  { label: '6 класс', value: '6' },
+  { label: '7 класс', value: '7' },
+  { label: '8 класс', value: '8' },
+  { label: '9 класс', value: '9' },
+  { label: '10 класс', value: '10' },
+  { label: '11 класс', value: '11' },
+]);
+
+const specializations = ref([
+  {label: 'Естественно-Научная', value: 'scientific'},
+  {label: 'Гуманитарная', value: 'humanitarian' },
+]);
+
+async function fetchCountries() {
+  const response = await fetch(`http://api.geonames.org/countryInfoJSON?username=${API_KEY}&lang=ru`);
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+
+  let result = '';
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    result += decoder.decode(value);
+  }
+  countries.value = JSON.parse(result).geonames.map((country) => ({
+    value: country.countryCode,
+    label: country.countryName,
+  }));
+}
+
+async function fetchCities() {
+  const response = await fetch(`http://api.geonames.org/searchJSON?country=${selectedCountry.value}&featureClass=P&lang=ru&username=${API_KEY}`);
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+
+  let result = '';
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    result += decoder.decode(value);
+  }
+  cities.value = JSON.parse(result).geonames.map((city) => ({
+    value: city.toponymName,
+    label: city.name,
+  }));
+}
+
+onMounted(() => {
+  fetchCountries();
+});
+
+watch(selectedCountry, () => {
+  fetchCities();
+  const citySelect = document.getElementById('citySelect');
+  if (selectedCountry.value !== '') {
+    citySelect.disabled = false;
+  }
+});
+
+
 </script>
+
 
 <style lang="scss" scoped>
   .application {
@@ -142,7 +215,5 @@ import UITextarea from '../../../components/UI/UITextarea.vue';
     flex-direction: column;
     align-items: center;
   }
-
-
 </style>
 

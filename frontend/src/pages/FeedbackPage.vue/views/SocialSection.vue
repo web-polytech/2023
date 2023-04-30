@@ -44,6 +44,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    gap: 2rem;
   }
 
   .social__item  {
