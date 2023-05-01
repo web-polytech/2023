@@ -65,7 +65,7 @@
     flex-direction: column;
     gap: 1em;
     padding: 4rem 3rem;
-    background-color: var(--accent-gray);
+    background-color: $accent-gray;
   }
 
   .requirements__item {
@@ -83,10 +83,10 @@
       align-self: start;
       min-width: 2.2rem;
       min-height: 2.2rem;
-      color: var(--accent-blue);
+      color: $accent-blue;
       font-weight: 700;
       font-size: 1.5em;
-      border: .2rem solid var(--accent-blue);
+      border: .2rem solid $accent-blue;
       border-radius: 50%;
       content: counter(advantages);
     }

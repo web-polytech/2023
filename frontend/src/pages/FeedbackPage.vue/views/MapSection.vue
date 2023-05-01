@@ -22,7 +22,7 @@
     margin-block: 1rem;
   }
 
-  @media (width <= 786px) {
+  @media (width <= $media-tablet) {
     .requirements__heading {
       font-size: 2.5em;
       text-align: center;

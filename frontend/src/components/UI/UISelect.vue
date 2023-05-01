@@ -175,11 +175,11 @@ const searchedOptions = computed(() => {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
-    color: var(--accent-gray);
+    color: $accent-gray;
     font-size: 1.25em;
     text-align: start;
     background-color: #F5F8FA;
-    border: 1px solid var(--accent-input-border);
+    border: 1px solid $accent-input-border;
     border-radius: 4px;
     appearance: none;
   }
@@ -203,7 +203,7 @@ const searchedOptions = computed(() => {
   }
 
   .field__initial {
-    color: var(--accent-gray)
+    color: $accent-gray
   }
 
   .field__popover {
@@ -244,7 +244,7 @@ const searchedOptions = computed(() => {
     color: $accent-dark;
     font-size: 1.3em;
     background-color: #F5F8FA;
-    border: 1px solid var(--accent-input-border);
+    border: 1px solid $accent-input-border;
     border-radius: 4px;
     appearance: none;
 

@@ -18,11 +18,6 @@ import TheFooter from '@/components/TheFooter.vue';
   @import 'https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,700&display=swap';
 
   * {
-    --wrapper: 1440px;
-    --accent-blue: #1C52A2;
-    --accent-gray: #F6F6F6;
-    --accent-input-background: #f5f8fa;
-    --accent-input-border: #cbd6e2;
     scroll-behavior: smooth;
     box-sizing: border-box;
     margin: 0;
@@ -49,7 +44,7 @@ import TheFooter from '@/components/TheFooter.vue';
   main {
     padding-top: 100px;
 
-    @media screen and (width <= 892px) {
+    @media screen and (width <= $media-tablet) {
       padding-top: 54px;
     }
   }
@@ -61,14 +56,31 @@ import TheFooter from '@/components/TheFooter.vue';
     font-family: 'PT Serif', sans-serif;
     line-height: 1;
     text-align: center;
+
+    @media (width <= $media-desktop) {
+      font-size: 3.5em;
+    }
+
+    @media (width <= $media-tablet) {
+      font-size: 3em;
+    }
+
   }
 
   .h2 {
     margin: 60px auto;
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 3em;
     line-height: 1;
     text-align: center;
+
+    @media (width <= $media-desktop) {
+      font-size: 2.5em;
+    }
+
+    @media (width <= $media-tablet) {
+      font-size: 2em;
+    }
   }
 
 </style>

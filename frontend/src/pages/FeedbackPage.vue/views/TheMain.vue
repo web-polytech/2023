@@ -19,6 +19,7 @@ import SocialSection from './SocialSection.vue';
 
 
 <style lang="scss" scoped>
+  $page-width: 1600px;
 
   .wrapper {
     display: grid;
@@ -31,7 +32,7 @@ import SocialSection from './SocialSection.vue';
     gap: 2rem;
     row-gap: 8rem;
     width: 100%;
-    max-width: 1600px;
+    max-width: $page-width;
     margin: 0 auto;
     margin-bottom: 6rem;
     padding-inline: 2rem;
@@ -60,7 +61,7 @@ import SocialSection from './SocialSection.vue';
     grid-area: social;
   }
 
-  @media (width <= 1600px) {
+  @media (width <= $page-width) {
     .wrapper {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
@@ -75,7 +76,7 @@ import SocialSection from './SocialSection.vue';
     }
   }
 
-  @media (width <= 1210px) {
+  @media (width <= $media-desktop) {
     .wrapper {
       grid-template-columns: 1fr;
       grid-template-areas:
@@ -88,7 +89,7 @@ import SocialSection from './SocialSection.vue';
     }
   }
 
-  @media (width <= 786px) {
+  @media (width <= $media-tablet) {
     .wrapper {
       padding-inline: 0;
     }

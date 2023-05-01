@@ -20,12 +20,11 @@ import ApplicationFormSection from './ApplicationFormSection.vue';
     width: 100%;
     max-width: var(--wrapper);
     margin: 0 auto;
+
+    @media (width <= 1210px) {
+      padding-inline: 2rem;
+    }
   }
 
 
-  @media (width <= 1210px) {
-  }
-
-  @media (width <= 786px) {
-  }
 </style>

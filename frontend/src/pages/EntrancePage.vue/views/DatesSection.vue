@@ -66,9 +66,9 @@
     display: flex;
     align-items: center;
     padding: 0.63em 1.25rem;
-    background-color: var(--accent-gray);
+    background-color: $accent-gray;
 
-    @media (width <= 1210px) {
+    @media (width <= $media-desktop) {
       flex-direction: column;
       padding-inline: .5rem;
     }
@@ -77,7 +77,7 @@
   .dates__icon {
     flex-shrink: 0;
     padding: 0;
-    color: var(--accent-blue);
+    color: $accent-blue;
   }
 
   .dates__text-info {
@@ -85,7 +85,7 @@
     padding-block: 1rem;
     text-align: center;
 
-    @media (width <= 1210px) {
+    @media (width <= $media-desktop) {
       display: flex;
       flex-grow: 1;
       flex-direction: column;
@@ -99,18 +99,18 @@
     font-size: 1.5em;
     line-height: 1;
 
-    @media (width <= 1210px) {
+    @media (width <= $media-desktop) {
       font-size: 1.25em;
     }
   }
 
   .dates__date {
     padding: 0;
-    color: var(--accent-blue);
+    color: $accent-blue;
     font-size: 2.25em;
     text-justify: bottom;
 
-    @media (width <= 1210px) {
+    @media (width <= $media-desktop) {
       font-size: 1.5em;
     }
   }

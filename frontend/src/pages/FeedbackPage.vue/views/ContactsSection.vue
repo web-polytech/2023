@@ -77,6 +77,25 @@
       padding-bottom: 2rem;
       break-inside: avoid;
     }
+
+    @media (width <= $media-desktop) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "item1 item2"
+        "item3 item3"
+        "item4 item4"
+        "item5 item5"
+    }
+  }
+
+  @media (width <= $media-desktop) {
+    /* stylelint-disable-next-line at-rule-no-unknown */
+    @for $i from 1 through 5 {
+      .contacts__wrapper > *:nth-child(#{$i}) {
+        grid-area: item#{$i};
+      }
+    }
   }
 
   .contacts__heading {
@@ -84,15 +103,14 @@
     font-size: 3em;
     text-align: start;
 
-  }
-
-  @media (width <= 786px) {
-    .contacts__heading {
+    @media (width <= $media-desktop) {
       font-size: 2.5em;
     }
+
+    @media (width <= $media-tablet) {
+      font-size: 2em;
+    }
   }
-
-
 
   .contacts__list {
     display: flex;
@@ -100,7 +118,7 @@
   }
 
   .contacts__title {
-    color: var(--accent-blue);
+    color: $accent-blue;
     font-weight: bold;
     font-size: 1.25em;
     font-variant: small-caps;
@@ -125,38 +143,16 @@
   .contacts__image {
     display: block;
     max-width: 100%;
-  }
 
-  @media (width <= 1210px) {
-    .contacts__wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas:
-        "item1 item2"
-        "item3 item3"
-        "item4 item4"
-        "item5 item5"
-    }
-
-    .contacts__image {
+    @media (width <= $media-desktop) {
       display: none;
     }
-
-    /* stylelint-disable-next-line at-rule-no-unknown */
-    @for $i from 1 through 5 {
-      .contacts__wrapper > *:nth-child(#{$i}) {
-        grid-area: item#{$i};
-      }
-    }
-
   }
 
-  @media (width <= 768px) {
+  @media (width <= $media-tablet) {
     .contacts__wrapper {
       display: flex;
       flex-direction: column-reverse;
     }
   }
-
-
 </style>

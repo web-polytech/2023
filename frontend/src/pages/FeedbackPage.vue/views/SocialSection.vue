@@ -41,7 +41,7 @@
     margin-block: 1rem;
   }
 
-  @media (width <= 786px) {
+  @media (width <= $media-tablet) {
     .social__heading {
       font-size: 2.5em;
     }
@@ -63,7 +63,7 @@
     padding-inline-start: 2rem;
   }
 
-  @media (width <= 786px) {
+  @media (width <= $media-tablet) {
     .social__item {
       padding-inline-start: 0;
     }

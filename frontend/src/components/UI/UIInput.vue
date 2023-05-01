@@ -76,8 +76,8 @@ const checkType = (e) => {
         display: inline-grid;
         width: 3rem;
         height: 3rem;
-        background-color: var(--accent-input-background);
-        border: 2px solid var(--accent-input-border);
+        background-color: $accent-input-background;
+        border: 2px solid $accent-input-border;
         border-radius: 4px;
         place-items: center;
         content: 'file';
@@ -90,7 +90,7 @@ const checkType = (e) => {
     padding: 0.5rem;
     font-size: 1.3em;
     background-color: #F5F8FA;
-    border: 1px solid var(--accent-input-border);
+    border: 1px solid $accent-input-border;
     border-radius: 4px;
 
     &--checkbox, &--radio {
@@ -99,7 +99,7 @@ const checkType = (e) => {
       width: 1.2em;
       height: 1.2em;
       margin-right: -1.2em;
-      color: var(--accent-blue);
+      color: $accent-blue;
       background-image: url('@/assets/images/checkbox/off.svg');
       appearance: none;
     }
@@ -147,10 +147,10 @@ const checkType = (e) => {
       inset: 0;
       display: block;
       display: inline-grid;
-      color: var(--accent-blue);
+      color: $accent-blue;
       font-weight: 700;
       background-color: white;
-      border: 2px solid var(--accent-blue);
+      border: 2px solid $accent-blue;
       border-radius: 4px;
       place-items: center;
       content: "Выбрать файл";
@@ -158,13 +158,13 @@ const checkType = (e) => {
 
     &:hover::after {
       color: white;
-      background-color: var(--accent-blue);
+      background-color: $accent-blue;
       transition: background-color 0.1s ease-in .05s, color 0.1s ease-in .05s;
     }
 
     &:focus::after {
       color: white;
-      background-color: var(--accent-blue);
+      background-color: $accent-blue;
     }
 
   }
