@@ -21,8 +21,17 @@ import ApplicationFormSection from './ApplicationFormSection.vue';
     max-width: var(--wrapper);
     margin: 0 auto;
 
-    @media (width <= 1210px) {
+    @media (width <= $media-desktop) {
       padding-inline: 2rem;
+    }
+  }
+
+  .wrapper__form {
+    @media (width <= $media-desktop) {
+      inline-size: 100vw;
+      margin-inline-start: 50%;
+      padding-inline: .5rem;
+      transform: translateX(-50%);
     }
   }
 

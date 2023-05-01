@@ -58,6 +58,10 @@
     margin-bottom: 2rem;
     font-size: 1.75em;
     text-align: center;
+
+    @media (width <= $media-tablet) {
+      font-size: 1.25em;
+    }
   }
 
   .requirements__list {
@@ -66,6 +70,10 @@
     gap: 1em;
     padding: 4rem 3rem;
     background-color: $accent-gray;
+
+    @media (width <= $media-tablet) {
+      padding: 1rem 2rem;
+    }
   }
 
   .requirements__item {
@@ -89,11 +97,21 @@
       border: .2rem solid $accent-blue;
       border-radius: 50%;
       content: counter(advantages);
+
+      @media (width <= $media-tablet) {
+        display: none;
+      }
     }
+
   }
 
   .requirements__content {
     padding-inline-start: 2rem;
+
+    @media (width <= $media-tablet) {
+      padding-inline-start: 0;
+    }
+
   }
 
   .requirements__claim {
@@ -102,11 +120,19 @@
     font-weight: 700;
     font-size: 2.25em;
     line-height: 1.1;
+
+    @media (width <= $media-tablet) {
+      font-size: 1.5em;
+    }
   }
 
   .requirements__description {
     margin-top: 1rem;
     font-size: 1.5em;
+
+    @media (width <= $media-tablet) {
+      font-size: 1.25em;
+    }
   }
 </style>
 

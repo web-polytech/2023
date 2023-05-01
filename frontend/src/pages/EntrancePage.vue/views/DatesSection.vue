@@ -60,6 +60,12 @@
     gap: 1rem;
     list-style: none;
 
+
+    @media (width <= $media-tablet) {
+      display: flex;
+      flex-direction: column;
+    }
+
   }
 
   .dates__item {
@@ -70,7 +76,13 @@
 
     @media (width <= $media-desktop) {
       flex-direction: column;
-      padding-inline: .5rem;
+      padding-inline: 1rem;
+
+    }
+
+    @media (width <= $media-tablet) {
+      flex-direction: row;
+      padding-inline: 1rem 2rem;
     }
   }
 
@@ -98,6 +110,7 @@
   .dates__text {
     font-size: 1.5em;
     line-height: 1;
+    text-wrap: balance;
 
     @media (width <= $media-desktop) {
       font-size: 1.25em;

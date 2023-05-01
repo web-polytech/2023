@@ -210,6 +210,10 @@ watch(selectedCountry, () => {
   .application__form {
     column-count: 2;
     column-gap: 3.2rem;
+
+    @media (width <= $media-tablet) {
+      column-count: 1;
+    }
   }
 
   .application__buttons {

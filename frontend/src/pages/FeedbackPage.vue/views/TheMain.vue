@@ -19,7 +19,6 @@ import SocialSection from './SocialSection.vue';
 
 
 <style lang="scss" scoped>
-  $page-width: 1600px;
 
   .wrapper {
     display: grid;
@@ -105,6 +104,10 @@ import SocialSection from './SocialSection.vue';
   .wrapper__social {
     grid-area: social;
     margin-top: 2rem;
+
+    @media (width <= $page-width) {
+      margin-top: 0;
+    }
 
     @media (width <= $media-tablet) {
       padding: 1rem;

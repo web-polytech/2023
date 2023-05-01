@@ -64,8 +64,10 @@ defineProps({
     resize: none;
 
     &[required] ~ .field__label::after {
-      content: ' *';
+      display: inline;
       color: red;
+      white-space: nowrap;
+      content: ' *';
     }
   }
 

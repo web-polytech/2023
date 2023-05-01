@@ -105,8 +105,10 @@ const checkType = (e) => {
     }
 
     &[required] ~ .field__label::after {
-      content: ' *';
+      display: inline;
       color: red;
+      white-space: nowrap;
+      content: ' *';
     }
 
   }

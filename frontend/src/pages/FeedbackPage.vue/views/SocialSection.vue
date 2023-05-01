@@ -34,15 +34,14 @@
 </template>
 <style scoped lang="scss">
 
-
   .social__heading {
     font-size: 3em;
     text-align: start;
     margin-block: 1rem;
-  }
 
-  @media (width <= $media-tablet) {
-    .social__heading {
+
+
+    @media (width <= $media-tablet) {
       font-size: 2.5em;
     }
   }
@@ -61,14 +60,11 @@
     align-items: center;
     gap: 1rem;
     padding-inline-start: 2rem;
-  }
 
-  @media (width <= $media-tablet) {
-    .social__item {
+    @media (width <= $media-tablet) {
       padding-inline-start: 0;
     }
   }
-
 
   .social__link  {
     color: #0000ff;
