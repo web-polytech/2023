@@ -1,6 +1,6 @@
 <template>
   <section class="requirements">
-    <h2 class="requirements__heading">
+    <h2 class="h2 requirements__heading">
       Наша школа на карте
     </h2>
     <iframe class="requirements__map" src="https://yandex.ru/map-widget/v1/?um=constructor%3A1c495c29179e90812d3630e05c7249ddc6b7da5920cc198d9ecc5cc64d268a35&amp;source=constructor" width="500" height="400" frameborder="0" />

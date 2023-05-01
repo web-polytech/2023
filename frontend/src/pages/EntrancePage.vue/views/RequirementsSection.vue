@@ -1,6 +1,6 @@
 <template>
   <section class="requirements">
-    <h2 class="requirements__heading">
+    <h2 class="h2 requirements__heading">
       Требования к&nbsp;кандидатам
     </h2>
     <p class="requirements__text">

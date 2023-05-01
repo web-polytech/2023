@@ -1,6 +1,6 @@
 <template>
   <section class="social">
-    <h2 class="social__heading">
+    <h2 class="h2 social__heading">
       Наша школа в интернете
     </h2>
     <ul class="social__list">

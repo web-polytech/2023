@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h1 class="wrapper__title">
+    <h1 class="h1 wrapper__title">
       Свяжитесь с&nbsp;нами
     </h1>
     <ContactsSection class="wrapper__contacts" />

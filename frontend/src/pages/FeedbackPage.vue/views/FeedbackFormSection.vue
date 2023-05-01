@@ -1,6 +1,6 @@
 <template>
   <section class="feedback">
-    <h2 class="visually-hidden">
+    <h2 class="h2 visually-hidden">
       Форма обратной связи
     </h2>
     <TheForm action="/feedback">

@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
-    <HeroSection />
-    <DatesSection />
-    <RequirementsSection />
-    <ApplicationFormSection id="form" />
+    <HeroSection class="wrapper__hero" />
+    <DatesSection class="wrapper__dates" />
+    <RequirementsSection class="wrapper__requirements" />
+    <ApplicationFormSection id="form" class="wrapper__form" />
   </div>
 </template>
 
@@ -22,5 +22,10 @@ import ApplicationFormSection from './ApplicationFormSection.vue';
     margin: 0 auto;
   }
 
- 
+
+  @media (width <= 1210px) {
+  }
+
+  @media (width <= 786px) {
+  }
 </style>

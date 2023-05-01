@@ -54,7 +54,7 @@ import TheFooter from '@/components/TheFooter.vue';
     }
   }
 
-  h1 {
+  .h1 {
     font-weight: 700;
     font-weight: bold;
     font-size: 4rem;
@@ -63,7 +63,7 @@ import TheFooter from '@/components/TheFooter.vue';
     text-align: center;
   }
 
-  h2 {
+  .h2 {
     margin: 60px auto;
     font-weight: 700;
     font-size: 4rem;

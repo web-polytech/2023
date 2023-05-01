@@ -1,6 +1,6 @@
 <template>
   <section class="contacts">
-    <h2 class="contacts__heading">
+    <h2 class="h2 contacts__heading">
       Наши контакты
     </h2>
     <div class="contacts__wrapper">

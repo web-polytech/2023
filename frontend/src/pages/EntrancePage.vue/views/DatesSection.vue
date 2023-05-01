@@ -1,6 +1,6 @@
 <template>
   <section class="dates">
-    <h2 class="dates__heading">
+    <h2 class="h2 dates__heading">
       График подачи и рассмотрения заявок
     </h2>
     <ul class="dates__list">
@@ -59,6 +59,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     list-style: none;
+
   }
 
   .dates__item {
@@ -66,6 +67,11 @@
     align-items: center;
     padding: 0.63em 1.25rem;
     background-color: var(--accent-gray);
+
+    @media (width <= 1210px) {
+      flex-direction: column;
+      padding-inline: .5rem;
+    }
   }
 
   .dates__icon {
@@ -78,11 +84,24 @@
     margin-bottom: -.8rem;
     padding-block: 1rem;
     text-align: center;
+
+    @media (width <= 1210px) {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
   }
 
   .dates__text {
     font-size: 1.5em;
     line-height: 1;
+
+    @media (width <= 1210px) {
+      font-size: 1.25em;
+    }
   }
 
   .dates__date {
@@ -90,6 +109,12 @@
     color: var(--accent-blue);
     font-size: 2.25em;
     text-justify: bottom;
+
+    @media (width <= 1210px) {
+      font-size: 1.5em;
+    }
   }
+
+
 
 </style>

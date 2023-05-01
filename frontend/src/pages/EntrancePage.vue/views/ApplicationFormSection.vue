@@ -1,6 +1,8 @@
 <template>
   <section class="application">
-    <h2>Электронная форма для подачи заявки заявления на поступление</h2>
+    <h2 class="h2">
+      Электронная форма для подачи заявки заявления на поступление
+    </h2>
     <TheForm action="/entrance" id="#form" class="application__form">
       <template #fields>
         <div class="application__form">

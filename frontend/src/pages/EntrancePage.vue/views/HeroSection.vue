@@ -1,6 +1,6 @@
 <template>
   <section class="hero">
-    <h1 class="hero__heading">
+    <h1 class="h1 hero__heading">
       Поступление
     </h1>
     <p class="hero__text">
