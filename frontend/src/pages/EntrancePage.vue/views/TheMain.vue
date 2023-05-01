@@ -26,5 +26,4 @@ import ApplicationFormSection from './ApplicationFormSection.vue';
     }
   }
 
-
 </style>

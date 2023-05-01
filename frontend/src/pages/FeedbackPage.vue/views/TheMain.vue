@@ -30,39 +30,13 @@ import SocialSection from './SocialSection.vue';
       "map social";
     grid-auto-flow: 1em;
     gap: 2rem;
-    row-gap: 8rem;
     width: 100%;
     max-width: $page-width;
     margin: 0 auto;
     margin-bottom: 6rem;
     padding-inline: 2rem;
-  }
 
-  .wrapper__title {
-    grid-area: title;
-    margin-top: 1rem;
-    margin-bottom: 4rem;
-  }
-
-  .wrapper__contacts {
-    grid-area: contacts;
-  }
-
-  .wrapper__form {
-    grid-area: form;
-    width: 100%;
-  }
-
-  .wrapper__map {
-    grid-area: map;
-  }
-
-  .wrapper__social {
-    grid-area: social;
-  }
-
-  @media (width <= $page-width) {
-    .wrapper {
+    @media (width <= $page-width) {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
         "title title title"
@@ -71,13 +45,7 @@ import SocialSection from './SocialSection.vue';
         "map map map";
     }
 
-    .wrapper__contacts {
-      padding-inline: 0;
-    }
-  }
-
-  @media (width <= $media-desktop) {
-    .wrapper {
+    @media (width <= $media-desktop) {
       grid-template-columns: 1fr;
       grid-template-areas:
         "title"
@@ -87,32 +55,60 @@ import SocialSection from './SocialSection.vue';
         "social";
       row-gap: 2rem;
     }
-  }
 
-  @media (width <= $media-tablet) {
-    .wrapper {
+    @media (width <= $media-tablet) {
       padding-inline: 0;
     }
+  }
 
-    .wrapper__title {
+  .wrapper__title {
+    grid-area: title;
+    margin-block: 3rem;
+
+    @media (width <= $media-tablet) {
       margin-bottom: 0;
       font-size: 3em;
     }
 
-    .wrapper__form {
-      padding: 1rem;
+  }
+
+  .wrapper__contacts {
+    grid-area: contacts;
+
+    @media (width <= $page-width) {
+      padding-inline: 0;
     }
 
-    .wrapper__contacts {
-      padding: 1rem;
-    }
-
-    .wrapper__map {
-      text-align: center;
-    }
-
-    .wrapper__social {
+    @media (width <= $media-tablet) {
       padding: 1rem;
     }
   }
+
+  .wrapper__form {
+    grid-area: form;
+    width: 100%;
+
+    @media (width <= $media-tablet) {
+      padding: 1rem;
+    }
+  }
+
+  .wrapper__map {
+    grid-area: map;
+    margin-top: 2rem;
+
+    @media (width <= $media-tablet) {
+      text-align: center;
+    }
+  }
+
+  .wrapper__social {
+    grid-area: social;
+    margin-top: 2rem;
+
+    @media (width <= $media-tablet) {
+      padding: 1rem;
+    }
+  }
+
 </style>
