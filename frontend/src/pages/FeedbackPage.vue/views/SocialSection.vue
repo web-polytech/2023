@@ -38,13 +38,22 @@
   .social__heading {
     font-size: 3em;
     text-align: start;
+    margin-block: 1rem;
   }
+
+  @media (width <= 786px) {
+    .social__heading {
+      font-size: 2.5em;
+    }
+  }
+
 
   .social__list {
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 2rem;
+    margin-top: 3rem;
   }
 
   .social__item  {
@@ -53,6 +62,13 @@
     gap: 1rem;
     padding-inline-start: 2rem;
   }
+
+  @media (width <= 786px) {
+    .social__item {
+      padding-inline-start: 0;
+    }
+  }
+
 
   .social__link  {
     color: #0000ff;

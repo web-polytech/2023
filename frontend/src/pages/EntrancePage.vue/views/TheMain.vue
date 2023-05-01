@@ -21,4 +21,6 @@ import ApplicationFormSection from './ApplicationFormSection.vue';
     max-width: var(--wrapper);
     margin: 0 auto;
   }
+
+ 
 </style>

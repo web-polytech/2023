@@ -74,6 +74,14 @@ const topics = ref([
     margin-inline-start: auto;
   }
 
+  @media (width <= 786px) {
+    .feedback__button {
+      font-size: 1em !important;
+      margin-inline: auto;
+    }
+  }
+
+
   .feedback__form {
     display: flex;
     flex-direction: column;
