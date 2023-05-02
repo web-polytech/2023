@@ -239,6 +239,9 @@ export default{
       max-width: 2400px;
       height: calc(100vh - 300px);
       object-fit: cover;
+      @media screen and (width <= 892px) {
+        height: calc(100vh - 254px);
+      }
     }
 
     &__wrapper {
@@ -400,6 +403,7 @@ export default{
         gap:20px;
         width: 100%;
         min-width: 745px;
+        margin-right: 40px;
 
         @media screen and (width <= 1330px) {
           max-width: 745px;
@@ -410,7 +414,9 @@ export default{
         @media screen and (width <= 780px) {
           flex-wrap: nowrap;
           min-width: 0;
+          max-width: calc(100% - 80px);
           overflow-x: scroll;
+          margin: 0 40px;
         }
       }
     }
