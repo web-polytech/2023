@@ -1,10 +1,10 @@
 <template>
   <RouterLink to="#">
     <div class="clubs-card">
-      <img :src="'src/assets/images/'+content.image" alt="Club image" class="clubs-image">
-      <div class="clubs-text-wrapper">
-        <h3 class="clubs-tagline">{{content.heading}}</h3>
-        <p class="clubs-text">{{content.text}}</p>
+      <img :src="'src/assets/images/'+content.image" alt="Club image" class="clubs-card__image">
+      <div class="clubs-card__text-wrapper">
+        <h3 class="clubs-card__tagline">{{content.heading}}</h3>
+        <p class="clubs-card__text">{{content.text}}</p>
       </div>
     </div>
   </RouterLink>
@@ -17,10 +17,6 @@ export default {
   props: {
     content: {
       type: Object,
-      required: true,
-    },
-    type: {
-      type: String,
       required: true,
     },
   },
@@ -69,14 +65,14 @@ export default {
     }
   }
 
-  .clubs-image {
+  .clubs-card__image {
     display: block;
     width: calc(100% - 3rem);
     height: auto;
     margin-top: -7rem;
   }
 
-  .clubs-tagline {
+  .clubs-card__tagline {
     margin-top: 0.5em;
     padding: 0 1.5rem;
     color: $color-black;
@@ -87,7 +83,7 @@ export default {
     line-height: 110%;
   }
 
-  .clubs-text {
+  .clubs-card__text {
     margin-top: 1em;
     padding: 0 1.5rem 3rem;
     color: $color-black;

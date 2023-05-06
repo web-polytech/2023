@@ -1,8 +1,8 @@
 <template>
   <RouterLink to="#">
     <div class="sports-card">
-      <img :src="'src/assets/images/'+content.image" alt="Sport-club image" class="sports-image">
-      <h3 class="sports-tagline">{{content.heading}}</h3>
+      <img :src="'src/assets/images/'+content.image" alt="Sport-club image" class="sports-card__image">
+      <h3 class="sports-card__tagline">{{content.heading}}</h3>
     </div>
   </RouterLink>
 </template>
@@ -14,10 +14,6 @@ export default {
   props: {
     content: {
       type: Object,
-      required: true,
-    },
-    type: {
-      type: String,
       required: true,
     },
   },
@@ -62,7 +58,7 @@ export default {
     }
   }
 
-  .sports-image {
+  .sports-card__image {
     max-width: 26rem;
     height: auto;
 
@@ -71,7 +67,7 @@ export default {
     }
   }
 
-  .sports-tagline {
+  .sports-card__tagline {
     margin-top: 0.5em;
     color: $color-black;
     font-weight: 700;

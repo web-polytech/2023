@@ -1,10 +1,10 @@
 <template>
   <!-- <RouterLink to="#"> -->
     <div class="lectures-card">
-      <img class="lectures-image" :src="'src/assets/images/'+content.image" alt="Lecture image">
+      <img class="lectures-card__image" :src="'src/assets/images/'+content.image" alt="Lecture image">
       <div class="lectures-card__text-wrapper" :class="{ 'lectures-card__text-wrapper_right-text': position=='right' }">
         <h3 class="lectures-card__heading" :class="{ 'lectures-card__heading_white-text': color=='white' }">{{content.heading}}</h3>
-        <p class="lectures-text" :class="{ 'lectures-card__text_white-text': color=='white' }">{{content.text}}</p>
+        <p class="lectures-card__text" :class="{ 'lectures-card__text_white-text': color=='white' }">{{content.text}}</p>
       </div>
     </div>
   <!-- </RouterLink> -->
@@ -64,7 +64,7 @@ export default {
     }
   }
 
-  .lectures-image {
+  .lectures-card__image {
     max-width: 100%;
     object-fit: cover;
   }
@@ -117,7 +117,7 @@ export default {
     color: #ffffff;
   }
 
-  .lectures-text {
+  .lectures-card__text {
     color: #000000;
     font-weight: 500;
     font-size: 1.75rem;
