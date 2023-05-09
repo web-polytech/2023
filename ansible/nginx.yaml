@@ -1,0 +1,28 @@
+---
+- name: Compiling nginx
+  hosts: all
+  gather_facts: true
+  remote_user: root
+
+  vars:
+    hello: "Hello, World!"
+
+  tasks:
+    - name: Ensure nginx is installed
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+  pre_tasks:
+    - name: Install dependencies
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - git
+
+  handlers:
+    - name: Restart nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
