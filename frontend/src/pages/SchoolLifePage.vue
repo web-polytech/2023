@@ -1,14 +1,20 @@
 <template>
   <div>
     <section class="promo">
-      <h1 class="promo__heading">Школьная жизнь</h1>
-      <p class="promo__decsription">Создаем условия для активного и здорового образа жизни, способствуем культурному и творческому развитию и позволяем преобретать навыки</p>
+      <h1 class="promo__heading">
+        Школьная жизнь
+      </h1>
+      <p class="promo__decsription">
+        Создаем условия для активного и здорового образа жизни, способствуем культурному и творческому развитию и позволяем преобретать навыки
+      </p>
     </section>
     <section class="clubs">
       <div class="clubs__wrapper">
-        <h2 class="clubs__heading">Школьные объединения</h2>
+        <h2 class="clubs__heading">
+          Школьные объединения
+        </h2>
         <ul class="clubs__list">
-          <li class="clubs__card" v-for="item in clubs">
+          <li class="clubs__card" v-for="id, item in clubs" :key="id">
             <SchoolLifeClubsCard :content="item" class="clubs-card" />
           </li>
         </ul>
@@ -16,16 +22,22 @@
     </section>
     <section class="sports">
       <div class="sports__wrapper">
-        <h2 class="sports__heading">Спортивные секции</h2>
+        <h2 class="sports__heading">
+          Спортивные секции
+        </h2>
         <ul class="sports__list">
-          <li class="sports__card" v-for="item in sports">
+          <li class="sports__card" v-for="id, item in sports" :key="id">
             <SchoolLifeSportsCard :content="item" class="sports-card" />
           </li>
         </ul>
       </div>
     </section>
     <section class="lectures">
-      <h2 class="lectures__heading">Лекции и курсы в Нашей школе <span class="lectures__heading lectures__heading_blue">(new)</span></h2>
+      <h2 class="lectures__heading">
+        Лекции и курсы в Нашей школе <span class="lectures__heading lectures__heading--blue">
+          (new)
+        </span>
+      </h2>
       <ul class="lectures__list">
         <li class="lectures__card" v-for="item, index in lectures" :key="index" :id="'lectures'+(index+1)">
           <SchoolLifeLecturesCard :content="item" :color="(index==1||index==3||index==4||index==5)?'white':'default'" :position="(index==4)?'right':'default'" class="lectures-card" />
@@ -245,7 +257,7 @@ export default {
     text-align: center;
   }
 
-  .lectures__heading_blue {
+  .lectures__heading--blue {
     color: #1333AB;
   }
 

@@ -1,12 +1,16 @@
 <template>
   <!-- <RouterLink to="#"> -->
-    <div class="lectures-card">
-      <img class="lectures-card__image" :src="'src/assets/images/'+content.image" alt="Lecture image">
-      <div class="lectures-card__text-wrapper" :class="{ 'lectures-card__text-wrapper_right-text': position=='right' }">
-        <h3 class="lectures-card__heading" :class="{ 'lectures-card__heading_white-text': color=='white' }">{{content.heading}}</h3>
-        <p class="lectures-card__text" :class="{ 'lectures-card__text_white-text': color=='white' }">{{content.text}}</p>
-      </div>
+  <div class="lectures-card">
+    <img class="lectures-card__image" :src="'src/assets/images/'+content.image" alt="Lecture image">
+    <div class="lectures-card__text-wrapper" :class="{ 'lectures-card__text-wrapper_right-text': position=='right' }">
+      <h3 class="lectures-card__heading" :class="{ 'lectures-card__heading_white-text': color=='white' }">
+        {{content.heading}}
+      </h3>
+      <p class="lectures-card__text" :class="{ 'lectures-card__text_white-text': color=='white' }">
+        {{content.text}}
+      </p>
     </div>
+  </div>
   <!-- </RouterLink> -->
 </template>
 
