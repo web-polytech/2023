@@ -7,11 +7,11 @@
   },
   "extends": ["plugin:vue/vue3-strongly-recommended"],
   "parserOptions": {
-    "ecmaVersion": 2020,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {
-    "arrow-spacing": ["error", { "before": false, "after": false }],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "camelcase": ["error", { "properties": "never" }],
