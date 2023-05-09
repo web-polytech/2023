@@ -34,7 +34,7 @@
     </section>
   </div>
 </template>
-
+// коммент для коммита
 <script>
 import SchoolLifeClubsCard from '../components/SchoolLifeClubsCard.vue';
 import SchoolLifeSportsCard from '../components/SchoolLifeSportsCard.vue';
