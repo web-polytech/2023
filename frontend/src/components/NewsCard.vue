@@ -1,10 +1,10 @@
 <template>
   <RouterLink to="#" class="news-card" :class="{'news-card--big': type=='big'}">
-    <img :src="'src/assets/images/'+content.imageSrc" alt="" class="news-image" >
+    <img :src="'src/assets/images/'+content.imageSrc" alt="" class="news-image">
     <div class="news-text-wrapper">
-      <h2 class="news-title">{{ content.title }}</h2>
-      <p class="news-tagline">{{ content.tagline }}</p>
-      <p class="news-text">{{ content.text }}</p>
+      <h2 class="news-title">{{content.title}}</h2>
+      <p class="news-tagline">{{content.tagline}}</p>
+      <p class="news-text">{{content.text}}</p>
     </div>
   </RouterLink>
 </template>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "NewsCard",
+  name: 'NewsCard',
   props: {
     content: {
       type: Object,
@@ -49,11 +49,6 @@ export default {
       }
     }
 
-    &--big {
-    }
-
-
-
     .news-image {
       width: calc(100% + 40px); // ширина изображения с учетом отступов
       height: auto;
@@ -65,12 +60,10 @@ export default {
       color: $color-blue;
       font-weight: 700;
       font-size: 20px;
-      font-family: 'PT Serif';
+      font-family: 'PT Serif', sans-serif;
       font-style: normal;
       font-variant: small-caps;
-      line-height: 100%
-
-
+      line-height: 1;
     }
 
     .news-tagline {
@@ -78,9 +71,9 @@ export default {
       color: $color-black;
       font-weight: 700;
       font-size: 1.5em;
-      font-family: "PT Sans";
+      font-family: 'PT Serif', sans-serif;
       font-style: normal;
-      line-height: 110%;
+      line-height: 1.1;
     }
 
     .news-text {
@@ -88,9 +81,9 @@ export default {
       color: $color-black;
       font-weight: 400;
       font-size: 1em;
-      font-family: "PT Sans";
+      font-family: 'PT Serif', sans-serif;
       font-style: normal;
-      line-height: 130%;
+      line-height: 1.3;
     }
   }
 </style>
