@@ -336,7 +336,7 @@ export default {
 
   .last-news__wrapper {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 24px auto;
     padding: 0 40px;
   }
 
