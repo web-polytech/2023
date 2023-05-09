@@ -25,4 +25,4 @@ jobs:
       - run: npm ci
       - run: npm run build
       # Deploy
-      - run: cd dist && rsync --archive --compress --delete .. polytech@3.126.153.92:/home/polytech/school
+      - run: cd dist && rsync --archive --compress --delete .. polytech@${{ secrets.SERVER_IP }}:/home/polytech/school

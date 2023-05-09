@@ -1,12 +1,11 @@
-import {
-  createRouter,
-  createWebHistory
-} from 'vue-router';
-import HomePage from '../pages/HomePage.vue';
-import AboutPage from '../pages/AboutPage.vue';
-import EntrancePage from '../pages/EntrancePage.vue';
-import NewsPage from '../pages/NewsPage.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import HomePage from '@/pages/HomePage.vue';
+import AboutPage from '@/pages/AboutPage.vue';
+import EntrancePage from '@/pages/EntrancePage.vue';
+import NewsPage from '@/pages/NewsPage.vue';
+import FeedbackPage from '@/pages/FeedbackPage.vue';
 import SchoolLifePage from '../pages/SchoolLifePage.vue';
+
 
 const router = createRouter({
   history: createWebHistory(
@@ -35,6 +34,11 @@ const router = createRouter({
       path: '/school-life',
       name: '/school-life',
       component: SchoolLifePage,
+    },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: FeedbackPage,
     },
   ],
 });
