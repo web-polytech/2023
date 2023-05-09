@@ -32,17 +32,17 @@
       </ul>
     </div>
   </section>
-  <section class="last_news">
-    <div class="last_news__wrapper">
-      <h2 class="last_news__title">
+  <section class="last-news">
+    <div class="last-news__wrapper">
+      <h2 class="last-news__title">
         Последние новости
       </h2>
-      <ul class="last_news__list">
-        <li v-for="item, index in news" :key="index" :id="'news'+(index+1)" class="last_news__item last_news__item--big">
-          <HomeNewsCard :content="item" :type="(index==0||index==5)?'big':'default'" class="last_news__card" />
+      <ul class="last-news__list">
+        <li v-for="item, index in news" :key="index" :id="'news'+(index+1)" class="last-news__item last-news__item--big">
+          <HomeNewsCard :content="item" :type="(index==0||index==5)?'big':'default'" class="last-news__card" />
         </li>
       </ul>
-      <div class="last_news__action">
+      <div class="last-news__action">
         <TheButton :path="'/news'" :label="'Больше новостей'" />
       </div>
     </div>
@@ -57,7 +57,7 @@
           <HomeEventsCard :content="item" />
         </li>
       </ul>
-      <div class="last_news__action">
+      <div class="last-news__action">
         <TheButton :path="'#'" :label="'Больше событий'" type="light" />
       </div>
     </div>
@@ -303,7 +303,7 @@ export default {
     line-height: 1.2;
   }
 
-  .last_news__list {
+  .last-news__list {
     display: grid;
     grid-template:
       "news1 news1 news2 news3" 360px
@@ -334,13 +334,13 @@ export default {
     }
   }
 
-  .last_news__wrapper {
+  .last-news__wrapper {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
   }
 
-  .last_news__item {
+  .last-news__item {
     &#news1 {
       grid-area: news1;
     }
@@ -366,7 +366,7 @@ export default {
     }
   }
 
-  .last_news__title, .events__title, .admission__title {
+  .last-news__title, .events__title, .admission__title {
     margin: 60px auto;
     font-weight: 700;
     font-size: 3rem;
@@ -378,7 +378,7 @@ export default {
     color: #FFFFFF;
   }
 
-  .last_news__action {
+  .last-news__action {
     display: flex;
     justify-content: end;
     margin-top: 36px;

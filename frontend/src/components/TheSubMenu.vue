@@ -19,7 +19,7 @@
       <RouterLink class="submenu__link" to="/advances">Достижения</RouterLink>
     </li>
     <li class="submenu__item">
-      <RouterLink class="submenu__link" to="/contacts">Контакты</RouterLink>
+      <RouterLink class="submenu__link" to="/feedback">Контакты</RouterLink>
     </li>
   </ul>
 </template>

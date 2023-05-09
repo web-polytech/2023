@@ -1,19 +1,24 @@
 <template>
-  <RouterLink class="button" :class="{'button--light': type=='light', 'button--border': type=='border'}" :to="path">{{label}}</RouterLink>
+  <a v-if="link" class="link" :class="{'button--light':light, 'button--outline':outline}" :href="href"><slot /></a>
+  <button v-else class="button" :class="{'button--light':light, 'button--outline':outline}">
+    <slot />
+  </button>
 </template>
+
+
 <script setup>
-defineProps({
-  label: {
+const props = defineProps({
+  link: {
     type: String,
     default: '',
   },
-  path: {
-    type: String,
-    default: '#',
+  light: {
+    type: Boolean,
+    default: false,
   },
-  type: {
-    type: String,
-    default: 'default',
+  outline: {
+    type: Boolean,
+    default: false,
   },
   disable: {
     type: Boolean,
@@ -22,15 +27,23 @@ defineProps({
 });
 </script>
 
-<style lang="scss">
-  .button {
+<script>
+export default {
+  name: 'UIButton',
+};
+</script>
+
+
+<style lang="scss" scoped>
+  .button, .link {
     width: fit-content;
     padding: 14px 50px;
     color: #FFFFFF;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-decoration: none;
     background-color: #1C52A2;
+    border: 0;
     box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%);
     transition: background-color 150ms ease-in-out;
 
@@ -50,7 +63,7 @@ defineProps({
     }
   }
 
-  .button--border {
+  .button--outline {
     padding: 11px 50px;
     color: #1C52A2;
     background-color: transparent;
