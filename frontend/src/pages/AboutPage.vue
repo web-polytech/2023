@@ -251,6 +251,7 @@ export default {
       max-width: 2400px;
       height: calc(100vh - 300px);
       object-fit: cover;
+
       @media screen and (width <= 892px) {
         height: calc(100vh - 254px);
       }
@@ -427,8 +428,8 @@ export default {
           flex-wrap: nowrap;
           min-width: 0;
           max-width: calc(100% - 80px);
-          overflow-x: scroll;
           margin: 0 40px;
+          overflow-x: scroll;
         }
       }
     }

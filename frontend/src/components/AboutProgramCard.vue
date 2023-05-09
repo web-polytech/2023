@@ -4,20 +4,20 @@
       <img :src="'src/assets/images/'+content.image" alt="Direction image" class="education-image">
       <div class="education-info">
         <p class="education-title">
-          {{ content.title }}
+          {{content.title}}
         </p>
         <p class="education-text">
-          {{ content.text }}
+          {{content.text}}
         </p>
         <svg class="education-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7H12.2L6.6 1.4L8 0L16 8L8 16L6.6 14.6L12.2 9H0V7Z"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7H12.2L6.6 1.4L8 0L16 8L8 16L6.6 14.6L12.2 9H0V7Z" />
         </svg>
       </div>
     </div>
   </RouterLink>
 </template>
 <script>
-  import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router';
 export default {
   props: {
     content: {
@@ -25,12 +25,22 @@ export default {
       required: true,
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
 
   .education {
+    &-info {
+      position: absolute;
+      top:0;
+      width: 100%;
+      height: 100%;
+      padding: 32px;
+      background-color: #F6F6F6;
+      transition: ease-out 300ms;
+    }
+
     &-wrap {
       position: relative;
       max-width:285px;
@@ -49,16 +59,6 @@ export default {
           fill:white;
         }
       }
-    }
-
-    &-info {
-      position: absolute;
-      top:0;
-      width: 100%;
-      height: 100%;
-      padding: 32px;
-      background-color: #F6F6F6;
-      transition: ease-out 300ms;
     }
 
     &-image {
