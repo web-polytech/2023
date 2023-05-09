@@ -14,10 +14,16 @@
       <img src="../assets/images/School.webp" alt="Photo of school" class="info__image">
     </div>
     <ul class="info__list">
-      <li class="info__item" v-for="item in info">
-        <p class="info__item-title">{{ item.title }}</p>
-        <p class="info__item-text">{{ item.text }}</p>
-        <p class="info__item-span">{{ item.span }}</p>
+      <li class="info__item" v-for="item,index in info" :key="index">
+        <p class="info__item-title">
+          {{item.title}}
+        </p>
+        <p class="info__item-text">
+          {{item.text}}
+        </p>
+        <p class="info__item-span">
+          {{item.span}}
+        </p>
       </li>
     </ul>
   </section>
@@ -28,12 +34,12 @@
     <div class="advantages__wrap">
       <img class="advantages__image" src="../assets/images/Students.webp" alt="Students image">
       <ul class="advantages__list">
-        <li class="advantages__item" v-for="item in advantages">
+        <li class="advantages__item" v-for="item,index in advantages" :key="index">
           <p class="advantages__item-title">
-            {{ item.title }}
+            {{item.title}}
           </p>
           <p class="advantages__item-text">
-            {{ item.text }}
+            {{item.text}}
           </p>
         </li>
       </ul>
@@ -53,20 +59,20 @@
     </h2>
     <div class="teachers__wrap">
       <ul class="teachers__list">
-        <li class="teachers__item" v-for="item in teachers">
+        <li class="teachers__item" v-for="item,index in teachers" :key="index">
           <p class="teachers__item-title">
-            {{ item.title }}
+            {{item.title}}
           </p>
           <p class="teachers__item-text">
-            {{ item.text }}
+            {{item.text}}
           </p>
         </li>
       </ul>
       <div class="teachers__image-wrapper">
-          <img src="../assets/images/Teacher1.webp" alt="Teacher image" class="teachers__image">
-          <img src="../assets/images/Teacher2.webp" alt="Teacher image" class="teachers__image">
-          <img src="../assets/images/Teacher3.webp" alt="Teacher image" class="teachers__image">
-          <img src="../assets/images/Teacher4.webp" alt="Teacher image" class="teachers__image">
+        <img src="../assets/images/Teacher1.webp" alt="Teacher image" class="teachers__image">
+        <img src="../assets/images/Teacher2.webp" alt="Teacher image" class="teachers__image">
+        <img src="../assets/images/Teacher3.webp" alt="Teacher image" class="teachers__image">
+        <img src="../assets/images/Teacher4.webp" alt="Teacher image" class="teachers__image">
       </div>
     </div>
   </section>
@@ -76,13 +82,19 @@
     </h2>
     <div class="education__wrapper">
       <div class="education__text-wrapper">
-        <h3 class="education__subtitle">Программы обучения</h3>
-        <p class="education__text">Мы предоставляем нашим учащимся возможность самостоятельного выбора специализации относительно их интересов.</p>
-        <p class="education__text">С 8 класса Наша школа проводит профориентационное тестирование, которое позволяет практически точно определить склонности учащегося, его интересы и увлечения. При весм этом мы не навязываем определенную сферу деятельности, поэтому сменить специализацию можно в любой момент.</p>
+        <h3 class="education__subtitle">
+          Программы обучения
+        </h3>
+        <p class="education__text">
+          Мы предоставляем нашим учащимся возможность самостоятельного выбора специализации относительно их интересов.
+        </p>
+        <p class="education__text">
+          С 8 класса Наша школа проводит профориентационное тестирование, которое позволяет практически точно определить склонности учащегося, его интересы и увлечения. При весм этом мы не навязываем определенную сферу деятельности, поэтому сменить специализацию можно в любой момент.
+        </p>
       </div>
       <ul class="education__list">
-        <li class="education__item" v-for="item in education">
-          <AboutProgramCard :content="item"/>
+        <li class="education__item" v-for="item,index in education" :key="index">
+          <AboutProgramCard :content="item" />
         </li>
       </ul>
     </div>
@@ -92,41 +104,41 @@
 import TheButton from '../components/TheButton.vue';
 import AboutProgramCard from '../components/AboutProgramCard.vue';
 
-export default{
+export default {
   components: {
     TheButton,
     AboutProgramCard,
   },
   data() {
     return {
-      info:[
+      info: [
         {
-          title:'>1200',
-          text:'учащихся',
-          span:'за 2021 год',
+          title: '>1200',
+          text: 'учащихся',
+          span: 'за 2021 год',
         },
         {
-          title:'240',
-          text:'преподавателей',
-          span:'',
+          title: '240',
+          text: 'преподавателей',
+          span: '',
         },
         {
-          title:'8',
-          text:'специальностей',
-          span:'после 8 класса',
+          title: '8',
+          text: 'специальностей',
+          span: 'после 8 класса',
         },
         {
-          title:'260',
-          text:'олимпиадников',
-          span:'за 2021 год',
+          title: '260',
+          text: 'олимпиадников',
+          span: 'за 2021 год',
         },
         {
-          title:'бесплатное',
-          text:'обучение и питание',
-          span:'(кроме некоторых секций)',
-        }
+          title: 'бесплатное',
+          text: 'обучение и питание',
+          span: '(кроме некоторых секций)',
+        },
       ],
-      advantages:[
+      advantages: [
         {
           title: 'Высокий уровень образования',
           text: 'Самое большое внимание мы уделяем индивидуальному обучению наших учеников. В дружеской конкурентной среде мы воспитываем в них целеустремленность и стойкость. Мы не просто даем знания, но и пытаемся заинтересовать учеников, чтобы каждый мог найти себя.',
@@ -140,7 +152,7 @@ export default{
           text: 'Учащиеся Нашей школы принимают участие в сотнях различных мероприятиях, где часто занимают призовые места. Каждый ученик мечтает попасть на доску почета, стать героем школы, прославиться и получить бонусы, а наши учителя всегда готовы провести подготовку.',
         },
       ],
-      teachers:[
+      teachers: [
         {
           title: 'Настоящие профессионалы своего дела',
           text: 'Наши учителя одни из самых специализированных в своих областях, у всех за плечами имеется опыт работы в крупнейших компаниях на высоких должностях, лучших школах или топ университетах страны. ',
@@ -154,7 +166,7 @@ export default{
           text: 'Не только учащиеся, но и преподаватели узнают новое, развиваются и прогрессируют. Мы старательно способствуем тому, чтобы учителя прокачивали свои навыки в изучении новых технологий, программных средств и навыков в обучении. Благодаря этому преподаватели дают максимум знаний, а учащиеся их полностью усваивают.',
         },
       ],
-      education:[
+      education: [
         {
           title: 'Химия / Биология',
           text: 'Подходит для будущих медиков, химиков, экологов, или биологов, ну и работников промышленности.',
@@ -186,9 +198,9 @@ export default{
           image: 'PhysicaleducationCard.webp',
         },
       ],
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
