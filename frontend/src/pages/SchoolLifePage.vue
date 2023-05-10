@@ -14,7 +14,7 @@
           Школьные объединения
         </h2>
         <ul class="clubs__list">
-          <li class="clubs__card" v-for="id, item in clubs" :key="id">
+          <li class="clubs__card" v-for="(item, id) in clubs" :key="id">
             <SchoolLifeClubsCard :content="item" class="clubs-card" />
           </li>
         </ul>
@@ -26,7 +26,7 @@
           Спортивные секции
         </h2>
         <ul class="sports__list">
-          <li class="sports__card" v-for="id, item in sports" :key="id">
+          <li class="sports__card" v-for="(item, id) in sports" :key="id">
             <SchoolLifeSportsCard :content="item" class="sports-card" />
           </li>
         </ul>
