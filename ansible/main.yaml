@@ -1,0 +1,24 @@
+- import_playbook: auth.yaml
+
+- hosts: all
+  gather_facts: true
+  remote_user: polytech
+
+  tasks:
+    - name: Print user variable (main.yaml)
+      debug:
+        var: "{{ hostvars[inventory_hostname]['login_user'] }}"
+
+- import_playbook: utils.yaml
+  vars:
+    login_user: "{{ hostvars[inventory_hostname]['login_user'] }}"
+  tags: utils
+
+- import_playbook: nginx.yaml
+  tags: nginx
+
+- import_playbook: user.yaml
+  tags: user
+
+- import_playbook: deploy.yaml
+  tags: deploy
