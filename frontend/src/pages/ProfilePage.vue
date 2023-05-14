@@ -18,18 +18,136 @@
       <div class="cover-block__avatar">
         <img src="/src/assets/images/profile-avatar01.webp" alt="" class="cover-block__image">
       </div>
+      <h2 class="cover-block__username">
+        Кирилл Петров
+      </h2>
+    </div>
+  </section>
+  <section class="dashboard">
+    <div class="dashboard__wrapper">
+      <h3 class="dashboard__title">
+        Панель управления
+      </h3>
+      <ul class="dashboard__control">
+        <li class="dashboard__items" v-for="item, index in tiles" :key="index">
+          <ProfileTile :tile="item" />
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="connect">
+    <div class="connect__wrapper">
+      <ul class="connect__list">
+        <li class="connect__item" />
+      </ul>
     </div>
   </section>
 </template>
 
 <script>
+import ProfileTile from '@/components/ProfileTile.vue';
 
 export default {
   components: {
+    ProfileTile,
   },
   data() {
     return {
-
+      tiles: [
+        {
+          title: 'Сообщения',
+          icon: 'mail',
+          link: 'messages',
+          count: 4,
+          active: true,
+        },
+        {
+          title: 'Электронный дневник',
+          icon: 'diary',
+          link: 'diary',
+          count: 0,
+          active: true,
+        },
+        {
+          title: 'Объявления',
+          icon: 'notification',
+          link: 'notification',
+          count: 2,
+          active: true,
+        },
+        {
+          title: 'Учащиеся',
+          icon: 'students',
+          link: 'students',
+          count: 0,
+          active: true,
+        },
+        {
+          title: 'Учителя и руководство',
+          icon: 'administration',
+          link: 'administration',
+          count: 0,
+          active: true,
+        },
+        {
+          title: 'Настройки',
+          icon: 'settings',
+          link: 'settings',
+          count: 0,
+          active: true,
+        },
+        {
+          title: 'Платные услуги',
+          icon: 'payable',
+          link: 'payable',
+          count: 0,
+          active: true,
+        },
+        {
+          title: 'Портфолио',
+          icon: 'portfolio',
+          link: 'portfolio',
+          count: 0,
+          active: true,
+        },
+        {
+          title: 'Электронная библиотека',
+          icon: 'library',
+          link: 'digital-library',
+          count: 0,
+          active: true,
+        },
+        {
+          title: 'Клубы и секции',
+          icon: 'clubs',
+          link: 'clubs',
+          count: 0,
+          active: true,
+        },
+        {
+          title: 'Экзамены',
+          icon: 'exams',
+          link: 'exams',
+          count: 0,
+          active: false,
+        },
+        {
+          title: 'Зачисление',
+          icon: 'admission',
+          link: 'admission',
+          count: 0,
+          active: false,
+        },
+      ],
+      connect: [
+        {
+          title: 'Страница Вконтакте',
+          desc: 'id 183490201',
+          open_link: 'vk-open-token',
+          close_link: 'vk-close-token',
+          icon: 'vk',
+        },
+      ],
     };
   },
   methods: {
