@@ -259,4 +259,12 @@ export default {
     color: #1CCD18;
     text-transform: uppercase;
   }
+
+
+  .dashboard__control {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    list-style: none;
+  }
 </style>
