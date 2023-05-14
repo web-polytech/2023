@@ -1,11 +1,19 @@
 <template>
-  <RouterLink class="button" :class="{'button--light': type=='light', 'button--border': type=='border'}" :to="path">{{label}}</RouterLink>
+  <RouterLink v-if="view == 'router'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel'}" :to="path">{{label}}</RouterLink>
+  <a v-if="view == 'link'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel'}" :href="path">{{label}}</a>
+  <button v-if="view == 'button'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel'}" :on-click="path">
+    {{label}}
+  </button>
 </template>
 <script setup>
 defineProps({
   label: {
     type: String,
     default: '',
+  },
+  view: {
+    type: String,
+    default: 'router',
   },
   path: {
     type: String,
@@ -60,6 +68,20 @@ defineProps({
     &:hover {
       color: #FFFFFF;
       background-color: #1C52A2;
+    }
+  }
+
+  .button--cancel {
+    padding: 11px 50px;
+    color: #A21C1C;
+    background-color: transparent;
+    border: 3px solid transparent;
+    box-shadow: none;
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+      color: #FFFFFF;
+      background-color: #A21C1C;
     }
   }
 </style>

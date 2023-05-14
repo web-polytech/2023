@@ -1,12 +1,13 @@
 <template>
   <section class="cover-block">
+    <img class="cover-block__cover" src="src/assets/images/profile-cover01.webp" alt="cover profile">
     <div class="cover-block__wrapper">
-      <div class="cover-block__badge">
+      <div class="cover-block__badge cover-block__badge--left">
         <p class="cover-block__badge-text cover-block__class">
           10 А класс
         </p>
       </div>
-      <div class="cover-block__badge">
+      <div class="cover-block__badge cover-block__badge--right">
         <p class="cover-block__badge-text cover-block__status">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="8" cy="8" r="8" fill="#1CCD18" />
@@ -38,7 +39,9 @@
   <section class="connect">
     <div class="connect__wrapper">
       <ul class="connect__list">
-        <li class="connect__item" />
+        <li class="connect__item" v-for="item, index in connect" :key="index">
+          <ProfileConnect :resourse="item" />
+        </li>
       </ul>
     </div>
   </section>
@@ -46,10 +49,12 @@
 
 <script>
 import ProfileTile from '@/components/ProfileTile.vue';
+import ProfileConnect from '@/components/ProfileConnect.vue';
 
 export default {
   components: {
     ProfileTile,
+    ProfileConnect,
   },
   data() {
     return {
@@ -172,9 +177,10 @@ export default {
 <style lang="scss">
 
   .cover-block__wrapper {
+    position: relative;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 0 0 40px;
+    padding: 0 40px;
 
     @media screen and (width <= 786px){
       display: flex;
@@ -183,10 +189,74 @@ export default {
     }
   }
 
-  .cover-block__title {
+  .cover-block__cover {
+    z-index: 0;
+    width: 100%;
+    height: 320px;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+
+  .cover-block__username {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
     font-weight: 700;
     font-size: 3.2rem;
     font-family: 'PT Serif', sans-serif;
     line-height: 1;
+    text-align: center;
+  }
+
+  .cover-block__avatar {
+    position: absolute;
+    right: 0;
+    bottom: -64px;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .cover-block__image {
+    width: 300px;
+    height: 300px;
+    border: 16px solid #FFFFFF;
+    border-radius: 50%;
+    box-shadow: 3px 3px 15px rgb(0 0 0 / 10%), 0 0 10px rgb(0 0 0 / 10%);
+  }
+
+  .cover-block__badge {
+    position: absolute;
+    top: -230px;
+    padding: 12px 16px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    box-shadow: 3px 3px 15px rgb(0 0 0 / 5%), 0 0 10px rgb(0 0 0 / 5%);
+
+    &--left {
+      left: calc(50% - 260px);
+    }
+
+    &--right {
+      right: calc(50% - 260px);
+    }
+  }
+
+  .cover-block__badge-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .cover-block__status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1CCD18;
+    text-transform: uppercase;
   }
 </style>
