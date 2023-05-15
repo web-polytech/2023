@@ -18,7 +18,7 @@ import ApplicationFormSection from './ApplicationFormSection.vue';
 <style lang="scss" scoped>
   .wrapper {
     width: 100%;
-    max-width: var(--wrapper);
+    max-width: $wrapper;
     margin: 0 auto;
 
     @media (width <= $media-desktop) {

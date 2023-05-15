@@ -171,11 +171,6 @@ const checkType = (e) => {
 
   }
 
-
-
-
-
-
   .field__label {
     order: -1;
     font-size: 1.2rem;

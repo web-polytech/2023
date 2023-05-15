@@ -33,7 +33,6 @@
             v-model="feedbackForm"
             id="citySelect"
             name="city"
-            disabled
             required
           />
           <UIInput
@@ -200,7 +199,12 @@ watch(selectedCountry, () => {
 
 <style lang="scss" scoped>
   .application {
+    max-width: $page-width;
+    inline-size: 100vw;
+    margin-bottom: 2rem;
+    margin-inline-start: 50%;
     padding: 2rem;
+    transform: translateX(-50%);
 
     & > * {
       break-inside: avoid;
@@ -210,6 +214,10 @@ watch(selectedCountry, () => {
   .application__form {
     column-count: 2;
     column-gap: 3.2rem;
+
+    @media (width <= $media-desktop) {
+      column-gap: 1rem;
+    }
 
     @media (width <= $media-tablet) {
       column-count: 1;
