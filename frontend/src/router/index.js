@@ -4,8 +4,9 @@ import AboutPage from '@/pages/AboutPage.vue';
 import EntrancePage from '@/pages/EntrancePage.vue';
 import NewsPage from '@/pages/NewsPage.vue';
 import FeedbackPage from '@/pages/FeedbackPage.vue';
-import SchoolLifePage from '../pages/SchoolLifePage.vue';
-import ProfilePage from '../pages/ProfilePage.vue';
+import SchoolLifePage from '@/pages/SchoolLifePage.vue';
+import AuthPage from '@/pages/AuthPage.vue';
+import ProfilePage from '@/pages/ProfilePage.vue';
 
 
 const router = createRouter({
@@ -46,6 +47,18 @@ const router = createRouter({
     name: 'profile',
     component: ProfilePage,
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: AuthPage,
+    props: () => ({ auth: 'login' }),
+   },
+   {
+    path: '/register',
+    name: 'register',
+    component: AuthPage,
+    props: () => ({ auth: 'register' }),
+   },
   ],
 });
 

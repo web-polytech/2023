@@ -37,10 +37,10 @@ export default {
 <style lang="scss" scoped>
   .button, .link {
     width: fit-content;
-    padding: 14px 50px;
+    padding: .75em 2em;
     color: #FFFFFF;
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1rem;
     text-decoration: none;
     background-color: #1C52A2;
     border: 0;
@@ -64,7 +64,6 @@ export default {
   }
 
   .button--outline {
-    padding: 11px 50px;
     color: #1C52A2;
     background-color: transparent;
     border: 3px solid #1C52A2;
