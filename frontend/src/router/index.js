@@ -4,13 +4,14 @@ import AboutPage from '@/pages/AboutPage.vue';
 import EntrancePage from '@/pages/EntrancePage.vue';
 import NewsPage from '@/pages/NewsPage.vue';
 import FeedbackPage from '@/pages/FeedbackPage.vue';
-import SchoolLifePage from '../pages/SchoolLifePage.vue';
+import SchoolLifePage from '@/pages/SchoolLifePage.vue';
+import AuthPage from '@/pages/AuthPage.vue';
 
 
 const router = createRouter({
-  history: createWebHistory(
-    import.meta.env.BASE_URL),
-  routes: [{
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
       path: '/',
       name: 'home',
       component: HomePage,
@@ -40,6 +41,12 @@ const router = createRouter({
       name: 'feedback',
       component: FeedbackPage,
     },
+    {
+      path: '/auth',
+      name: 'auth',
+      component: AuthPage,
+    },
+
   ],
 });
 
