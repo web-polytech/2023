@@ -200,11 +200,7 @@ watch(selectedCountry, () => {
 <style lang="scss" scoped>
   .application {
     max-width: $page-width;
-    inline-size: 100vw;
     margin-bottom: 2rem;
-    margin-inline-start: 50%;
-    padding: 2rem;
-    transform: translateX(-50%);
 
     & > * {
       break-inside: avoid;
