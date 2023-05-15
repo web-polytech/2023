@@ -38,9 +38,29 @@
   </section>
   <section class="connect">
     <div class="connect__wrapper">
+      <h3 class="connect__title">
+        Привязанные соц. сети
+      </h3>
       <ul class="connect__list">
         <li class="connect__item" v-for="item, index in connect" :key="index">
           <ProfileConnect :resourse="item" />
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="about">
+    <div class="about__wrapper">
+      <h3 class="about__title">
+        Мои данные
+      </h3>
+      <ul class="about__list">
+        <li class="about__item" v-for="item, index in user" :key="index">
+          <p class="about__key">
+            {{index}}
+          </p>
+          <p class="about__value">
+            {{item}}
+          </p>
         </li>
       </ul>
     </div>
@@ -139,7 +159,7 @@ export default {
         {
           title: 'Зачисление',
           icon: 'admission',
-          link: 'admission',
+          link: 'entrance',
           count: 0,
           active: false,
         },
@@ -153,6 +173,13 @@ export default {
           icon: 'vk',
         },
       ],
+      user: {
+        'Год поступления': 2013,
+        'Год выпуска': 2024,
+        'Профиль обучения': 'информатика',
+        'Классный руководитель': 'А. А. Павлюк',
+        'Средний балл': 4.36,
+      },
     };
   },
   methods: {
@@ -180,6 +207,7 @@ export default {
     position: relative;
     max-width: 1440px;
     margin: 0 auto;
+    margin-bottom: 160px;
     padding: 0 40px;
 
     @media screen and (width <= 786px){
@@ -199,9 +227,9 @@ export default {
 
   .cover-block__username {
     position: absolute;
-    top: 64px;
     right: 0;
     left: 0;
+    margin-top: 64px;
     margin-right: auto;
     margin-left: auto;
     font-weight: 700;
@@ -260,11 +288,61 @@ export default {
     text-transform: uppercase;
   }
 
+  .dashboard__wrapper, .connect__wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    padding: 0 40px;
+  }
 
-  .dashboard__control {
+  .dashboard__title, .connect__title, .about__title {
+    margin-bottom: 36px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .dashboard__control, .connect__list {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
     list-style: none;
+  }
+
+  .about {
+    background-color: #F2F1EB;
+    border-radius: 16px;
+  }
+
+  .about__wrapper {
+    padding: 40px;
+  }
+
+  .about__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+  }
+
+  .about__item {
+    display: flex;
+    align-items: center;
+  }
+
+  .about__key {
+    width: 100%;
+    max-width: 370px;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .about__value {
+    max-width: 238px;
+    color: #1C52A2;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1;
   }
 </style>
