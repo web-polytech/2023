@@ -1,25 +1,25 @@
 <template>
   <ul class="submenu">
     <li class="submenu__item">
-      <RouterLink class="submenu__link" to="/">Главная</RouterLink>
+      <RouterLink :class="['submenu__link', {'submenu__link--active': $route.path=='/'}]" to="/">Главная</RouterLink>
     </li>
     <li class="submenu__item">
-      <RouterLink class="submenu__link" to="/about">О&nbsp;школе</RouterLink>
+      <RouterLink :class="['submenu__link', {'submenu__link--active': $route.path=='/about'}]" to="/about">О&nbsp;школе</RouterLink>
     </li>
     <li class="submenu__item">
-      <RouterLink class="submenu__link" to="/entrance">Поступление</RouterLink>
+      <RouterLink :class="['submenu__link', {'submenu__link--active': $route.path=='/entrance'}]" to="/entrance">Поступление</RouterLink>
     </li>
     <li class="submenu__item">
-      <RouterLink class="submenu__link" to="/news">Новости</RouterLink>
+      <RouterLink :class="['submenu__link', {'submenu__link--active': $route.path=='/news'}]" to="/news">Новости</RouterLink>
     </li>
     <li class="submenu__item">
-      <RouterLink class="submenu__link" to="/school-life">Школьная жизнь</RouterLink>
+      <RouterLink :class="['submenu__link', {'submenu__link--active': $route.path=='/school-life'}]" to="/school-life">Школьная жизнь</RouterLink>
     </li>
     <li class="submenu__item">
-      <RouterLink class="submenu__link" to="/advances">Достижения</RouterLink>
+      <RouterLink :class="['submenu__link', {'submenu__link--active': $route.path=='/advances'}]" to="/advances">Достижения</RouterLink>
     </li>
     <li class="submenu__item">
-      <RouterLink class="submenu__link" to="/feedback">Контакты</RouterLink>
+      <RouterLink :class="['submenu__link', {'submenu__link--active': $route.path=='/feedback'}]" to="/feedback">Контакты</RouterLink>
     </li>
   </ul>
 </template>
@@ -60,6 +60,11 @@
     font-size: 1.2rem;
     line-height: 1.2;
     text-decoration: none;
+
+    &--active {
+      color: $accent-blue;
+      font-weight: 700;
+    }
   }
 
 </style>

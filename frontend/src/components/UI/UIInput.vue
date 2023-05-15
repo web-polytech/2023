@@ -74,8 +74,8 @@ const checkType = (e) => {
         bottom: 0;
         display: block;
         display: inline-grid;
-        width: 3rem;
-        height: 3rem;
+        width: 2.5em;
+        height: 2.5em;
         background-color: $accent-input-background;
         border: 2px solid $accent-input-border;
         border-radius: 4px;
