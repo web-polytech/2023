@@ -28,7 +28,10 @@
           <RouterLink class="navigate__link" to="/">Посетителям</RouterLink>
         </li>
         <li class="navigate__item navigate__item--change_mode">
-          <RouterLink class="navigate__link" to="/">Версия для<br>слабовидящих</RouterLink>
+          <RouterLink class="navigate__link" :to="user?'profile':'auth'">
+            <img v-if="user" :src="user.image" alt="User image" class="navigate__avatar">
+            {{user?user.name.split(' ')[0]+' '+user.name.split(' ')[1][0]+'.':'Авторизоваться'}}
+          </RouterLink>
         </li>
       </ul>
       <button class="menu__open" @click="$emit('showSubmenu');">
@@ -42,6 +45,13 @@ import { RouterLink } from 'vue-router';
 
 export default {
   emits: ['showSubmenu'],
+  props: {
+    user: {
+      type: Object,
+      require: true,
+      default: NaN,
+    },
+  },
 };
 </script>
 
@@ -79,18 +89,29 @@ export default {
     }
   }
 
+  .navigate__avatar {
+    width: auto;
+    height: 36px;
+    border-radius: 50%;
+  }
+
   .navigate__item {
     display: flex;
     line-height: 1;
     text-align: center;
 
     &--change_mode {
-      padding: 11px 14px;
+      align-items: center;
+      height: 54px;
+      padding: 2px 14px;
       background-color: #072655;
     }
   }
 
   .navigate__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: #FFFFFF;
     font-size: 1rem;
     text-decoration: none;

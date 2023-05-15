@@ -3,12 +3,33 @@ import { RouterView } from 'vue-router';
 import TheHeader from '@/components/TheHeader.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
+const user =
+      {
+        email: 'user3259@oursch.ru',
+        name: 'Кирилл Петров',
+        start_education: 2013,
+        end_education: 2024,
+        mentor: 'А. А. Павлюк',
+        score: 4.36,
+        specialization: 'информатика',
+        image: 'src/assets/images/profile-avatar01.webp',
+        advances: [
+          {'1 место': 'Региональный этап олимпиады по информатике'},
+          {'2 место': 'Региональный этап олимпиады по технологии'},
+          {'1 место': 'Муниципальный этап олимпиады по информатике'},
+          {'3 место': 'Муниципальный этап олимпиады по литуратуре'},
+          {'призер 3 степени': 'Муниципальный этап олимпиады по технологии'},
+          {'призер': 'Информационный форум по кибер-безопасности PHDays 2023'},
+          {'участник': 'Кейс-чемпионат Digital Exploration 2023'},
+        ],
+      };
+
 </script>
 
 <template>
-  <TheHeader />
+  <TheHeader :user="user" />
   <main>
-    <RouterView />
+    <RouterView :user="user" />
   </main>
   <TheFooter />
 </template>

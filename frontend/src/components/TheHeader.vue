@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <TheMenu @show-submenu="() => submenuActive = !submenuActive" />
+    <TheMenu @show-submenu="() => submenuActive = !submenuActive" :user="user" />
     <TheSubMenu class="submemu" :class="{'submenu--show': submenuActive}" />
   </header>
 </template>
@@ -10,6 +10,13 @@ import TheMenu from '../components/TheMenu.vue';
 import TheSubMenu from '../components/TheSubMenu.vue';
 
 export default {
+  props: {
+    user: {
+      type: Object,
+      require: true,
+      default: NaN,
+    },
+  },
   components: {
     TheMenu,
     TheSubMenu,
