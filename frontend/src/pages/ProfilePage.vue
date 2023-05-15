@@ -49,6 +49,11 @@
         </ul>
       </div>
     </section>
+    <section class="exit" id="exit">
+      <div class="exit__wrapper">
+        <TheButton label="Выйти из аккаунта" icon="exit" />
+      </div>
+    </section>
     <div class="profile__info" id="info">
       <section class="about" id="about">
         <div class="about__wrapper">
@@ -56,12 +61,44 @@
             Мои данные
           </h3>
           <ul class="about__list">
-            <li class="about__item" v-for="item, index in user" :key="index">
+            <li class="about__item">
               <p class="about__key">
-                {{index}}
+                Год поступления
               </p>
               <p class="about__value">
-                {{item}}
+                {{user.start_education}}
+              </p>
+            </li>
+            <li class="about__item">
+              <p class="about__key">
+                Год выпуска
+              </p>
+              <p class="about__value">
+                {{user.end_education}}
+              </p>
+            </li>
+            <li class="about__item">
+              <p class="about__key">
+                Профиль обучения
+              </p>
+              <p class="about__value">
+                {{user.specialization}}
+              </p>
+            </li>
+            <li class="about__item">
+              <p class="about__key">
+                Классный руководитель
+              </p>
+              <p class="about__value">
+                {{user.mentor}}
+              </p>
+            </li>
+            <li class="about__item">
+              <p class="about__key">
+                Средний балл
+              </p>
+              <p class="about__value">
+                {{user.score}}
               </p>
             </li>
           </ul>
@@ -73,12 +110,12 @@
             Мои достижения
           </h3>
           <ul class="advances__list">
-            <li class="advances__item" v-for="item, index in user" :key="index">
+            <li class="advances__item" v-for="item, index in user.advances" :key="index">
               <p class="advances__key">
-                {{index}}
+                {{Object.keys(item)[0]}}
               </p>
               <p class="advances__value">
-                {{item}}
+                {{Object.values(item)[0]}}
               </p>
             </li>
           </ul>
@@ -91,11 +128,20 @@
 <script>
 import ProfileTile from '@/components/ProfileTile.vue';
 import ProfileConnect from '@/components/ProfileConnect.vue';
+import TheButton from '../components/TheButton.vue';
 
 export default {
   components: {
     ProfileTile,
     ProfileConnect,
+    TheButton,
+  },
+  props: {
+    user: {
+      type: Object,
+      require: true,
+      default: NaN,
+    },
   },
   data() {
     return {
@@ -194,13 +240,6 @@ export default {
           icon: 'vk',
         },
       ],
-      user: {
-        'Год поступления': 2013,
-        'Год выпуска': 2024,
-        'Профиль обучения': 'информатика',
-        'Классный руководитель': 'А. А. Павлюк',
-        'Средний балл': 4.36,
-      },
     };
   },
   methods: {
@@ -228,7 +267,8 @@ export default {
     display: grid;
     grid-template:
       "dashboard info" auto
-      "connect info" auto / 7fr 5fr;
+      "connect info" auto
+      "exit info" auto / 7fr 5fr;
     gap: 40px;
     max-width: 1440px;
     margin: 0 auto;
@@ -321,7 +361,7 @@ export default {
   }
 
   .dashboard__wrapper, .connect__wrapper {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .dashboard__title, .connect__title, .about__title, .advances__title {
@@ -389,5 +429,24 @@ export default {
 
   #info {
     grid-area: info;
+  }
+
+  #exit {
+    grid-area: exit;
+  }
+
+  .exit__wrapper {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 40px;
+  }
+
+  .advances__key {
+    width: 120px;
+  }
+
+  .advances__value {
+    width: 100%;
+    max-width: 440px;
   }
 </style>

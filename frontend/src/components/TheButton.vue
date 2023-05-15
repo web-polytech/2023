@@ -1,7 +1,26 @@
 <template>
-  <RouterLink v-if="view == 'router'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel', 'button--mini': size=='mini'}" :to="path">{{label}}</RouterLink>
-  <a v-if="view == 'link'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel', 'button--mini': size=='mini'}" :href="path">{{label}}</a>
+  <RouterLink v-if="view == 'router'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel', 'button--mini': size=='mini'}" :to="path">
+    <div v-if="icon" class="button__icon">
+      <svg v-if="icon=='exit'" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.44667 17.28L11.3333 19.1667L18 12.5L11.3333 5.83333L9.44667 7.72L12.8933 11.1667H0V13.8333H12.8933L9.44667 17.28ZM21.3333 0.5H2.66667C1.19333 0.5 0 1.69333 0 3.16667V8.5H2.66667V3.16667H21.3333V21.8333H2.66667V16.5H0V21.8333C0 23.3067 1.19333 24.5 2.66667 24.5H21.3333C22.8067 24.5 24 23.3067 24 21.8333V3.16667C24 1.69333 22.8067 0.5 21.3333 0.5Z" fill="white" />
+      </svg>
+    </div>
+    {{label}}
+  </RouterLink>
+  <a v-if="view == 'link'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel', 'button--mini': size=='mini'}" :href="path">
+    <div v-if="icon" class="button__icon">
+      <svg v-if="icon=='exit'" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.44667 17.28L11.3333 19.1667L18 12.5L11.3333 5.83333L9.44667 7.72L12.8933 11.1667H0V13.8333H12.8933L9.44667 17.28ZM21.3333 0.5H2.66667C1.19333 0.5 0 1.69333 0 3.16667V8.5H2.66667V3.16667H21.3333V21.8333H2.66667V16.5H0V21.8333C0 23.3067 1.19333 24.5 2.66667 24.5H21.3333C22.8067 24.5 24 23.3067 24 21.8333V3.16667C24 1.69333 22.8067 0.5 21.3333 0.5Z" fill="white" />
+      </svg>
+    </div>
+    {{label}}
+  </a>
   <button v-if="view == 'button'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel', 'button--mini': size=='mini'}" :on-click="path">
+    <div v-if="icon" class="button__icon">
+      <svg v-if="icon=='exit'" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.44667 17.28L11.3333 19.1667L18 12.5L11.3333 5.83333L9.44667 7.72L12.8933 11.1667H0V13.8333H12.8933L9.44667 17.28ZM21.3333 0.5H2.66667C1.19333 0.5 0 1.69333 0 3.16667V8.5H2.66667V3.16667H21.3333V21.8333H2.66667V16.5H0V21.8333C0 23.3067 1.19333 24.5 2.66667 24.5H21.3333C22.8067 24.5 24 23.3067 24 21.8333V3.16667C24 1.69333 22.8067 0.5 21.3333 0.5Z" fill="white" />
+      </svg>
+    </div>
     {{label}}
   </button>
 </template>
@@ -31,11 +50,18 @@ defineProps({
     type: String,
     default: 'big',
   },
+  icon: {
+    type: String,
+    default: NaN,
+  },
 });
 </script>
 
 <style lang="scss">
   .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
     width: fit-content;
     padding: 14px 50px;
     color: #FFFFFF;
@@ -92,5 +118,9 @@ defineProps({
       color: #FFFFFF;
       background-color: #A21C1C;
     }
+  }
+
+  .button__icon {
+    display: flex;
   }
 </style>
