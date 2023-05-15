@@ -11,8 +11,8 @@
         {{resourse.desc}}
       </p>
       <div class="connect-block__actions">
-        <TheButton label="Перейти" view="link" type="border" :path="resourse.open_link" />
-        <TheButton label="Отвязать" view="link" type="cancel" :path="resourse.close_link" />
+        <TheButton label="Перейти" view="link" type="border" size="mini" :path="resourse.open_link" />
+        <TheButton label="Отвязать" view="link" type="cancel" size="mini" :path="resourse.close_link" />
       </div>
     </div>
   </div>
@@ -75,5 +75,6 @@ export default ({
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    margin-top: 6px;
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <RouterLink v-if="view == 'router'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel'}" :to="path">{{label}}</RouterLink>
-  <a v-if="view == 'link'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel'}" :href="path">{{label}}</a>
-  <button v-if="view == 'button'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel'}" :on-click="path">
+  <RouterLink v-if="view == 'router'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel', 'button--mini': size=='mini'}" :to="path">{{label}}</RouterLink>
+  <a v-if="view == 'link'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel', 'button--mini': size=='mini'}" :href="path">{{label}}</a>
+  <button v-if="view == 'button'" class="button" :class="{'button--light': type=='light', 'button--border': type=='border', 'button--cancel': type=='cancel', 'button--mini': size=='mini'}" :on-click="path">
     {{label}}
   </button>
 </template>
@@ -26,6 +26,10 @@ defineProps({
   disable: {
     type: Boolean,
     default: false,
+  },
+  size: {
+    type: String,
+    default: 'big',
   },
 });
 </script>
@@ -71,8 +75,13 @@ defineProps({
     }
   }
 
+  .button--mini {
+    padding: 10px 22px;
+    font-size: 1.2rem;
+    border-radius: 4px;
+  }
+
   .button--cancel {
-    padding: 11px 50px;
     color: #A21C1C;
     background-color: transparent;
     border: 3px solid transparent;

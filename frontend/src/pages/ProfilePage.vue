@@ -24,47 +24,68 @@
       </h2>
     </div>
   </section>
-  <section class="dashboard">
-    <div class="dashboard__wrapper">
-      <h3 class="dashboard__title">
-        Панель управления
-      </h3>
-      <ul class="dashboard__control">
-        <li class="dashboard__items" v-for="item, index in tiles" :key="index">
-          <ProfileTile :tile="item" />
-        </li>
-      </ul>
+  <div class="profile__content">
+    <section class="dashboard" id="dashboard">
+      <div class="dashboard__wrapper">
+        <h3 class="dashboard__title">
+          Панель управления
+        </h3>
+        <ul class="dashboard__control">
+          <li class="dashboard__items" v-for="item, index in tiles" :key="index">
+            <ProfileTile :tile="item" />
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="connect" id="connect">
+      <div class="connect__wrapper">
+        <h3 class="connect__title">
+          Привязанные соц. сети
+        </h3>
+        <ul class="connect__list">
+          <li class="connect__item" v-for="item, index in connect" :key="index">
+            <ProfileConnect :resourse="item" />
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class="profile__info" id="info">
+      <section class="about" id="about">
+        <div class="about__wrapper">
+          <h3 class="about__title">
+            Мои данные
+          </h3>
+          <ul class="about__list">
+            <li class="about__item" v-for="item, index in user" :key="index">
+              <p class="about__key">
+                {{index}}
+              </p>
+              <p class="about__value">
+                {{item}}
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="advances" id="advances">
+        <div class="advances__wrapper">
+          <h3 class="advances__title">
+            Мои достижения
+          </h3>
+          <ul class="advances__list">
+            <li class="advances__item" v-for="item, index in user" :key="index">
+              <p class="advances__key">
+                {{index}}
+              </p>
+              <p class="advances__value">
+                {{item}}
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
-  </section>
-  <section class="connect">
-    <div class="connect__wrapper">
-      <h3 class="connect__title">
-        Привязанные соц. сети
-      </h3>
-      <ul class="connect__list">
-        <li class="connect__item" v-for="item, index in connect" :key="index">
-          <ProfileConnect :resourse="item" />
-        </li>
-      </ul>
-    </div>
-  </section>
-  <section class="about">
-    <div class="about__wrapper">
-      <h3 class="about__title">
-        Мои данные
-      </h3>
-      <ul class="about__list">
-        <li class="about__item" v-for="item, index in user" :key="index">
-          <p class="about__key">
-            {{index}}
-          </p>
-          <p class="about__value">
-            {{item}}
-          </p>
-        </li>
-      </ul>
-    </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -203,11 +224,22 @@ export default {
 
 <style lang="scss">
 
+  .profile__content {
+    display: grid;
+    grid-template:
+      "dashboard info" auto
+      "connect info" auto / 7fr 5fr;
+    gap: 40px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
   .cover-block__wrapper {
     position: relative;
     max-width: 1440px;
     margin: 0 auto;
-    margin-bottom: 160px;
+    margin-bottom: 200px;
     padding: 0 40px;
 
     @media screen and (width <= 786px){
@@ -289,13 +321,10 @@ export default {
   }
 
   .dashboard__wrapper, .connect__wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
-    margin-bottom: 100px;
-    padding: 0 40px;
+    margin-bottom: 40px;
   }
 
-  .dashboard__title, .connect__title, .about__title {
+  .dashboard__title, .connect__title, .about__title, .advances__title {
     margin-bottom: 36px;
     font-weight: 700;
     font-size: 1.8rem;
@@ -310,39 +339,55 @@ export default {
     list-style: none;
   }
 
-  .about {
+  .about, .advances {
+    height: fit-content;
+    margin-bottom: 40px;
     background-color: #F2F1EB;
     border-radius: 16px;
   }
 
-  .about__wrapper {
+  .about__wrapper, .advances__wrapper {
     padding: 40px;
   }
 
-  .about__list {
+  .about__list, .advances__list {
     display: flex;
     flex-direction: column;
     gap: 20px;
     list-style: none;
   }
 
-  .about__item {
+  .about__item, .advances__item {
     display: flex;
     align-items: center;
+    gap: 12px;
   }
 
-  .about__key {
-    width: 100%;
+  .about__key, .advances__key {
+    width: 60%;
     max-width: 370px;
     font-size: 1.4rem;
     line-height: 1;
   }
 
-  .about__value {
+  .about__value, .advances__value {
+    width: 40%;
     max-width: 238px;
     color: #1C52A2;
     font-weight: 700;
     font-size: 1.4rem;
     line-height: 1;
+  }
+
+  #about {
+    grid-area: about;
+  }
+
+  #connect {
+    grid-area: connect;
+  }
+
+  #info {
+    grid-area: info;
   }
 </style>
