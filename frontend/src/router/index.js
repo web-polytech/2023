@@ -42,11 +42,17 @@ const router = createRouter({
       component: FeedbackPage,
     },
     {
-      path: '/auth',
-      name: 'auth',
+      path: '/login',
+      name: 'login',
       component: AuthPage,
+      props: () => ({ auth: 'login' }),
     },
-
+    {
+      path: '/register',
+      name: 'register',
+      component: AuthPage,
+      props: () => ({ auth: 'register' }),
+    },
   ],
 });
 

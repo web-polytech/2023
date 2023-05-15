@@ -54,14 +54,14 @@ const checkType = (e) => {
   .field  {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    margin-bottom: 1rem;
+    gap: 0.25em;
+    margin-bottom: 1em;
 
     &--checkbox, &--radio {
       flex-direction: row;
       align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
+      gap: 1em;
+      margin-top: 1em;
       cursor: pointer;
     }
 
@@ -86,9 +86,9 @@ const checkType = (e) => {
   }
 
   .field__input {
-    min-height: 3rem;
-    padding: 0.5rem;
-    font-size: 1.3em;
+    min-height: 2rem;
+    padding: 0.5em;
+    font-size: 1em;
     background-color: #F5F8FA;
     border: 1px solid $accent-input-border;
     border-radius: 4px;
@@ -178,7 +178,7 @@ const checkType = (e) => {
 
   .field__label {
     order: -1;
-    font-size: 1.5em;
+    font-size: 1.2rem;
 
     &--checkbox, &--radio {
       order: 0;
