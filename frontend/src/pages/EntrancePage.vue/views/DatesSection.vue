@@ -43,7 +43,7 @@
 <style scoped lang="scss">
 
   .dates {
-    max-width: 1650px;
+    max-width: $page-width;
     inline-size: 100vw;
     margin-bottom: 2rem;
     margin-inline-start: 50%;
