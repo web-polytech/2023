@@ -1,7 +1,7 @@
 <template>
   <div class="connect-block">
     <div class="connect-block__cover">
-      <img class="connect-block__image" src="src/assets/icons/vk.png" alt="icon social network">
+      <img class="connect-block__image" src="@/assets/icons/vk.png" alt="icon social network">
     </div>
     <div class="connect-block__info">
       <p class="connect-block__title">
