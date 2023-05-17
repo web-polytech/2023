@@ -9,7 +9,7 @@
     <ol class="requirements__list">
       <li class="requirements__item">
         <div class="requirements__content">
-          <h3 class="requirements__claim">
+          <h3 class="h3 requirements__claim">
             Мы&nbsp;осуществляем набор учащихся в&nbsp;начальную школу (с&nbsp;1 по&nbsp;4 классы), в&nbsp;некоторые классы средней школы, а&nbsp;именно набор в&nbsp;6, 7 и&nbsp;8 классы, а&nbsp;так&nbsp;же в&nbsp;10 классы старшей школы.
           </h3>
           <p class="requirements__description">
@@ -19,7 +19,7 @@
       </li>
       <li class="requirements__item">
         <div class="requirements__content">
-          <h3 class="requirements__claim">
+          <h3 class="h3 requirements__claim">
             Хорошие или отличные результаты тестирования (очно или онлайн) и&nbsp;очных вступительных экзаменов.
           </h3>
           <p class="requirements__description">
@@ -29,7 +29,7 @@
       </li>
       <li class="requirements__item">
         <div class="requirements__content">
-          <h3 class="requirements__claim">
+          <h3 class="h3 requirements__claim">
             Справка о&nbsp;состоянии здоровья формы 086у и&nbsp;справка о&nbsp;группе здоровья.
           </h3>
           <p class="requirements__description">
@@ -67,7 +67,7 @@
   .requirements__list {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 4em;
     padding: 4rem 3rem;
     background-color: $accent-gray;
 
@@ -117,9 +117,11 @@
   .requirements__claim {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
     font-weight: 700;
-    font-size: 2.25em;
     line-height: 1.1;
+    text-align: start;
+    margin-block: 0 1rem;
 
     @media (width <= $media-tablet) {
       font-size: 1.5em;
@@ -129,6 +131,7 @@
   .requirements__description {
     margin-top: 1rem;
     font-size: 1.5em;
+    text-align: start;
 
     @media (width <= $media-tablet) {
       font-size: 1.25em;

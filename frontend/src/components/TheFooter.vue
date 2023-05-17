@@ -91,9 +91,11 @@
         </div>
       </div>
       <p class="footer__copyright">
-        &copy;Copyright Наша школа. <span class="footer__authors">
+        <span>&copy; Наша школа.</span>
+        <span class="footer__authors">
           Киверин Андрей, Бондарь Илья, Крапивин Иван, Савенков Виктор, Киселев Максим 211-321.
-        </span><br> Corp. Московский политехнический университет.
+        </span>
+        <span>Московский политехнический университет.</span>
       </p>
     </div>
   </footer>
@@ -151,10 +153,13 @@ import { RouterLink } from 'vue-router';
   }
 
   .footer__copyright {
+    display: flex;
+    flex-direction: column;
     margin-top: 92px;
     color: #FFFFFF;
     font-size: 1.2rem;
     line-height: 1.25;
+    text-align: center;
   }
 
   .footer__authors {

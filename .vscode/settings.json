@@ -18,6 +18,9 @@
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[ansible]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

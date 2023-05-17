@@ -209,7 +209,8 @@ watch(selectedCountry, () => {
 
   .application__form {
     column-count: 2;
-    column-gap: 3.2rem;
+    column-gap: 3.2em;
+    padding-inline: 1em;
 
     @media (width <= $media-desktop) {
       column-gap: 1rem;
