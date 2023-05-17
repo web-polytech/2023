@@ -135,17 +135,16 @@
   </div>
 </template>
 
+<script setup>
+import tiles from '@/assets/data/tiles.json';
+
+</script>
+
 <script>
-<<<<<<< HEAD:frontend/src/pages/ProfilePage.vue
-import ProfileTile from '@/components/ProfileTile.vue';
-import ProfileConnect from '@/components/ProfileConnect.vue';
-import TheButton from '../components/TheButton.vue';
-import UISelect from '../components/UI/UISelect.vue';
-=======
 import ProfileTile from './ProfileTile.vue';
 import ProfileConnect from './ProfileConnect.vue';
 import TheButton from '@/components/TheButton.vue';
->>>>>>> max/small-fixes:frontend/src/pages/ProfilePage.vue/views/TheMain.vue
+import UISelect from '@/components/UI/UISelect.vue';
 
 export default {
   components: {
@@ -169,92 +168,6 @@ export default {
         {label: '2 место', value: '2 место'},
         {label: '3 место', value: '3 место'},
       ],
-      tiles: [
-        {
-          title: 'Сообщения',
-          path: 'icons/mail.svg',
-          link: 'messages',
-          count: 4,
-          active: true,
-        },
-        {
-          title: 'Электронный дневник',
-          path: 'icons/diary.svg',
-          link: 'diary',
-          count: 0,
-          active: true,
-        },
-        {
-          title: 'Объявления',
-          path: 'icons/notification.svg',
-          link: 'notification',
-          count: 2,
-          active: true,
-        },
-        {
-          title: 'Учащиеся',
-          path: 'icons/students.svg',
-          link: 'students',
-          count: 0,
-          active: true,
-        },
-        {
-          title: 'Учителя и руководство',
-          path: 'icons/administration.svg',
-          link: 'administration',
-          count: 0,
-          active: true,
-        },
-        {
-          title: 'Настройки',
-          path: 'icons/settings.svg',
-          link: 'settings',
-          count: 0,
-          active: true,
-        },
-        {
-          title: 'Платные услуги',
-          path: 'icons/payable.svg',
-          link: 'payable',
-          count: 0,
-          active: true,
-        },
-        {
-          title: 'Портфолио',
-          path: 'icons/portfolio.svg',
-          link: 'portfolio',
-          count: 0,
-          active: true,
-        },
-        {
-          title: 'Электронная библиотека',
-          path: 'icons/library.svg',
-          link: 'digital-library',
-          count: 0,
-          active: true,
-        },
-        {
-          title: 'Клубы и секции',
-          path: 'icons/clubs.svg',
-          link: 'clubs',
-          count: 0,
-          active: true,
-        },
-        {
-          title: 'Экзамены',
-          path: 'icons/exams.svg',
-          link: 'exams',
-          count: 0,
-          active: false,
-        },
-        {
-          title: 'Зачисление',
-          path: 'icons/admission.svg',
-          link: 'entrance',
-          count: 0,
-          active: false,
-        },
-      ],
       connect: [
         {
           title: 'Страница Вконтакте',
@@ -267,7 +180,6 @@ export default {
       advances: [],
     };
   },
-<<<<<<< HEAD:frontend/src/pages/ProfilePage.vue
   computed: {
     keysLevels() {
       let levels = [{label: 'Всe достижения', value: ''}];
@@ -305,8 +217,6 @@ export default {
       return text;
     },
   },
-=======
->>>>>>> max/small-fixes:frontend/src/pages/ProfilePage.vue/views/TheMain.vue
 };
 </script>
 
