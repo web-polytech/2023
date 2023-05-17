@@ -105,6 +105,10 @@ defineProps({
     padding: 10px 22px;
     font-size: 1.2rem;
     border-radius: 4px;
+
+    @media screen and (width <= 540px){
+      padding: 6px 14px;
+    }
   }
 
   .button--cancel {

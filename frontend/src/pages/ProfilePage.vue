@@ -313,6 +313,14 @@ export default {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 40px;
+
+    @media screen and (width <= 892px) {
+      grid-template:
+        "dashboard" auto
+        "info" auto
+        "connect" auto
+        "exit" auto / 1fr;
+    }
   }
 
   .cover-block__wrapper {
@@ -415,6 +423,7 @@ export default {
   .dashboard__control, .connect__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
     list-style: none;
   }
@@ -488,5 +497,80 @@ export default {
   .advances__value {
     width: 100%;
     max-width: 440px;
+  }
+
+  @media screen and (width <= 540px){
+    .cover-block__wrapper {
+      margin-bottom: 140px;
+      padding: 0 20px;
+    }
+
+    .about__wrapper, .advances__wrapper {
+      padding: 28px;
+    }
+
+    .dashboard__wrapper, .connect__wrapper {
+      margin-bottom: 12px;
+    }
+
+    .dashboard__title, .connect__title, .about__title, .advances__title {
+      margin-bottom: 24px;
+      font-size: 1.4rem;
+    }
+
+    .about__key {
+      width: 60%;
+      font-size: 1rem;
+    }
+
+    .advances__key {
+      width: 25%;
+      font-size: 1rem;
+    }
+
+    .about__value {
+      width: 40%;
+      font-size: 1rem;
+    }
+
+    .advances__value {
+      width: 75%;
+      font-size: 1rem;
+    }
+
+    .cover-block__image {
+      width: 240px;
+      height: 240px;
+      border-width: 10px;
+    }
+
+    .cover-block__badge-text {
+      font-size: 1rem;
+    }
+
+    .cover-block__status {
+      gap: 6px;
+    }
+
+    .cover-block__username {
+      top: 10px;
+      font-size: 1.8rem
+    }
+
+    .cover-block__badge {
+      top: -210px;
+      padding: 12px 16px;
+      background: #FFFFFF;
+      border-radius: 24px;
+      box-shadow: 3px 3px 15px rgb(0 0 0 / 5%), 0 0 10px rgb(0 0 0 / 5%);
+
+      &--left {
+        left: calc(50% - 160px);
+      }
+
+      &--right {
+        right: calc(50% - 160px);
+      }
+    }
   }
 </style>
