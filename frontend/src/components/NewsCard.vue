@@ -1,6 +1,6 @@
 <template>
   <RouterLink to="#" class="news-card" :class="{'news-card--big': type=='big'}">
-    <img :src="'src/assets/images/'+content.imageSrc" alt="" class="news-image">
+    <img :src="assets(content.image)" alt="" class="news-image">
     <div class="news-text-wrapper">
       <h2 class="news-title">{{content.title}}</h2>
       <p class="news-tagline">{{content.tagline}}</p>
@@ -9,6 +9,9 @@
   </RouterLink>
 </template>
 
+<script setup>
+import { assets } from '@/main.js';
+</script>
 
 <script>
 export default {

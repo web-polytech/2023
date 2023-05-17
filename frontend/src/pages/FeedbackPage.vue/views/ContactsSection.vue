@@ -28,7 +28,7 @@
       </dl>
       <img
         class="contacts__image"
-        src="@/assets/images/FeedbackPage/FeedbackContacts.jpg"
+        src="@/assets/images/Feedback/FeedbackContacts.jpg"
         alt="Изображение счастливых детей"
       >
       <dl class="contacts__chapter">

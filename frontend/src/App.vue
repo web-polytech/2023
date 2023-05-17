@@ -12,7 +12,7 @@ const user =
         mentor: 'А. А. Павлюк',
         score: 4.36,
         specialization: 'информатика',
-        image: 'src/assets/images/profile-avatar01.webp',
+        image: 'images/Profile/profile-avatar01.webp',
         advances: [
           {'1 место': 'Региональный этап олимпиады по информатике'},
           {'2 место': 'Региональный этап олимпиады по технологии'},
@@ -23,8 +23,8 @@ const user =
           {'участник': 'Кейс-чемпионат Digital Exploration 2023'},
         ],
       };
-
 </script>
+
 
 <template>
   <TheHeader :user="user" />
@@ -44,7 +44,7 @@ const user =
     margin: 0;
     padding: 0;
     font-weight: 400;
-    font-family: 'PT Sans', sans-serif;
+    font-family: "PT Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   .visually-hidden {
@@ -99,9 +99,26 @@ const user =
     }
 
     @media (width <= $media-tablet) {
+      font-size: 1.75em;
+    }
+  }
+
+  .h3 {
+    margin: 60px auto;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 1;
+    text-align: center;
+
+    @media (width <= $media-desktop) {
+      font-size: 1.75em;
+    }
+
+    @media (width <= $media-tablet) {
       font-size: 1.5em;
     }
   }
+
 </style>
 
 

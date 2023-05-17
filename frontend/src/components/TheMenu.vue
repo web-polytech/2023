@@ -29,7 +29,7 @@
         </li>
         <li class="navigate__item navigate__item--change_mode">
           <RouterLink class="navigate__link" :to="user?'profile':'auth'">
-            <img v-if="user" :src="user.image" alt="User image" class="navigate__avatar">
+            <img v-if="user" :src="assets(user.image)" alt="User image" class="navigate__avatar">
             {{user?user.name.split(' ')[0]+' '+user.name.split(' ')[1][0]+'.':'Авторизоваться'}}
           </RouterLink>
         </li>
@@ -40,6 +40,10 @@
     </div>
   </nav>
 </template>
+
+<script setup>
+import { assets } from '@/main.js';
+</script>
 <script>
 import { RouterLink } from 'vue-router';
 

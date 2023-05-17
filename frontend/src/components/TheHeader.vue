@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import TheMenu from '../components/TheMenu.vue';
-import TheSubMenu from '../components/TheSubMenu.vue';
+import TheMenu from '@/components/TheMenu.vue';
+import TheSubMenu from '@/components/TheSubMenu.vue';
 
 export default {
   props: {
