@@ -151,7 +151,7 @@ const searchedOptions = computed(() => {
 
   .field__selectmenu {
     position: relative;
-    min-height: 3rem;
+    min-height: 2.5rem;
 
     &[required] ~ .field__label::after {
       content: ' *';
@@ -165,7 +165,7 @@ const searchedOptions = computed(() => {
 
   .field__label {
     order: -1;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .field__button {
@@ -207,7 +207,6 @@ const searchedOptions = computed(() => {
   }
 
   .field__popover {
-    position: relative;
     display: flex;
     flex-direction: column;
     max-height: 40vh;
@@ -222,7 +221,7 @@ const searchedOptions = computed(() => {
   }
 
   .field__option {
-    min-height: 3rem;
+    min-height: 2.5rem;
     margin-bottom: .25rem;
     padding: 0.75rem 0;
     font-size: 1.25em;
@@ -239,7 +238,7 @@ const searchedOptions = computed(() => {
   }
 
   .field__select {
-    min-height: 3rem;
+    min-height: 2.5rem;
     padding: 0.5rem 1rem;
     color: $accent-dark;
     font-size: 1.3em;

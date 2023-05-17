@@ -58,7 +58,6 @@ const user =
   html {
     width: 100%;
     max-width: 100%;
-    font-size: 0.62 !important;
     line-height: 1.5 !important;
   }
 
@@ -73,17 +72,17 @@ const user =
   .h1 {
     font-weight: 700;
     font-weight: bold;
-    font-size: 4rem;
+    font-size: 3rem;
     font-family: 'PT Serif', sans-serif;
     line-height: 1;
     text-align: center;
 
     @media (width <= $media-desktop) {
-      font-size: 3.5em;
+      font-size: 3em;
     }
 
     @media (width <= $media-tablet) {
-      font-size: 3em;
+      font-size: 2.5em;
     }
 
   }
@@ -91,19 +90,18 @@ const user =
   .h2 {
     margin: 60px auto;
     font-weight: 700;
-    font-size: 3em;
+    font-size: 2.5em;
     line-height: 1;
     text-align: center;
 
     @media (width <= $media-desktop) {
-      font-size: 2.5em;
+      font-size: 2em;
     }
 
     @media (width <= $media-tablet) {
-      font-size: 2em;
+      font-size: 1.5em;
     }
   }
-
 </style>
 
 

@@ -1,6 +1,6 @@
 <template>
   <section class="cover-block">
-    <img class="cover-block__cover" src="src/assets/images/profile-cover01.webp" alt="cover profile">
+    <img class="cover-block__cover" src="@/assets/images/profile-cover01.webp" alt="cover profile">
     <div class="cover-block__wrapper">
       <div class="cover-block__badge cover-block__badge--left">
         <p class="cover-block__badge-text cover-block__class">
@@ -17,7 +17,7 @@
         </p>
       </div>
       <div class="cover-block__avatar">
-        <img src="/src/assets/images/profile-avatar01.webp" alt="" class="cover-block__image">
+        <img src="@/assets/images/profile-avatar01.webp" alt="" class="cover-block__image">
       </div>
       <h2 class="cover-block__username">
         Кирилл Петров

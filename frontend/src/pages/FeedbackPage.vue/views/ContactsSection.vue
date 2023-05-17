@@ -99,17 +99,8 @@
   }
 
   .contacts__heading {
-    margin-block: 1rem;
-    font-size: 3em;
     text-align: start;
-
-    @media (width <= $media-desktop) {
-      font-size: 2.5em;
-    }
-
-    @media (width <= $media-tablet) {
-      font-size: 2em;
-    }
+    margin-block: 0 1em;
   }
 
   .contacts__list {
@@ -127,7 +118,7 @@
 
   .contacts__description {
     font-weight: 400;
-    font-size: 1.75em;
+    font-size: 1.4em;
 
     & > * {
       color: black;
