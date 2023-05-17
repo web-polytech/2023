@@ -101,4 +101,21 @@ defineProps({
     max-height: 40px;
     padding: 0 8px;
   }
+
+  @media screen and (width <= 540px){
+    .tile__title {
+      font-size: 1rem;
+    }
+
+    .tile__icon {
+      height: 40px;
+    }
+
+    .tile {
+      gap: 8px;
+      width: 120px;
+      height: 120px;
+      border-radius: 4px;
+    }
+  }
 </style>

@@ -36,6 +36,7 @@ export default ({
 <style lang="scss">
   .connect-block {
     display: flex;
+    align-items: center;
     gap: 24px;
   }
 
@@ -46,11 +47,22 @@ export default ({
     padding: 36px;
     background-color: #F5F8FA;
     border-radius: 8px;
+
+    @media screen and (width <= 540px){
+      height: fit-content;
+      padding: 18px;
+      border-radius: 6px;
+    }
   }
 
   .connect-block__image {
     width: 72px;
     height: 72px;
+
+    @media screen and (width <= 540px){
+      width: 52px;
+      height: 52px;
+    }
   }
 
   .connect-block__info {
@@ -61,14 +73,22 @@ export default ({
 
   .connect-block__title {
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1;
+
+    @media screen and (width <= 540px){
+      font-size: 1.32rem;
+    }
   }
 
   .connect-block__desc {
     color: #1333AB;
     font-size: 1.4rem;
     line-height: 1;
+
+    @media screen and (width <= 540px){
+      font-size: 1.14rem;
+    }
   }
 
   .connect-block__actions {
@@ -76,5 +96,9 @@ export default ({
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 6px;
+
+    @media screen and (width <= 540px){
+      gap: 6px;
+    }
   }
 </style>

@@ -109,8 +109,18 @@
           <h3 class="advances__title">
             Мои достижения
           </h3>
+          <div class="advances__settings">
+            <UISelect
+              label="Степень награды"
+              initial="Степень награды"
+              :options="keysLevels"
+              v-model="levelModel"
+              name="advance"
+              @update:model-value="advancesChange(levelModel)"
+            />
+          </div>
           <ul class="advances__list">
-            <li class="advances__item" v-for="item, index in user.advances" :key="index">
+            <li class="advances__item" v-for="item, index in advances" :key="index">
               <p class="advances__key">
                 {{Object.keys(item)[0]}}
               </p>
@@ -129,12 +139,14 @@
 import ProfileTile from '@/components/ProfileTile.vue';
 import ProfileConnect from '@/components/ProfileConnect.vue';
 import TheButton from '../components/TheButton.vue';
+import UISelect from '../components/UI/UISelect.vue';
 
 export default {
   components: {
     ProfileTile,
     ProfileConnect,
     TheButton,
+    UISelect,
   },
   props: {
     user: {
@@ -145,6 +157,12 @@ export default {
   },
   data() {
     return {
+      levelModel: '',
+      levels: [
+        {label: '1 место', value: '1 место'},
+        {label: '2 место', value: '2 место'},
+        {label: '3 место', value: '3 место'},
+      ],
       tiles: [
         {
           title: 'Сообщения',
@@ -240,9 +258,31 @@ export default {
           icon: 'vk',
         },
       ],
+      advances: [],
     };
   },
+  computed: {
+    keysLevels() {
+      let levels = [{label: 'Всe достижения', value: ''}];
+      for (let i = 0; i < this.user.advances.length; i++) {
+        let item = Object.keys(this.user.advances[i])[0];
+        levels.push({label: item, value: item});
+      }
+      return levels;
+    },
+  },
+  created() {
+    this.advances = this.user.advances;
+  },
   methods: {
+    advancesChange() {
+      let list = this.user.advances;
+      let selectLevel = this.levelModel;
+      selectLevel !== '' ? this.advances = list.filter(obj => {
+        const key = Object.keys(obj)[0];
+        return key === selectLevel;
+      }) : this.advances = list;
+    },
     replaceString(text) {
       let unionsAndPrepositions = ['так что', 'дабы', 'с тем чтобы', 'несмотря на то', 'хоть', 'пускай', 'хотя', 'если', 'если бы', 'коли', 'ежели', 'так как', 'потому что',
         'как будто', 'словно', 'точно', 'как', 'как бы', 'до такой степени', 'настолько', 'до того', 'такой', 'где', 'куда', 'откуда', 'когда', 'что', 'то есть',
@@ -273,6 +313,14 @@ export default {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 40px;
+
+    @media screen and (width <= 892px) {
+      grid-template:
+        "dashboard" auto
+        "info" auto
+        "connect" auto
+        "exit" auto / 1fr;
+    }
   }
 
   .cover-block__wrapper {
@@ -375,6 +423,7 @@ export default {
   .dashboard__control, .connect__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
     list-style: none;
   }
@@ -448,5 +497,80 @@ export default {
   .advances__value {
     width: 100%;
     max-width: 440px;
+  }
+
+  @media screen and (width <= 540px){
+    .cover-block__wrapper {
+      margin-bottom: 140px;
+      padding: 0 20px;
+    }
+
+    .about__wrapper, .advances__wrapper {
+      padding: 28px;
+    }
+
+    .dashboard__wrapper, .connect__wrapper {
+      margin-bottom: 12px;
+    }
+
+    .dashboard__title, .connect__title, .about__title, .advances__title {
+      margin-bottom: 24px;
+      font-size: 1.4rem;
+    }
+
+    .about__key {
+      width: 60%;
+      font-size: 1rem;
+    }
+
+    .advances__key {
+      width: 25%;
+      font-size: 1rem;
+    }
+
+    .about__value {
+      width: 40%;
+      font-size: 1rem;
+    }
+
+    .advances__value {
+      width: 75%;
+      font-size: 1rem;
+    }
+
+    .cover-block__image {
+      width: 240px;
+      height: 240px;
+      border-width: 10px;
+    }
+
+    .cover-block__badge-text {
+      font-size: 1rem;
+    }
+
+    .cover-block__status {
+      gap: 6px;
+    }
+
+    .cover-block__username {
+      top: 10px;
+      font-size: 1.8rem
+    }
+
+    .cover-block__badge {
+      top: -210px;
+      padding: 12px 16px;
+      background: #FFFFFF;
+      border-radius: 24px;
+      box-shadow: 3px 3px 15px rgb(0 0 0 / 5%), 0 0 10px rgb(0 0 0 / 5%);
+
+      &--left {
+        left: calc(50% - 160px);
+      }
+
+      &--right {
+        right: calc(50% - 160px);
+      }
+    }
   }
 </style>
