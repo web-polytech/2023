@@ -335,6 +335,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 100%;
     margin-bottom: 60px;
   }
 
@@ -352,11 +353,13 @@ export default {
 
   .admission__content {
     display: grid;
+    grid-template-rows: 100%;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 80px;
 
     @media screen and (width <= 796px) {
+      grid-template-rows: auto;
       grid-template-columns: 1fr;
       gap: 40px;
     }
@@ -372,6 +375,7 @@ export default {
     width: 100%;
     min-width: 364px;
     object-fit: cover;
+    height: 100%;
   }
 
   .admission__info {
