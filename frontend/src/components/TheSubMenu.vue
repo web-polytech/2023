@@ -66,9 +66,7 @@
 
 
   .submenu__link {
-    display: block;
     height: 100%;
-    padding: 10px;
     color: #000000;
     font-size: 1.2rem;
     line-height: 1.2;
@@ -77,6 +75,11 @@
     &--active {
       color: $accent-blue;
       font-weight: 700;
+    }
+
+    @media screen and (width <= 892px) {
+      display: block;
+      padding: 10px;
     }
   }
 

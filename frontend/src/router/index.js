@@ -7,6 +7,7 @@ import FeedbackPage from '@/pages/FeedbackPage.vue';
 import SchoolLifePage from '@/pages/SchoolLifePage.vue';
 import AuthPage from '@/pages/AuthPage.vue';
 import ProfilePage from '@/pages/ProfilePage.vue';
+import The404 from '@/components/The404.vue';
 
 
 const router = createRouter({
@@ -58,6 +59,11 @@ const router = createRouter({
     name: 'register',
     component: AuthPage,
     props: () => ({ auth: 'register' }),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'error404',
+    component: The404,
   },
   ],
 });
