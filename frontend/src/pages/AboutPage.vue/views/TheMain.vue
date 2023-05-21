@@ -160,7 +160,7 @@ import education from '@/assets/data/education.json';
       height: calc(100vh - 300px);
       object-fit: cover;
 
-      @media screen and (width <= 892px) {
+      @media screen and (width <= $media-tablet) {
         height: calc(100vh - 254px);
       }
     }

@@ -28,7 +28,7 @@ const user =
 
 <template>
   <TheHeader :user="user" />
-  <main id="app">
+  <main>
     <RouterView :user="user" />
   </main>
   <TheFooter />

@@ -22,7 +22,7 @@
       </svg>
       <div class="error__info">
         <p class="error__desc">
-          Мы уже работаем над устранением данной ошибки, мы сожалем что вам пришлось с ней столкнуться! Вы можете перейти на главную страницу, нажав на кнпоку, или на нужную вам страницу через навигационное меню.
+          Мы уже работаем над устранением данной ошибки, мы сожалем что вам пришлось с ней столкнуться! Вы можете перейти на главную страницу, нажав на кнопку, или на нужную вам страницу через навигационное меню.
         </p>
         <TheButton label="Главная страница" path="/" />
       </div>
@@ -58,7 +58,7 @@ export default {
     margin: 0 auto;
     padding: 0 40px;
 
-    @media screen and (width <= 892px) {
+    @media screen and (width <= $media-tablet) {
       flex-direction: column;
     }
   }
@@ -74,7 +74,7 @@ export default {
     font-size: 1.4rem;
     text-align: center;
 
-    @media screen and (width <= 892px) {
+    @media screen and (width <= $media-tablet) {
       max-width: 100%
     }
   }

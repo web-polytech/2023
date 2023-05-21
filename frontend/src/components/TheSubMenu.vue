@@ -45,7 +45,7 @@
       display: none;
     }
 
-    @media screen and (width <= 892px) {
+    @media screen and (width <= $media-tablet) {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 1px;
@@ -77,7 +77,7 @@
       font-weight: 700;
     }
 
-    @media screen and (width <= 892px) {
+    @media screen and (width <= $media-tablet) {
       display: block;
       padding: 10px;
     }

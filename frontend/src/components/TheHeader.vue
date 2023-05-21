@@ -43,12 +43,12 @@ export default {
   }
 
   .submenu {
-    @media screen and (width <= 892px) {
+    @media screen and (width <= $media-tablet) {
       display: none;
     }
 
     &--show {
-      @media screen and (width <= 892px) {
+      @media screen and (width <= $media-tablet) {
         display: grid;
       }
     }

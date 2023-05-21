@@ -163,11 +163,6 @@ export default {
   data() {
     return {
       levelModel: '',
-      levels: [
-        {label: '1 место', value: '1 место'},
-        {label: '2 место', value: '2 место'},
-        {label: '3 место', value: '3 место'},
-      ],
       connect: [
         {
           title: 'Страница Вконтакте',
@@ -183,9 +178,13 @@ export default {
   computed: {
     keysLevels() {
       let levels = [{label: 'Всe достижения', value: ''}];
+      let other = [];
       for (let i = 0; i < this.user.advances.length; i++) {
         let item = Object.keys(this.user.advances[i])[0];
-        levels.push({label: item, value: item});
+        if (!other.includes(item)) {
+          levels.push({label: item, value: item});
+          other.push(item);
+        }
       }
       return levels;
     },
@@ -233,7 +232,7 @@ export default {
     margin: 0 auto;
     padding: 0 40px;
 
-    @media screen and (width <= 892px) {
+    @media screen and (width <= $media-tablet) {
       grid-template:
         "dashboard" auto
         "info" auto
