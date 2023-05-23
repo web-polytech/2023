@@ -21,6 +21,9 @@
     <li class="submenu__item">
       <RouterLink :class="['submenu__link', {'submenu__link--active': $route.path=='/feedback'}]" to="/feedback">Контакты</RouterLink>
     </li>
+    <li class="submenu__item submenu__item--adaptive">
+      <RouterLink :class="['submenu__link', {'submenu__link--active': $route.path=='/profile'}]" to="/profile">Мой профиль</RouterLink>
+    </li>
   </ul>
 </template>
 <script>
@@ -38,7 +41,11 @@
     background-color: #FFFFFF;
     box-shadow: 0 1px 4px rgb(0 0 0 / 25%);
 
-    @media screen and (width <= 892px) {
+    & .submenu__item--adaptive {
+      display: none;
+    }
+
+    @media screen and (width <= $media-tablet) {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 1px;
@@ -47,15 +54,19 @@
       overflow: hidden;
 
       & .submenu__item {
-        padding: 10px;
         text-align: center;
         box-shadow: 0 0 0 1px #f0f0f0;
+
+        &--adaptive {
+          display: block;
+        }
       }
     }
   }
 
 
   .submenu__link {
+    height: 100%;
     color: #000000;
     font-size: 1.2rem;
     line-height: 1.2;
@@ -64,6 +75,11 @@
     &--active {
       color: $accent-blue;
       font-weight: 700;
+    }
+
+    @media screen and (width <= $media-tablet) {
+      display: block;
+      padding: 10px;
     }
   }
 

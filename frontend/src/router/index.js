@@ -7,11 +7,24 @@ import FeedbackPage from '@/pages/FeedbackPage.vue';
 import SchoolLifePage from '@/pages/SchoolLifePage.vue';
 import AuthPage from '@/pages/AuthPage.vue';
 import ProfilePage from '@/pages/ProfilePage.vue';
+import The404 from '@/components/The404.vue';
+
+import VueScrollTo from 'vue-scrollto';
+
 
 
 const router = createRouter({
   history: createWebHistory(
-    import.meta.env.BASE_URL),
+    import.meta.env.BASE_URL
+  ),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      VueScrollTo.scrollTo('#app', 150, { offset: savedPosition.y });
+      return savedPosition;
+    } else {
+      VueScrollTo.scrollTo('#app');
+    }
+  },
   routes: [{
     path: '/',
     name: 'home',
@@ -58,6 +71,11 @@ const router = createRouter({
     name: 'register',
     component: AuthPage,
     props: () => ({ auth: 'register' }),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'error404',
+    component: The404,
   },
   ],
 });

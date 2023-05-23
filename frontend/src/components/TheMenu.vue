@@ -88,7 +88,7 @@ export default {
     gap: 26px;
     list-style: none;
 
-    @media screen and (width <= 892px) {
+    @media screen and (width <= $media-tablet) {
       display: none;
     }
   }
@@ -145,7 +145,7 @@ export default {
       background-color: #FFFFFF;
     }
 
-    @media screen and (width <= 892px) {
+    @media screen and (width <= $media-tablet) {
       display: flex;
     }
   }
