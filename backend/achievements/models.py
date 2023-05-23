@@ -7,7 +7,7 @@ class Achievement(models.Model):
     user_id = models.ForeignKey(
         verbose_name="Участник",
         to=User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
         related_name="achievements",
     )
     level = models.IntegerField(verbose_name="Место", default=0)

@@ -26,6 +26,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+        continue-on-error: true
 
       - name: Run Black linter
         run: black --check .
