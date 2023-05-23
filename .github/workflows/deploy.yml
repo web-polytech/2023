@@ -24,4 +24,4 @@ jobs:
       - run: chmod 600 "$HOME/.ssh/key"
       - run: cd frontend && npm ci && npm run build
       # Deploy
-      - run: cd .. && rsync --archive --compress --delete .. school@$SERVER_IP:/var/www/our-school/
+      - run: rsync --archive --compress --delete . school@${{ env.SERVER_IP }}:/var/www/our-school/
