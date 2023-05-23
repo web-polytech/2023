@@ -3,12 +3,33 @@ import { RouterView } from 'vue-router';
 import TheHeader from '@/components/TheHeader.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
+const user =
+      {
+        email: 'user3259@oursch.ru',
+        name: 'Кирилл Петров',
+        start_education: 2013,
+        end_education: 2024,
+        mentor: 'А. А. Павлюк',
+        score: 4.36,
+        specialization: 'информатика',
+        image: 'images/Profile/profile-avatar01.webp',
+        advances: [
+          {'1 место': 'Региональный этап олимпиады по информатике'},
+          {'2 место': 'Региональный этап олимпиады по технологии'},
+          {'1 место': 'Муниципальный этап олимпиады по информатике'},
+          {'3 место': 'Муниципальный этап олимпиады по литуратуре'},
+          {'призер 3 степени': 'Муниципальный этап олимпиады по технологии'},
+          {'призер': 'Информационный форум по кибер-безопасности PHDays 2023'},
+          {'участник': 'Кейс-чемпионат Digital Exploration 2023'},
+        ],
+      };
 </script>
 
+
 <template>
-  <TheHeader />
+  <TheHeader :user="user" />
   <main>
-    <RouterView />
+    <RouterView :user="user" />
   </main>
   <TheFooter />
 </template>
@@ -23,7 +44,7 @@ import TheFooter from '@/components/TheFooter.vue';
     margin: 0;
     padding: 0;
     font-weight: 400;
-    font-family: 'PT Sans', sans-serif;
+    font-family: "PT Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   .visually-hidden {
@@ -37,7 +58,6 @@ import TheFooter from '@/components/TheFooter.vue';
   html {
     width: 100%;
     max-width: 100%;
-    font-size: 0.62 !important;
     line-height: 1.5 !important;
   }
 
@@ -52,17 +72,17 @@ import TheFooter from '@/components/TheFooter.vue';
   .h1 {
     font-weight: 700;
     font-weight: bold;
-    font-size: 4rem;
+    font-size: 3rem;
     font-family: 'PT Serif', sans-serif;
     line-height: 1;
     text-align: center;
 
     @media (width <= $media-desktop) {
-      font-size: 3.5em;
+      font-size: 3em;
     }
 
     @media (width <= $media-tablet) {
-      font-size: 3em;
+      font-size: 2.5em;
     }
 
   }
@@ -70,16 +90,32 @@ import TheFooter from '@/components/TheFooter.vue';
   .h2 {
     margin: 60px auto;
     font-weight: 700;
-    font-size: 3em;
+    font-size: 2.5em;
     line-height: 1;
     text-align: center;
 
     @media (width <= $media-desktop) {
-      font-size: 2.5em;
+      font-size: 2em;
     }
 
     @media (width <= $media-tablet) {
-      font-size: 2em;
+      font-size: 1.75em;
+    }
+  }
+
+  .h3 {
+    margin: 60px auto;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 1;
+    text-align: center;
+
+    @media (width <= $media-desktop) {
+      font-size: 1.75em;
+    }
+
+    @media (width <= $media-tablet) {
+      font-size: 1.5em;
     }
   }
 

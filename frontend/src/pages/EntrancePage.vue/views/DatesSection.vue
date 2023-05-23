@@ -5,7 +5,7 @@
     </h2>
     <ul class="dates__list">
       <li class="dates__item">
-        <img v-svg-inline class="dates__icon" src="@/assets/images/EntrancePage/EntranceIcon1.svg" alt="">
+        <img v-svg-inline class="dates__icon" src="@/assets/images/Entrance/EntranceIcon1.svg" alt="">
         <div class="dates__text-info">
           <span class="dates__text">
             форма для подачи заявления на&nbsp;поступление открыта
@@ -16,7 +16,7 @@
         </div>
       </li>
       <li class="dates__item">
-        <img v-svg-inline class="dates__icon" src="@/assets/images/EntrancePage/EntranceIcon2.svg" alt="">
+        <img v-svg-inline class="dates__icon" src="@/assets/images/Entrance/EntranceIcon2.svg" alt="">
         <div class="dates__text-info">
           <span class="dates__text">
             анализ заявок на&nbsp;поступление и&nbsp;отбор претендентов
@@ -27,7 +27,7 @@
         </div>
       </li>
       <li class="dates__item">
-        <img v-svg-inline class="dates__icon" src="@/assets/images/EntrancePage/EntranceIcon3.svg" alt="">
+        <img v-svg-inline class="dates__icon" src="@/assets/images/Entrance/EntranceIcon3.svg" alt="">
         <div class="dates__text-info">
           <span class="dates__text">
             проверка документов и&nbsp;рассылка ответов с&nbsp;результатами отбора
@@ -43,7 +43,7 @@
 <style scoped lang="scss">
 
   .dates {
-    max-width: 1650px;
+    max-width: $page-width;
     inline-size: 100vw;
     margin-bottom: 2rem;
     margin-inline-start: 50%;

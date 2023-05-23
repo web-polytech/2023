@@ -39,7 +39,7 @@
     width: 100%;
     min-height: 600px;
     margin-top: 3rem;
-    background-image: url('@/assets/images/FeedbackPage/MapScreenshot.png');
+    background-image: url('@/assets/images/Feedback/MapScreenshot.png');
     border-radius: 10px;
   }
 

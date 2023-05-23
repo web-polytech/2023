@@ -25,7 +25,7 @@
     inline-size: 100vw;
     margin-inline-start: 50%;
     padding-bottom: 4rem;
-    background-image: radial-gradient(40.47vw 40.47vw at 50% 91.95%, rgb(28 82 162 / 98%) 0%, rgb(28 82 162 / 83.3%) 19.46%, rgb(28 82 162 / 73.5%) 52.42%, rgb(28 82 162 / 63.7%) 73.47%, rgb(28 82 162 / 0%) 100%), linear-gradient(0deg, rgb(28 82 162 / 10%), rgb(28 82 162 / 10%)), url('@/assets/images/EntrancePage/EntranceHero.webp');
+    background-image: radial-gradient(40.47vw 40.47vw at 50% 91.95%, rgb(28 82 162 / 98%) 0%, rgb(28 82 162 / 83.3%) 19.46%, rgb(28 82 162 / 73.5%) 52.42%, rgb(28 82 162 / 63.7%) 73.47%, rgb(28 82 162 / 0%) 100%), linear-gradient(0deg, rgb(28 82 162 / 10%), rgb(28 82 162 / 10%)), url('@/assets/images/Entrance/EntranceHero.webp');
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: cover;
@@ -33,7 +33,7 @@
     padding-inline: calc((100% - #{$wrapper}) / 2);
 
     @media (width <= $media-tablet) {
-      background-image: linear-gradient(to top, rgb(28 82 162 / 98%) 0%, rgb(28 82 162 / 83.3%) 19.46%, rgb(28 82 162 / 73.5%) 52.42%, rgb(28 82 162 / 63.7%) 73.47%, rgb(28 82 162 / 0%) 100%), linear-gradient(0deg, rgb(28 82 162 / 10%), rgb(28 82 162 / 10%)), url('@/assets/images/EntrancePage/EntranceHero.webp');
+      background-image: linear-gradient(to top, rgb(28 82 162 / 98%) 0%, rgb(28 82 162 / 83.3%) 19.46%, rgb(28 82 162 / 73.5%) 52.42%, rgb(28 82 162 / 63.7%) 73.47%, rgb(28 82 162 / 0%) 100%), linear-gradient(0deg, rgb(28 82 162 / 10%), rgb(28 82 162 / 10%)), url('@/assets/images/Entrance/EntranceHero.webp');
     }
   }
 
@@ -49,7 +49,7 @@
     color: white;
     font-weight: 400;
     font-size: 1.75em;
-    font-family: 'PT Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', "Roboto", "Oxygen", "Ubuntu", "Cantarell", 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "PT Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     font-style: normal;
     line-height: 1.4;
     text-align: center;
