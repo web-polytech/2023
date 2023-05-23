@@ -1,10 +1,8 @@
-name: Lint
+name: Lint with Black
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
+  push:
     branches:
       - main
 
@@ -26,6 +24,3 @@ jobs:
 
       - name: Run Black linter
         run: black --check .
-
-      - name: Run Flake8 linter
-        run: flake8 .
