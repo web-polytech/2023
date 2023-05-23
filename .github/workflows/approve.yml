@@ -8,44 +8,28 @@ jobs:
   approve:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Check Branch Name
-        id: branch
-        run: |
-          branch_name=$(echo ${GITHUB_REF#refs/heads/})
-          echo ::set-output name=branch_name::$branch_name
+  steps:
+    - name: Check Branch Name
+      id: branch
+      run: |
+        branch_name=$(echo ${GITHUB_REF#refs/heads/})
+        echo ::set-output name=branch_name::$branch_name
 
-      - name: Approve Andrew
-        if: ${{ github.actor == 'akiverin' && startsWith(steps.branch.outputs.branch_name, 'andrew/') }}
-      - uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ secrets.ADMIN_READ }}
-          review-message: "Approved PR to andrew/** branch"
+    - name: Always Approve Pull Request
+      uses: hmarr/auto-approve-action@v3
+      with:
+        github-token: ${{ secrets.ADMIN_READ }}
+        review-message: "Approved PR to ${{ steps.branch.outputs.branch_name }} branch"
+        should-fail: false
+        should-comment: false
+        should-approve: true
 
-      - name: Approve Ivan
-        if: ${{ github.actor == 'OverBafer31' && startsWith(steps.branch.outputs.branch_name, 'ivan/') }}
-      - uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ secrets.ADMIN_READ }}
-          review-message: "Approved PR to ivan/** branch"
-
-      - name: Approve Max
-        if: ${{ github.actor == 'wtf403' && startsWith(steps.branch.outputs.branch_name, 'max/') }}
-      - uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ secrets.ADMIN_READ }}
-          review-message: "Approved PR to max/** branch"
-
-      - name: Approve Ilya
-        if: ${{ github.actor == 'ilya316' && startsWith(steps.branch.outputs.branch_name, 'ilya/') }}
-      - uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ secrets.ADMIN_READ }}
-          review-message: "Approved PR to ilya/** branch"
-
-      - name: Approve Victor
-        if: ${{ github.actor == 'VictorGod' && startsWith(steps.branch.outputs.branch_name, 'victor/') }}
-      - uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ secrets.ADMIN_READ }}
-          review-message: "Approved PR to victor/** branch"
+    - name: Approve Pull Request
+      if: |
+        ${{ github.actor == 'akiverin' && startsWith(steps.branch.outputs.branch_name, 'andrew/') }} ||
+        ${{ github.actor == 'OverBafer31' && startsWith(steps.branch.outputs.branch_name, 'ivan/') }} ||
+        ${{ github.actor == 'wtf403' && startsWith(steps.branch.outputs.branch_name, 'max/') }} ||
+        ${{ github.actor == 'ilya316' && startsWith(steps.branch.outputs.branch_name, 'ilya/') }} ||
+        ${{ github.actor == 'VictorGod' && startsWith(steps.branch.outputs.branch_name, 'victor/') }}
+      run: |
+        echo "Approved PR to ${{ steps.branch.outputs.branch_name }} branch"
