@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -21,8 +22,9 @@ jobs:
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.SSH_KEY }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
+      - run: cd frontend
       # Build
       - run: npm ci
       - run: npm run build
       # Deploy
-      - run: cd dist && rsync --archive --compress --delete .. polytech@${{ secrets.SERVER_IP }}:/home/polytech/school
+      - run: cd .. && rsync --archive --compress --delete .. school@$SERVER_IP:/var/www/our-school/
