@@ -1,4 +1,4 @@
-name: ESlint checker
+name: Pylint checker
 
 on:
   pull_request:
@@ -8,15 +8,15 @@ on:
 
 defaults:
   run:
-    working-directory: frontend
+    working-directory: backend
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-python@v2
         with:
-          node-version: 18
-      - run: npm ci
-      - run: npm run lint:eslint
+          python-version: 3.x
+      - run: pip install pylint
+      - run: pylint .
