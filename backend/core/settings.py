@@ -17,9 +17,8 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(DEBUG=(bool,False))
+env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(BASE_DIR / '.env')
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -91,7 +90,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-AUTH_USER_MODEL= 'authentication.User'
+AUTH_USER_MODEL = 'authentication.User'
 
 
 # Database
@@ -151,15 +150,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES':(
-         'rest_framework_simplejwt.authentication.JWTAuthentication',
-
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination','apps.core.pagination.StandardResultsSetPagination'
-    'PAGE_SIZE': 10
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'apps.core.pagination.StandardResultsSetPagination'
+    'PAGE_SIZE': 10}
 
- }
-
-SIMPLE_JWT= {
-    'ACCESS_TOKEN_LIFETIME' : timedelta(days=1)
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1)
 }
