@@ -6,6 +6,11 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: backend
+
+
 jobs:
   lint:
     runs-on: ubuntu-latest
