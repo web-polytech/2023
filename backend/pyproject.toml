@@ -1,0 +1,7 @@
+[build-system]
+requires = ["black", "flake8"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+exclude = 'venv|env'
