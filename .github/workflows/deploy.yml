@@ -22,9 +22,6 @@ jobs:
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.SSH_KEY }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
-      - run: cd frontend
-      # Build
-      - run: npm ci
-      - run: npm run build
+      - run: cd frontend && npm ci && npm run build
       # Deploy
       - run: cd .. && rsync --archive --compress --delete .. school@$SERVER_IP:/var/www/our-school/
