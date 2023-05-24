@@ -24,4 +24,4 @@ jobs:
       - run: chmod 600 "$HOME/.ssh/key"
       - run: cd frontend && npm ci && npm run build
       # Deploy
-      - run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete --exclude=.git/ --exclude=env/ --exclude=db.sqlite3 --exclude=venv/ --exclude=node_modules/ . root@${{ vars.SERVER_IP }}:/var/www/our-school/
+      - run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --exclude=.git/ --exclude=env/ --exclude=db.sqlite3 --exclude=venv/ --exclude=node_modules/ . root@${{ vars.SERVER_IP }}:/var/www/our-school/
