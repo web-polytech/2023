@@ -39,6 +39,7 @@ victor/<branch-name>
 
 В Intellij Idea по идее всё, кроме ESLint плагина должно работать из коробки
 
+
 ### Как контрибьютить
 
 1. Настроить SSH в github ([ссылка](https://docs.github.com/ru/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account))
