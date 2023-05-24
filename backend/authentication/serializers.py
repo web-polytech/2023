@@ -2,12 +2,7 @@ from rest_framework import serializers
 from authentication.models import User
 from admission.models import Admission
 from achievements.models import Achievement
-
-
-class AdmissionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Admission
-        fields = ["status"]
+from admission.serializers import AdmissionSerializer
 
 
 class AchievementSerializer(serializers.ModelSerializer):
@@ -22,6 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
+        ref_name = "Authentication"
         fields = [
             "id",
             "name",
