@@ -5,11 +5,8 @@ from admission.views import AdmissionViewset
 from news.views import NewsViewset
 
 
-router=DefaultRouter()
-router.register('auth', UserViewset )
-router.register('event', EventViewset)
-router.register('adm', AdmissionViewset)
-router.register('news', NewsViewset)
-
-
-
+router = DefaultRouter()
+router.register("auth", UserViewset)
+router.register("event", EventViewset)
+router.register("adm", AdmissionViewset)
+router.register("news", NewsViewset)
