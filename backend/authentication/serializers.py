@@ -18,19 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         ref_name = "Authentication"
-        fields = [
-            "id",
-            "name",
-            "users_image",
-            "start_education",
-            "end_education",
-            "mentor",
-            "score",
-            "specialization",
-            "status",
-            "is_active",
-            "achievements",
-        ]
+        fields = "__all__"
 
     def create(self, validated_data):
         password = validated_data.pop("password", None)
