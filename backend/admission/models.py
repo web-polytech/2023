@@ -1,8 +1,13 @@
 from django.db import models
-
+from django.conf import settings
+from django.core.mail import send_mail
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
 
 class Admission(models.Model):
     parent = models.CharField(verbose_name="ФИО заявителя", max_length=255)
+    parent_email = models.EmailField(verbose_name="Email", max_length=255, unique=True)
     child = models.CharField(verbose_name="ФИО ребёнка", max_length=255)
     country = models.CharField(verbose_name="Страна", max_length=255)
     city = models.CharField(verbose_name="Родной город", max_length=255)
@@ -36,9 +41,23 @@ class Admission(models.Model):
         verbose_name="Статус рассмотрения заявки", default=False
     )
 
+    def send_email(self):
+        subject = "Заявка на поступление в школу"
+        message = f'Заявка {self.child} была изменена'
+        from_email = settings.DEFAULT_FROM_EMAIL
+        recipient_list = [self.parent_email]
+        send_mail(subject, message, from_email, recipient_list)
+
     def __str__(self):
         return "Admission form for {}".format(self.child)
 
     class Meta:
         verbose_name = "Заявка на поступление"
         verbose_name_plural = "Заявки на поступление"
+
+
+@receiver(post_save, sender=Admission)
+def admission_saved(sender, instance, **kwargs):
+    if not kwargs.get('raw', False) and instance.status:
+        instance.send_email()
+        print("Email sent!")

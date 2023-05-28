@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import environ
+from celery.schedules import crontab
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,7 @@ DEBUG = "on"
 ALLOWED_HOSTS = [
     "our-school.space",
     "localhost",
+    "127.0.0.1"
 ]
 
 
@@ -55,6 +57,10 @@ INSTALLED_APPS = [
     "events",
     "rest_framework",
     "corsheaders",
+    "celery",
+    "django_celery_beat",
+    "redis",
+    'flower',
 ]
 
 MIDDLEWARE = [
@@ -160,3 +166,29 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(days=1)}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'savenckoa@gmail.com'
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = 'savenckoa@gmail.com'
+
+# Broker settings
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+# Celery configuration
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE
+
+# django-celery-beat configuration
+CELERY_BEAT_SCHEDULE = {
+    'send_email_every_week': {
+        'task': 'app.tasks.send_admission_emails',
+        'schedule': crontab(day_of_week='monday', hour=9),
+    },
+}
