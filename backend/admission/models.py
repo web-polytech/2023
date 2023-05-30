@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 
+
 class Admission(models.Model):
     parent = models.CharField(verbose_name="ФИО заявителя", max_length=255)
     parent_email = models.EmailField(verbose_name="Email", max_length=255, unique=True)
@@ -43,7 +44,7 @@ class Admission(models.Model):
 
     def send_email(self):
         subject = "Заявка на поступление в школу"
-        message = f'Заявка {self.child} была изменена'
+        message = f"Заявка {self.child} была изменена"
         from_email = settings.DEFAULT_FROM_EMAIL
         recipient_list = [self.parent_email]
         send_mail(subject, message, from_email, recipient_list)
@@ -58,6 +59,6 @@ class Admission(models.Model):
 
 @receiver(post_save, sender=Admission)
 def admission_saved(sender, instance, **kwargs):
-    if not kwargs.get('raw', False) and instance.status:
+    if not kwargs.get("raw", False) and instance.status:
         instance.send_email()
         print("Email sent!")
