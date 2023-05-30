@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from admission.models import Admission
 
+
 @shared_task
 def send_admission_emails():
     admissions = Admission.objects.filter(status=False)
