@@ -12,8 +12,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+
 import environ
 from celery.schedules import crontab
+from drf_yasg.generators import OpenAPISchemaGenerator
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -113,6 +115,13 @@ DATABASES = {
 }
 
 
+SWAGGER_SETTINGS = {
+    # ...
+    "DEFAULT_GENERATOR_CLASS": "drf_yasg.generators.OpenAPISchemaGenerator",
+    # ...
+}
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -173,12 +182,12 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "savenckoa@gmail.com"
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_PASSWORD = "mk12mk12"
 DEFAULT_FROM_EMAIL = "savenckoa@gmail.com"
 
 # Broker settings
-BROKER_URL = "redis://localhost:6379/0"
-CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+CELERY_BROKER_URL = "localhost://localhost:6379/0"
+CELERY_RESULT_BACKEND = "localhost://localhost:6379"
 
 # Celery configuration
 CELERY_ACCEPT_CONTENT = ["application/json"]
