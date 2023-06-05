@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: gunicorn -c gunicorn_config.py core.wsgi:application
+    volumes:
+      - ./:/usr/src/app/
+      - /run/our-school.sock:/run/our-school.sock
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+
+  celery:
+    build: .
+    command: celery -A core worker -l info
+    volumes:
+      - ./:/usr/src/app/
+    depends_on:
+      - redis
+
+  celery-beat:
+    build: .
+    command: celery -A core beat -l info
+    volumes:
+      - ./:/usr/src/app/
+    depends_on:
+      - redis
+
+  smtp-server:
+    image: mailhog/mailhog
+    expose:
+      - 1025
+      - 8025
+    ports:
+      - '1025:1025'
+      - '8025:8025'
