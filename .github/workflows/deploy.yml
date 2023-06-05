@@ -25,5 +25,5 @@ jobs:
       - run: cd frontend && npm ci && npm run build
       # Deploy
       - run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --exclude=.git/ --exclude=env/ --exclude=db.sqlite3 --exclude=venv/ --exclude=node_modules/ . root@${{ vars.SERVER_IP }}:/var/www/our-school/
-      - run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no root@${{ vars.SERVER_IP }} "cd /var/www/our-school && pwd && docker-compose restart"
+      - run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no root@${{ vars.SERVER_IP }} "cd /var/www/our-school/backend && pwd && docker-compose restart"
 

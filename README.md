@@ -11,6 +11,20 @@ _[Ссылка на макет в Figma](https://www.figma.com/file/vW04wXBzQObd
 
 ## Get Started
 
+### Как запускать
+
+Создать `.env` файл, переименовав `.env.example`
+Без докера:
+```bash
+  export $(xargs <.env)
+  python manage.py runserver
+```
+
+С докером:
+```bash
+docker-compose up
+```
+
 ### Про git flow
 
 Продакшн в main ветке. Все, что оказывается здесь, попадает на сервер
