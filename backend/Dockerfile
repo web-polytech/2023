@@ -8,6 +8,11 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# install system dependencies
+RUN apt-get update \
+  && apt-get install -y default-libmysqlclient-dev build-essential libpq-dev gcc \
+  && rm -rf /var/lib/apt/lists/*
+
 # install dependencies
 RUN pip install --upgrade pip
 COPY ./requirements.txt /usr/src/app/requirements.txt

@@ -23,12 +23,12 @@ urlpatterns = [
     path("api/", include(router.urls)),
     # Swagger documentation URLs
     path(
-        "swagger/",
+        "api/swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
     path(
-        "redoc/",
+        "api/redoc/",
         schema_view.with_ui("redoc", cache_timeout=0),
         name="schema-redoc",
     ),
