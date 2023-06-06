@@ -54,3 +54,4 @@ xlwt==1.3.0
 django-celery-beat
 redis
 flower
+gunicorn
