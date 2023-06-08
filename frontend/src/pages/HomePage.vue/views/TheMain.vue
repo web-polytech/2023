@@ -39,7 +39,7 @@
       </h2>
       <ul class="last-news__list">
         <li v-for="item, index in news" :key="index" :id="'news'+(index+1)" class="last-news__item last-news__item--big">
-          <HomeNewsCard :content="item" :type="(index==0||index==5)?'big':'default'" class="last-news__card" />
+          <HomeNewsCard :content="item" :type="(index==0||index==3)?'big':'default'" class="last-news__card" />
         </li>
       </ul>
       <div class="last-news__action">
@@ -92,11 +92,12 @@
 </template>
 
 <script setup>
-import news from '@/assets/data/news.json';
+// import news from '@/assets/data/news.json';
 import events from '@/assets/data/events.json';
 import TheButton from '@/components/TheButton.vue';
 import HomeNewsCard from './HomeNewsCard.vue';
 import HomeEventsCard from './HomeEventsCard.vue';
+import { useNewsStore } from '@/stores/news';
 </script>
 
 <script>
@@ -116,7 +117,13 @@ export default {
         'Гарантия поступления в ведущий вуз страны',
         'Бесплатное обучение абсолютно для всех',
       ],
+      news: [],
     };
+  },
+  async created() {
+    const store = useNewsStore();
+    await store.getNews();
+    this.news = store.allNews;
   },
 };
 </script>
@@ -234,7 +241,7 @@ export default {
     display: grid;
     grid-template:
       "news1 news1 news2 news3" 360px
-      "news4 news5 news6 news6" 360px / 1fr 1fr 1fr 1fr;
+      "news5 news6 news4 news4" 360px / 1fr 1fr 1fr 1fr;
     gap: 24px;
     list-style: none;
 
@@ -242,8 +249,8 @@ export default {
       grid-template:
         "news1 news1" 360px
         "news2 news3" 360px
-        "news6 news6" 360px
-        "news4 news5" 360px / 1fr 1fr;
+        "news4 news4" 360px
+        "news5 news6" 360px / 1fr 1fr;
       max-width: 812px;
       margin: 0 auto;
     }
