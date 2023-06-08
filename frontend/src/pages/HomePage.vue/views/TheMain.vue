@@ -92,7 +92,6 @@
 </template>
 
 <script setup>
-// import news from '@/assets/data/news.json';
 import events from '@/assets/data/events.json';
 import TheButton from '@/components/TheButton.vue';
 import HomeNewsCard from './HomeNewsCard.vue';

@@ -45,6 +45,7 @@ export default {
     background-color: #1C52A2;
     border: 0;
     box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%);
+    cursor: pointer;
     transition: background-color 150ms ease-in-out;
 
     &:hover {

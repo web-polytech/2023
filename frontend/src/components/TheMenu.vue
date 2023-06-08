@@ -28,8 +28,8 @@
           <RouterLink class="navigate__link" to="/">Посетителям</RouterLink>
         </li>
         <li class="navigate__item navigate__item--change_mode">
-          <RouterLink class="navigate__link" :to="user?'profile':'auth'">
-            <img v-if="user" :src="assets(user.image)" alt="User image" class="navigate__avatar">
+          <RouterLink class="navigate__link" :to="user?'profile':'login'">
+            <img v-if="user" :src="user.users_image" alt="User image" class="navigate__avatar">
             {{user?user.name.split(' ')[0]+' '+user.name.split(' ')[1][0]+'.':'Авторизоваться'}}
           </RouterLink>
         </li>
@@ -94,7 +94,8 @@ export default {
   }
 
   .navigate__avatar {
-    width: auto;
+    object-fit: cover;
+    width: 36px;
     height: 36px;
     border-radius: 50%;
   }

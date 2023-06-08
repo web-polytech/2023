@@ -1,10 +1,17 @@
-<script setup>
+<script>
 import { RouterView } from 'vue-router';
+import { useUserStore } from '@/stores/user';
 import TheHeader from '@/components/TheHeader.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
-const user =
-      {
+export default {
+  components: {
+    TheHeader,
+    TheFooter,
+  },
+  data() {
+    return {
+      user: {
         email: 'user3259@oursch.ru',
         name: 'Кирилл Петров',
         start_education: 2013,
@@ -12,7 +19,7 @@ const user =
         mentor: 'А. А. Павлюк',
         score: 4.36,
         specialization: 'информатика',
-        image: 'images/Profile/profile-avatar01.webp',
+        users_image: 'images/Profile/profile-avatar01.webp',
         advances: [
           {'1 место': 'Региональный этап олимпиады по информатике'},
           {'2 место': 'Региональный этап олимпиады по технологии'},
@@ -22,7 +29,21 @@ const user =
           {'призер': 'Информационный форум по кибер-безопасности PHDays 2023'},
           {'участник': 'Кейс-чемпионат Digital Exploration 2023'},
         ],
-      };
+      },
+    };
+  },
+  created() {
+    const token = localStorage.token;
+    if (typeof token !== 'undefined' && token !== 'null') {
+      const store = useUserStore();
+      token ? store.getUser(token) : '';
+      this.user = store.myProfile;
+    } else {
+      // this.user = {};
+    };
+  },
+};
+
 </script>
 
 
