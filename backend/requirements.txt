@@ -55,3 +55,4 @@ django-celery-beat
 redis
 flower
 gunicorn
+django-redis

@@ -1,9 +1,15 @@
-version: '3.8'
+version: "3.8"
 
 services:
+
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+
   web:
     build: .
-    command: gunicorn -c gunicorn_config.py core.wsgi:application
+    command: gunicorn -c gunicorn_config.py core.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./:/usr/src/app/
       - /run/our-school.sock:/run/our-school.sock
@@ -13,33 +19,54 @@ services:
       - .env
     depends_on:
       - redis
-
-  redis:
-    image: redis:alpine
-    ports:
-      - 6379:6379
+    restart: always
 
   celery:
     build: .
     command: celery -A core worker -l info
     volumes:
       - ./:/usr/src/app/
+    env_file:
+      - .env
     depends_on:
       - redis
+    restart: always
+
 
   celery-beat:
     build: .
     command: celery -A core beat -l info
     volumes:
       - ./:/usr/src/app/
+    env_file:
+      - .env
     depends_on:
       - redis
+    restart: always
 
-  smtp-server:
+
+  flower:
+    image: mher/flower
+    build: .
+    command: celery -A core --broker=redis://redis:6379 flower --port=5555
+    ports:
+      - 5557:5555
+    env_file:
+      - .env
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379
+      - FLOWER_PORT=8888
+      - FLOWER_BASIC_AUTH=admin:admin
+      - DJANGO_SETTINGS_MODULE=core.settings
+    depends_on:
+      - redis
+    restart: always
+
+  mailhog:
     image: mailhog/mailhog
     expose:
       - 1025
       - 8025
     ports:
-      - '1025:1025'
-      - '8025:8025'
+      - "1025:1025"
+      - "8025:8025"
