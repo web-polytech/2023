@@ -34,18 +34,17 @@
           </RouterLink>
         </li>
       </ul>
-      <button class="menu__open" @click="$emit('showSubmenu');">
-        Меню
+      <button class="menu__open" @click="openMenu()">
+        <img v-if="!statusMenu" src="@/assets/icons/burger.svg" alt="Menu button for open" class="menu__icon">
+        <img v-if="statusMenu" src="@/assets/icons/close.svg" alt="Menu button for close" class="menu__icon">
       </button>
     </div>
   </nav>
 </template>
 
-<script setup>
-import { assets } from '@/main.js';
-</script>
 <script>
 import { RouterLink } from 'vue-router';
+import { assets } from '@/main.js';
 
 export default {
   emits: ['showSubmenu'],
@@ -54,6 +53,17 @@ export default {
       type: Object,
       require: true,
       default: NaN,
+    },
+  },
+  data() {
+    return {
+      statusMenu: false,
+    };
+  },
+  methods: {
+    openMenu() {
+      this.statusMenu = !this.statusMenu;
+      this.$emit('showSubmenu');
     },
   },
 };
@@ -122,28 +132,34 @@ export default {
     text-decoration: none;
   }
 
+  .menu__icon {
+    place-self: center;
+    height: 14px;
+  }
+
   .menu__open {
     display: none;
     justify-content: center;
     align-items: center;
     gap: 6px;
-    padding: 10px;
+    width: 34px;
+    height: 34px;
     color: #FFFFFF;
     font-size: 1rem;
     background: none;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 4px;
     cursor: pointer;
     transition: all 100ms ease-in-out;
 
-    &::before {
-      content: "☰";
-      height: 1.5rem;
+    &:hover {
+      border: 1px solid #FFFFFF;
     }
 
-    &:hover {
-      color: #072655;
-      background-color: #FFFFFF;
+    &:active {
+      background-color: #072655;
+      border: 1px solid #ffffff99;
+      transition: background-color 200ms ease;
     }
 
     @media screen and (width <= $media-tablet) {
