@@ -54,6 +54,14 @@ INSTALLED_APPS = [
     "django_celery_beat",
     "redis",
     "flower",
+    "cent",
+
+
+
+
+
+
+
 ]
 
 MIDDLEWARE = [
@@ -65,6 +73,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -196,4 +205,9 @@ CELERY_BEAT_SCHEDULE = {
         "task": "app.tasks.send_admission_emails",
         "schedule": crontab(day_of_week="monday", hour=9),
     },
+}
+
+CENTRIFUGO = {
+    'URL': '',  # URL сервера Centrifugo
+    'API_KEY': ''  # API ключ Centrifugo
 }
