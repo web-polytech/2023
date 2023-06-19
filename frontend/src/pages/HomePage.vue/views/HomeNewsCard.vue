@@ -2,14 +2,14 @@
   <RouterLink to="#" class="news-card" :class="{ 'news-card--big': type=='big' }">
     <div class="news-card__cover">
       <div class="news-card__window" />
-      <img :src="assets(content.image)" class="news-card__image" alt="Image for news">
+      <img :src="content.cover" class="news-card__image" alt="Image for news">
     </div>
     <div class="news-card__info">
       <p class="news-card__section">
-        {{content.section}}
+        {{content.tagline}}
       </p>
       <h4 class="news-card__name">
-        {{content.tagline}}
+        {{content.title}}
       </h4>
     </div>
   </RouterLink>

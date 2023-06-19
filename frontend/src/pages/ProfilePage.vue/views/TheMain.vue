@@ -17,10 +17,10 @@
         </p>
       </div>
       <div class="cover-block__avatar">
-        <img src="@/assets/images/Profile/profile-avatar01.webp" alt="" class="cover-block__image">
+        <img :src="user.users_image" alt="" class="cover-block__image">
       </div>
       <h2 class="cover-block__username">
-        Кирилл Петров
+        {{user.name}}
       </h2>
     </div>
   </section>
@@ -141,6 +141,8 @@ import tiles from '@/assets/data/tiles.json';
 </script>
 
 <script>
+import { useUserStore } from '@/stores/user';
+
 import ProfileTile from './ProfileTile.vue';
 import ProfileConnect from './ProfileConnect.vue';
 import TheButton from '@/components/TheButton.vue';
@@ -153,16 +155,10 @@ export default {
     TheButton,
     UISelect,
   },
-  props: {
-    user: {
-      type: Object,
-      require: true,
-      default: NaN,
-    },
-  },
   data() {
     return {
       levelModel: '',
+      user: {},
       connect: [
         {
           title: 'Страница Вконтакте',
@@ -176,44 +172,34 @@ export default {
     };
   },
   computed: {
-    keysLevels() {
-      let levels = [{label: 'Всe достижения', value: ''}];
-      let other = [];
-      for (let i = 0; i < this.user.advances.length; i++) {
-        let item = Object.keys(this.user.advances[i])[0];
-        if (!other.includes(item)) {
-          levels.push({label: item, value: item});
-          other.push(item);
-        }
-      }
-      return levels;
-    },
+
+    // keysLevels() {
+    //   let levels = [{label: 'Всe достижения', value: ''}];
+    //   let other = [];
+    //   for (let i = 0; i < this.user.advances.length; i++) {
+    //     let item = Object.keys(this.user.advances[i])[0];
+    //     if (!other.includes(item)) {
+    //       levels.push({label: item, value: item});
+    //       other.push(item);
+    //     }
+    //   }
+    //   return levels;
+    // },
   },
-  created() {
+  async created() {
+    const store = useUserStore();
+    await store.getUser('22');
+    this.user = store.myProfile[0];
     this.advances = this.user.advances;
   },
   methods: {
     advancesChange() {
-      let list = this.user.advances;
+      // let list = this.user.advances;
       let selectLevel = this.levelModel;
       selectLevel !== '' ? this.advances = list.filter(obj => {
         const key = Object.keys(obj)[0];
         return key === selectLevel;
       }) : this.advances = list;
-    },
-    replaceString(text) {
-      let unionsAndPrepositions = ['так что', 'дабы', 'с тем чтобы', 'несмотря на то', 'хоть', 'пускай', 'хотя', 'если', 'если бы', 'коли', 'ежели', 'так как', 'потому что',
-        'как будто', 'словно', 'точно', 'как', 'как бы', 'до такой степени', 'настолько', 'до того', 'такой', 'где', 'куда', 'откуда', 'когда', 'что', 'то есть',
-        'а именно', 'и', 'да', 'не только', 'но и', 'также', 'тоже', 'и', 'ни', 'как', 'так', 'сколько', 'столько', 'или', 'либо', 'то', 'ли', 'не', 'то', 'а',
-        'зато', 'однако', 'же', 'все же', 'чтобы', 'чтоб', 'притом', 'причём', 'в', 'без', 'до', 'из', 'к', 'на', 'по', 'о', 'от', 'перед', 'при', 'через', 'с', 'со', 'у',
-        'и', 'нет', 'за', 'над', 'для', 'об', 'под', 'про'];
-
-      for (let str of unionsAndPrepositions) {
-        if (text.includes(' ' + str + ' ')) {
-          text = text.replace(' ' + str + ' ', ' ' + str + String.fromCharCode(160));
-        }
-      }
-      return text;
     },
   },
 };
@@ -288,6 +274,7 @@ export default {
   }
 
   .cover-block__image {
+    object-fit: cover;
     width: 300px;
     height: 300px;
     border: 16px solid #FFFFFF;

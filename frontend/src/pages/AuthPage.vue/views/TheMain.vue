@@ -14,15 +14,15 @@
           </h2>
           <TheForm v-if="auth=='login'">
             <template #fields>
-              <UIInput label="Почта" type="email" name="login" required />
-              <UIInput label="Пароль" type="password" name="password" required />
+              <UIInput label="Почта" type="email" name="login" v-model="loginEmail" required />
+              <UIInput label="Пароль" type="password" name="password" v-model="loginPassword" required />
             </template>
             <template #buttons>
               <div class="auth__buttons">
                 <UIButton @click="$router.push('/register')" :light="true">
                   Регистрация
                 </UIButton>
-                <UIButton>
+                <UIButton @click="sendLogin">
                   Войти
                 </UIButton>
               </div>
@@ -30,16 +30,26 @@
           </TheForm>
           <TheForm class="auth__form" v-else-if="auth=='register'">
             <template #fields>
-              <UIInput label="Почта" type="email" name="login" required />
-              <UIInput label="Пароль" type="password" name="password" required />
-              <UIInput label="Подтверждение пароля" type="password" name="password" required />
+              <UIInput label="ФИО" type="text" name="name" v-model="name" required />
+              <UIInput label="Почта" type="email" name="login" v-model="email" required />
+              <UISelect
+                label="Специализация"
+                initial="Выберите профиль из списка"
+                :search="true"
+                :options="allSpecializations"
+                name="specialization"
+                v-model="selectedSpecialization"
+                required
+              />
+              <UIInput label="Пароль" type="password" name="password" required v-model="password" />
+              <UIInput label="Подтверждение пароля" type="password" name="password" v-model="password2" required />
             </template>
             <template #buttons>
               <div class="auth__buttons">
                 <UIButton @click="$router.push('/login')" :light="true">
                   Войти
                 </UIButton>
-                <UIButton>
+                <UIButton type="submit" @click="sendReg">
                   Зарегистрироваться
                 </UIButton>
               </div>
@@ -75,19 +85,64 @@
 import TheForm from '@/components/TheForm.vue';
 import TheButton from '@/components/TheButton.vue';
 import UIInput from '@/components/UI/UIInput.vue';
+import UISelect from '@/components/UI/UISelect.vue';
+
+import { useUserStore } from '@/stores/user';
+
+import { ref } from 'vue';
+
 const props = defineProps({
   auth: {
     type: String,
     default: '',
   },
 });
+const allSpecializations = ref([
+  {label: 'Естественно-Научная', value: 'scientific'},
+  {label: 'Гуманитарная', value: 'humanitarian' },
+  {label: 'Информатика', value: 'informatic' },
+]);
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      name: '',
+      email: '',
+      selectedSpecialization: '',
+      password: '',
+      password2: '',
+      loginEmail: '',
+      loginPassword: '',
+    };
+  },
+  methods: {
+    sendReg() {
+      let obj = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        specialization: this.selectedSpecialization,
+      };
+      this.password2 === this.password ? useUserStore().addUser(obj) : console.log('errorReg');
+    },
+    sendLogin() {
+      let obj = {
+        email: this.loginEmail,
+        password: this.loginPassword,
+      };
+      this.loginEmail !== '' && this.loginPassword !== '' ? useUserStore().loginUser(obj) : console.log('errorLogin');
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
   .page {
     display: grid;
-    min-height: 100vh;
-    background-image: url("@/assets/images/Profile/AuthPageBackground.avif");
+    min-height: calc(100vh - 100px);
+    background-image: url("@/assets/images/Profile/AuthPageBackground.webp");
     background-size: cover;
     place-items: center;
   }
