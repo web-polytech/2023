@@ -1,0 +1,9 @@
+<!doctype html>
+<html>
+<head>
+    <title>Login with VK</title>
+</head>
+<body>
+  <a href="{% url 'social:begin' 'vk-oauth2' %}?next={{ request.path }}">Login with VK</a>
+</body>
+</html>
