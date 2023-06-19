@@ -1,3 +1,6 @@
+django-oauth-toolkit
+social-auth-app-django
+requests
 asgiref==3.6.0
 black==23.3.0
 certifi==2023.5.7
@@ -39,7 +42,6 @@ pyflakes==3.0.1
 PyJWT==2.4.0
 pytz==2022.1
 PyYAML==6.0
-requests
 ruamel.yaml==0.17.26
 ruamel.yaml.clib==0.2.7
 sqlparse==0.4.4
@@ -57,5 +59,3 @@ flower
 gunicorn
 django-redis
 cent
-oauth2_provider
-social_django
