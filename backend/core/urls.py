@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from core.routers import router
 
+
 # Import additional modules for Swagger documentation
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -31,4 +32,5 @@ urlpatterns = [
         schema_view.with_ui("redoc", cache_timeout=0),
         name="schema-redoc",
     ),
+
 ]

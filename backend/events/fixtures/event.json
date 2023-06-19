@@ -1,0 +1,29 @@
+[
+  {
+      "model": "events.event",
+      "pk": 1,
+      "fields": {
+          "cover": "event_covers/cover1.jpg",
+          "title": "Событие 1",
+          "tagline": "1"
+      }
+  },
+  {
+      "model": "events.event",
+      "pk": 2,
+      "fields": {
+          "cover": "event_covers/cover2.jpg",
+          "title": "Событие 2",
+          "tagline": "2"
+      }
+  },
+  {
+      "model": "events.event",
+      "pk": 3,
+      "fields": {
+          "cover": "event_covers/cover3.jpg",
+          "title": "Событие 3",
+          "tagline": "3"
+      }
+  }
+]

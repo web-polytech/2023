@@ -4,7 +4,6 @@ from events.views import EventViewset
 from admission.views import AdmissionViewset
 from news.views import NewsViewset
 
-
 router = DefaultRouter()
 router.register("auth", UserViewset)
 router.register("event", EventViewset)

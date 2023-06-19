@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = "os.environ.get('SECRET_KEY')"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False) == 'True'
@@ -48,11 +48,20 @@ INSTALLED_APPS = [
     "quotes",
     "events",
     "rest_framework",
+    'rest_framework_simplejwt',
     "corsheaders",
     "celery",
     "django_celery_beat",
     "redis",
     "flower",
+    "cent",
+
+
+
+
+
+
+
 ]
 
 MIDDLEWARE = [
@@ -64,6 +73,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -195,4 +205,9 @@ CELERY_BEAT_SCHEDULE = {
         "task": "app.tasks.send_admission_emails",
         "schedule": crontab(day_of_week="monday", hour=9),
     },
+}
+
+CENTRIFUGO = {
+    'URL': '',  # URL сервера Centrifugo
+    'API_KEY': ''  # API ключ Centrifugo
 }
