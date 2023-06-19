@@ -56,10 +56,3 @@ class Admission(models.Model):
     class Meta:
         verbose_name = "Заявка на поступление"
         verbose_name_plural = "Заявки на поступление"
-
-
-@receiver(post_save, sender=Admission)
-def admission_saved(sender, instance, **kwargs):
-    if not kwargs.get("raw", False) and instance.status:
-        instance.send_email()
-        print("Email sent!")
