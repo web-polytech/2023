@@ -9,3 +9,5 @@ router.register("auth", UserViewset)
 router.register("event", EventViewset)
 router.register("adm", AdmissionViewset)
 router.register("news", NewsViewset)
+
+

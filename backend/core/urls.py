@@ -8,6 +8,8 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from events import views
+
 # Create schema view for Swagger documentation
 schema_view = get_schema_view(
     openapi.Info(
@@ -32,5 +34,10 @@ urlpatterns = [
         schema_view.with_ui("redoc", cache_timeout=0),
         name="schema-redoc",
     ),
-
+    path(
+        "social-auth/", include("social_django.urls", "social")
+    ),  # это обязательные urlы для работы social_auth
+    path(
+        "auth/", views.default
+    ),  # тестовая auth страничка тупо со ссылкой для авторизации через ВК
 ]
