@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     "gallery",
     "quotes",
     "events",
+    "visit",
+
     "rest_framework",
     "rest_framework_simplejwt",
     "corsheaders",
@@ -56,13 +58,7 @@ INSTALLED_APPS = [
     "django_celery_beat",
     "redis",
     "flower",
-<<<<<<< HEAD
     "cent",
-=======
-
-    'oauth2_provider',
-    'social_django',
->>>>>>> origin/ilya/oauth
 ]
 
 MIDDLEWARE = [
@@ -74,6 +70,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "visit.middleware.VisitLoggingMiddleware",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -227,9 +224,7 @@ CELERY_BEAT_SCHEDULE = {
     },
 }
 
-<<<<<<< HEAD
 CENTRIFUGO = {"URL": "", "API_KEY": ""}  # URL сервера Centrifugo  # API ключ Centrifugo
-=======
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.vk.VKOAuth2',
     'django.contrib.auth.backends.ModelBackend',
@@ -237,5 +232,3 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = '51662028'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = 'EKj6yKlbz8CRanB1roa0'
-
->>>>>>> origin/ilya/oauth

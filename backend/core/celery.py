@@ -3,13 +3,14 @@ from django.core.mail import send_mail
 from smtplib import SMTP
 from email.utils import formataddr
 from email.message import EmailMessage
+from visit.services import write_visit_log
 
 app = Celery("tasks", broker="redis://redis:6379/0")
 
 
 @shared_task
 def logging():
-    print("hi")
+    write_visit_log()
 
 
 @shared_task
@@ -34,6 +35,10 @@ app.conf.beat_schedule = {
     },
     "log-every-20-seconds": {
         "task": "core.celery.logging",
+        "schedule": 20.0,
+    },
+    "write_visit_log": {
+        "task": "visit.tasks.write_visit_log_task",
         "schedule": 20.0,
     },
 }
