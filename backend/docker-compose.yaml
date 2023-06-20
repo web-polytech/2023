@@ -32,7 +32,6 @@ services:
       - redis
     restart: always
 
-
   celery-beat:
     build: .
     command: celery -A core beat -l info
@@ -43,7 +42,6 @@ services:
     depends_on:
       - redis
     restart: always
-
 
   flower:
     image: mher/flower
@@ -70,3 +68,13 @@ services:
     ports:
       - "1025:1025"
       - "8025:8025"
+    restart: always
+
+  centrifugo:
+    image: centrifugo/centrifugo:v4
+    command: centrifugo -c centrifugo.json --port=8086 --admin
+    ports:
+      - 8086:8086
+    volumes:
+      - ./centrifugo.json:/centrifugo/centrifugo.json
+    restart: always

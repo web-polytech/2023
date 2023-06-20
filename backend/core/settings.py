@@ -59,6 +59,11 @@ INSTALLED_APPS = [
     "redis",
     "flower",
     "cent",
+<<<<<<< HEAD
+=======
+    "oauth2_provider",
+    "social_django",
+>>>>>>> main
 ]
 
 MIDDLEWARE = [
@@ -170,11 +175,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "apps.core.pagination.StandardResultsSetPagination" "PAGE_SIZE": 10,
 }
@@ -183,8 +186,6 @@ CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://redis:6379/0",
-        "OPTIONS": {"CLIENT_CLASS": "django_redis.client.DefaultClient"},
-        "KEY_PREFIX": "example",
     }
 }
 
@@ -193,7 +194,11 @@ SESSION_CACHE_ALIAS = "default"
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+    "SCOPES": {
+        "read": "Read scope",
+        "write": "Write scope",
+        "groups": "Access to your groups",
+    }
 }
 
 SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(days=1)}
@@ -226,9 +231,9 @@ CELERY_BEAT_SCHEDULE = {
 
 CENTRIFUGO = {"URL": "", "API_KEY": ""}  # URL сервера Centrifugo  # API ключ Centrifugo
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.vk.VKOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
+    "social_core.backends.vk.VKOAuth2",
+    "django.contrib.auth.backends.ModelBackend",
 )
 
-SOCIAL_AUTH_VK_OAUTH2_KEY = '51662028'
-SOCIAL_AUTH_VK_OAUTH2_SECRET = 'EKj6yKlbz8CRanB1roa0'
+SOCIAL_AUTH_VK_OAUTH2_KEY = "51662028"
+SOCIAL_AUTH_VK_OAUTH2_SECRET = "EKj6yKlbz8CRanB1roa0"
