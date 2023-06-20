@@ -13,16 +13,12 @@ RUN apt-get update \
   && apt-get install -y default-libmysqlclient-dev build-essential libpq-dev gcc \
   && rm -rf /var/lib/apt/lists/*
 
-# install dependencies
-RUN pip install --upgrade pip
-COPY ./requirements.txt /usr/src/app/requirements.txt
-RUN pip install -r requirements.txt
-
-# copy entrypoint.sh
-COPY ./entrypoint.sh /usr/src/app/entrypoint.sh
-
 # copy project
 COPY . /usr/src/app/
+
+# install dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 # run entrypoint.sh
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]

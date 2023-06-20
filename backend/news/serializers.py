@@ -35,14 +35,14 @@ class NewsSerializer(serializers.ModelSerializer):
             "gallery",
         ]
 
-    def to_representation(self, instance):
-        cache_key = f"news_{instance.id}"
+    # def to_representation(self, instance):
+    #     cache_key = f"news_{instance.id}"
 
-        news_data = cache.get(cache_key)
+    #     news_data = cache.get(cache_key)
 
-        if news_data is None:
-            # If the serialized news data is not in the cache, serialize it and store it in the cache
-            news_data = super().to_representation(instance)
-            cache.set(cache_key, news_data)
+    #     if news_data is None:
+    #         # If the serialized news data is not in the cache, serialize it and store it in the cache
+    #         news_data = super().to_representation(instance)
+    #         cache.set(cache_key, news_data)
 
-        return news_data
+    #     return news_data
