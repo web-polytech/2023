@@ -1,6 +1,3 @@
-django-oauth-toolkit
-social-auth-app-django
-requests
 asgiref==3.6.0
 black==23.3.0
 certifi==2023.5.7
@@ -59,3 +56,7 @@ flower
 gunicorn
 django-redis
 cent
+django-oauth-toolkit
+social-auth-app-django
+requests
+apscheduler
