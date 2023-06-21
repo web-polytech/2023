@@ -59,3 +59,6 @@ flower
 gunicorn
 django-redis
 cent
+apscheduler
+django-oauth-toolkit
+social-auth-app-django

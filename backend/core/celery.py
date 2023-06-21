@@ -6,12 +6,6 @@ from email.message import EmailMessage
 
 app = Celery("tasks", broker="redis://redis:6379/0")
 
-
-@shared_task
-def logging():
-    print("hi")
-
-
 @shared_task
 def mailing():
     try:
@@ -31,10 +25,6 @@ app.conf.beat_schedule = {
     "mail-every-30-seconds": {
         "task": "core.celery.mailing",
         "schedule": 30.0,
-    },
-    "log-every-20-seconds": {
-        "task": "core.celery.logging",
-        "schedule": 20.0,
     },
 }
 app.conf.timezone = "UTC"

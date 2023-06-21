@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "gallery",
     "quotes",
     "events",
+    "logvisit",
     "rest_framework",
     "rest_framework_simplejwt",
     "corsheaders",
@@ -70,6 +71,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "logvisit.middleware.LogVisitMiddleware",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

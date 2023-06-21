@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from core.routers import router
 
+from django.conf import settings
+from django.conf.urls.static import static
 
 # Import additional modules for Swagger documentation
 from rest_framework import permissions
@@ -40,4 +42,4 @@ urlpatterns = [
     path(
         "auth/", views.default
     ),  # тестовая auth страничка тупо со ссылкой для авторизации через ВК
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
