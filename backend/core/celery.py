@@ -3,14 +3,15 @@ from django.core.mail import send_mail
 from smtplib import SMTP
 from email.utils import formataddr
 from email.message import EmailMessage
-from visit.services import write_visit_log
+# from visit.services import write_visit_log
 
 app = Celery("tasks", broker="redis://redis:6379/0")
 
 
 @shared_task
 def logging():
-    write_visit_log()
+    print()
+    # write_visit_log()
 
 
 @shared_task

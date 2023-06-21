@@ -59,3 +59,4 @@ cent
 django-oauth-toolkit
 social-auth-app-django
 requests
+apscheduler

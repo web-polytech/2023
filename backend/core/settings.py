@@ -59,11 +59,8 @@ INSTALLED_APPS = [
     "redis",
     "flower",
     "cent",
-<<<<<<< HEAD
-=======
     "oauth2_provider",
     "social_django",
->>>>>>> main
 ]
 
 MIDDLEWARE = [
