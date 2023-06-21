@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "cent",
     "oauth2_provider",
     "social_django",
+    "visit"
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "visit.middleware.VisitLoggingMiddleware",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
