@@ -67,15 +67,15 @@
           Авторизация через соц. сети
         </h2>
         <div class="providers__wrapper">
-          <a class="providers__social" href="https://vk.com">
+          <a class="providers__social" href="/social-auth/login/vk-oauth2/?next=/auth/">
             <img class="providers__image" src="@/assets/images/Profile/AuthVKIcon.png" alt="VK icon">
           </a>
-          <a class="providers__social" href="https://google.com">
+          <!-- <a class="providers__social" href="https://google.com">
             <img class="providers__image" src="@/assets/images/Profile/AuthGoogleIcon.png" alt="Google icon">
           </a>
           <a class="providers__social" href="https://apple.com">
             <img class="providers__image" src="@/assets/images/Profile/AuthAppleIcon.png" alt="Apple icon">
-          </a>
+          </a> -->
         </div>
       </section>
     </div>

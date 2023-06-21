@@ -11,7 +11,7 @@ export const useNewsStore = defineStore('news', {
         const response = await axios.get('https://our-school.space/api/news/');
         this.news = response.data;
       } catch (error) {
-        alert(error);
+        // alert(error);
       }
     },
   },
